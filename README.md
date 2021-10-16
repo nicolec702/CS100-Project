@@ -22,15 +22,33 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold one check-in meeting with your lab TA in addition to the final demo.
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include:
- > * Why is it important or interesting to you?
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
- > * What will be the input/output of your project? What are the features that the project provides?
- > 
- > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
- > 
- > You also need to set up an empty project board by choosing the  “Automated kanban with review” option on Github. You should also have a Backlog and In testing columns added.
+Project Importance:
+We found the Text-Based RPG game to be the most creatively liberating out of the list of projects. We still had a guideline of what we needed to do, but we also have infinite possibilities to expand on the project.
+
+Language: 
+C++
+Features:
+A Storyline.
+Dialogue System.
+Plan using dialogue tree
+XP Scaling System
+Later quests/enemies give you more xp
+They also deal more damage/have more health
+Four distinct characters the player can choose from
+Four different classes + weapons 
+Healing items (can sometimes randomly appear)
+Leveling System
+Gain xp through:
+Killing enemies
+Completing quests
+Everytime you level up your health/damage dealt is increased
+Proposed Features (implement if we have time):
+“Endless” Mode.
+Side Quests.
+Each character has a special ability.
+Item drops / shop items
+Better armor/better weapons
+
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
  > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
