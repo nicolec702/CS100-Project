@@ -32,16 +32,16 @@
 > - Dialogue System.
 >   - Plan using dialogue tree
 > - XP Scaling System
-> - Later quests/enemies give you more xp
-> - They also deal more damage/have more health
+>   - Later quests/enemies give you more xp
+>   - They also deal more damage/have more health
 > - Four distinct characters the player can choose from
-> - Four different classes + weapons 
+>   - Four different classes + weapons 
 > - Healing items (can sometimes randomly appear)
 > - Leveling System
-> - Gain xp through:
->   - Killing enemies
->   - Completing quests
-> - Everytime you level up your health/damage dealt is increased
+>   - Gain xp through:
+>     - Killing enemies
+>     - Completing quests
+>   - Everytime you level up your health/damage dealt is increased
 > 
 > **Proposed Features (implement if we have time):**
 > - “Endless” Mode.
