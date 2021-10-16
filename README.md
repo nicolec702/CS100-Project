@@ -26,6 +26,7 @@
 > - We found the Text-Based RPG game to be the most creatively liberating out of the list of projects. We still had a guideline of what we needed to do, but we also have  infinite possibilities to expand on the project.
 
 > Language: C++
+> 
 > **Features:**
 > - A Storyline.
 > - Dialogue System.
@@ -41,6 +42,7 @@
 >   - Killing enemies
 >   - Completing quests
 > - Everytime you level up your health/damage dealt is increased
+> 
 > **Proposed Features (implement if we have time):**
 > - “Endless” Mode.
 > - Side Quests.
