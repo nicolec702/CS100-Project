@@ -25,29 +25,28 @@
 Project Importance:
 We found the Text-Based RPG game to be the most creatively liberating out of the list of projects. We still had a guideline of what we needed to do, but we also have infinite possibilities to expand on the project.
 
-Language: 
-C++
-Features:
-A Storyline.
-Dialogue System.
-Plan using dialogue tree
-XP Scaling System
-Later quests/enemies give you more xp
-They also deal more damage/have more health
-Four distinct characters the player can choose from
-Four different classes + weapons 
-Healing items (can sometimes randomly appear)
-Leveling System
-Gain xp through:
-Killing enemies
-Completing quests
-Everytime you level up your health/damage dealt is increased
-Proposed Features (implement if we have time):
-“Endless” Mode.
-Side Quests.
-Each character has a special ability.
-Item drops / shop items
-Better armor/better weapons
+> Language: C++
+> * Features:
+> - A Storyline.
+> - Dialogue System.
+> - Plan using dialogue tree
+> - XP Scaling System
+> - Later quests/enemies give you more xp
+> - They also deal more damage/have more health
+> - Four distinct characters the player can choose from
+> - Four different classes + weapons 
+> - Healing items (can sometimes randomly appear)
+> - Leveling System
+> - Gain xp through:
+> - - Killing enemies
+> - - Completing quests
+> - Everytime you level up your health/damage dealt is increased
+> * Proposed Features (implement if we have time):
+> - “Endless” Mode.
+> - Side Quests.
+> - Each character has a special ability.
+> - Item drops / shop items
+> - Better armor/better weapons
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
