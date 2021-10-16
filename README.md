@@ -30,7 +30,7 @@
 > **Features:**
 > - A Storyline.
 > - Dialogue System.
-> - Plan using dialogue tree
+>   - Plan using dialogue tree
 > - XP Scaling System
 > - Later quests/enemies give you more xp
 > - They also deal more damage/have more health
