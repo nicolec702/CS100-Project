@@ -22,11 +22,11 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold one check-in meeting with your lab TA in addition to the final demo.
 
 ## Project Description
-Project Importance:
-We found the Text-Based RPG game to be the most creatively liberating out of the list of projects. We still had a guideline of what we needed to do, but we also have infinite possibilities to expand on the project.
+> **Project Importance:**
+> - We found the Text-Based RPG game to be the most creatively liberating out of the list of projects. We still had a guideline of what we needed to do, but we also have  infinite possibilities to expand on the project.
 
 > Language: C++
-> * Features:
+> **Features:**
 > - A Storyline.
 > - Dialogue System.
 > - Plan using dialogue tree
@@ -38,10 +38,10 @@ We found the Text-Based RPG game to be the most creatively liberating out of the
 > - Healing items (can sometimes randomly appear)
 > - Leveling System
 > - Gain xp through:
-> - - Killing enemies
-> - - Completing quests
+>   - Killing enemies
+>   - Completing quests
 > - Everytime you level up your health/damage dealt is increased
-> * Proposed Features (implement if we have time):
+> **Proposed Features (implement if we have time):**
 > - “Endless” Mode.
 > - Side Quests.
 > - Each character has a special ability.
