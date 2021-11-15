@@ -1,16 +1,17 @@
 #ifndef __WEAPONS_HPP__
 #define __WEAPONS_HPP__
+#include <string>
 
-class WeaponBehavior
+class WeaponBehavior;
 
 class Weapons{
 	private:
-		string name;
+		std::string name;
 		WeaponBehavior* behavior = nullptr;
 	public:
 		//constructors
 		Weapons(){}
-		Weapons(string name):name(name){}
+		Weapons(std::string name):name(name){}
 		//destructor
 		~Weapons();
 
@@ -21,4 +22,4 @@ class Weapons{
 		void defense();
 		void specialMove();
 };
-
+#endif

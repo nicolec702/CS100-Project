@@ -2,13 +2,13 @@
 
 Weapons::~Weapons()
 {
-	delete weaponBehavior;
+	delete behavior;
 }
 
 void Weapons::setBehavior(WeaponBehavior* newBehavior)
 {
-	delete weaponBehavior;
-	weaponBehavior = newBehavior;
+	delete behavior;
+	behavior = newBehavior;
 }
 
 void Weapons::attack()
