@@ -28,27 +28,34 @@ class Staff : public WeaponBehavior
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage
-            damage += playerLvl * scale;
+            damage += (playerLvl - 1) * scale;
             //return damage
             return damage;
         }
 
         /*
-            Special Attack: Fire Ball
+            Special Attack: 
+                attacks twice
+                
             
         */
         virtual double specialAttack(int playerLvl)
         {
-            //TODO
+            double damage = minDmg + rand() % (maxDmg - minDmg + 1);
+            damage += minDmg + rand() % (maxDmg - minDmg + 1);
+            return damage;
+
         }
 
-        /*
-            Special Move: 
+         /*
+            Special Attack: Fire Ball
+                consistent damage output, x7.5 max dmg
             
         */
         virtual double specialMove(int playerLvl)
         {
-            //TODO
+            double damage = maxDmg * 7.5;
+            return maxDmg;
         }
 
 };

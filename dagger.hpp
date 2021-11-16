@@ -28,7 +28,7 @@ class Dagger : public WeaponBehavior
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage
-            damage += playerLvl * scale;
+            damage += (playerLvl - 1) * scale;
             //return damage
             return damage;
         }
@@ -42,7 +42,7 @@ class Dagger : public WeaponBehavior
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage dealt
-            damage += playerLvl * scale;
+            damage += (playerLvl - 1) * scale;
             //x2 damage bc of special attack
             damage *= 2;
             //return damage
@@ -60,7 +60,7 @@ class Dagger : public WeaponBehavior
             //calculate base damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage
-            damage += playerLvl * scale;
+            damage += (playerLvl - 1) * scale;
             //if chance is 15% or less, deal 3x damage
             if(chance <= 15)
                 damage *= 3;
