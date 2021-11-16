@@ -66,6 +66,8 @@
  >   * What design patterns did you use? For each design pattern you must explain in 4-5 sentences:
  >     * Why did you pick this pattern? And what feature did you implement with it?
  >     * How did the design pattern help you write better code?
+ >        * **Strategy Pattern**
+ >           * For our weapons class we decided to use the strategy pattern because we realized that the weapons the player characters will be using are all the same object with similar member variables, the only difference is how much damage each weapon deals. Instead of creating five different classes for each weapon, we could create one class that has five different ‘strategies’ that could be swapped out depending on which weapon the player character is using. These strategies refer to the weapon behavior so we have a long sword strategy, a staff strategy, a dagger strategy, etc. This helps with minimizing unnecessary and redundant code and allows us to add more weapon strategies if we need to without any problems.
  >   * An updated class diagram that reflects the design patterns you used. You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description).
  >   * Make sure your README file (and Project board) are up-to-date reflecting the current status of your project. Previous versions of the README file should still be visible through your commit history.
 > 
