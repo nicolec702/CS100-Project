@@ -7,7 +7,6 @@ class WeaponBehavior
 		virtual ~WeaponBehavior() = default;
 		virtual double attack(int playerLvl);
 		virtual double specialAttack(int playerLvl);
-		virtual double defense(int playerLvl);
 		virtual double specialMove(int playerLvl);
 
 };

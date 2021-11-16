@@ -33,19 +33,36 @@ class BasicWeapon : public WeaponBehavior
             return damage;
         }
 
+        /*
+            Special Attack
+                deals 1.25x damage
+        */
         virtual double specialAttack(int playerLvl)
         {
-            //TODO 
+            //calculate damage within range
+            double damage = minDmg + rand() % (maxDmg - minDmg + 1);
+            //scale damage dealt
+            damage += playerLvl * scale;
+            //x1.25 damage bc of special attack
+            damage *= 1.25;
+            //return damage
+            return damage;
         }
 
-        virtual double defense(int playerLvl)
-        {
-            //TODO
-        }
-
+        /*
+            Special Move
+                deals 2x damage
+        */
         virtual double specialMove(int playerLvl)
         {
-            //TODO
+            //calculate damage within range
+            double damage = minDmg + rand() % (maxDmg - minDmg + 1);
+            //scale damage dealt
+            damage += playerLvl * scale;
+            //x2 damage bc of special attack
+            damage *= 2;
+            //return damage
+            return damage;
         }
 
 };

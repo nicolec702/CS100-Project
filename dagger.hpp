@@ -49,11 +49,6 @@ class Dagger : public WeaponBehavior
             return damage;
         }
 
-        virtual double defense(int playerLvl)
-        {
-            //TODO (inside character class maybe?)
-        }
-
         /*
             Special Move: Stroke of Luck
                 15% chance to deal 3x damage

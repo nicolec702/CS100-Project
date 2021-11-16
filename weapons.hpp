@@ -1,6 +1,7 @@
 #ifndef __WEAPONS_HPP__
 #define __WEAPONS_HPP__
 #include <string>
+#include "weaponBehavior.hpp"
 
 class WeaponBehavior;
 
@@ -16,10 +17,10 @@ class Weapons{
 		~Weapons();
 
 		void setBehavior(WeaponBehavior* newBehavior);
+		std::string getName(){ return name; }
 		
-		void attack();
-		void specialAttack();
-		void defense();
-		void specialMove();
+		double attack(int playerLvl);
+		double specialAttack(int playerLvl);
+		double specialMove(int playerLvl);
 };
 #endif

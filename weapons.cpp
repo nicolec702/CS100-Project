@@ -1,4 +1,6 @@
 #include "weapons.hpp"
+#include "weaponBehavior.hpp"
+#include <iostream>
 
 Weapons::~Weapons()
 {
@@ -11,24 +13,25 @@ void Weapons::setBehavior(WeaponBehavior* newBehavior)
 	behavior = newBehavior;
 }
 
-void Weapons::attack()
+double Weapons::attack(int playerLvl)
 {
-	//TODO
+	double dmg = behavior->attack(playerLvl);
+	std::cout << "You dealt " << dmg << " pts of damage" << std::endl;
+	return dmg;
 }
 
-void Weapons::specialAttack()
+double Weapons::specialAttack(int playerLvl)
 {
-	//TODO
+	double dmg = behavior->specialAttack(playerLvl);
+	std::cout << "You dealt " << dmg << " pts of damage" << std::endl;
+	return dmg;
 }
 
-void Weapons::defense()
+double Weapons::specialMove(int playerLvl)
 {
-	//TODO
-}
-
-void Weapons::specialMove()
-{
-	//TODO
+	double dmg = behavior->specialMove(playerLvl);
+	std::cout << "You dealt " << dmg << " pts of damage" << std::endl;
+	return dmg;
 }
 
 

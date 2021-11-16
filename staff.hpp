@@ -33,16 +33,19 @@ class Staff : public WeaponBehavior
             return damage;
         }
 
+        /*
+            Special Attack: Fire Ball
+            
+        */
         virtual double specialAttack(int playerLvl)
         {
             //TODO
         }
 
-        virtual double defense(int playerLvl)
-        {
-            //TODO (inside character class maybe?)
-        }
-
+        /*
+            Special Move: 
+            
+        */
         virtual double specialMove(int playerLvl)
         {
             //TODO

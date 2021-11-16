@@ -35,27 +35,33 @@ class LongSword : public WeaponBehavior
 
         }
 
+        /*  
+            Special Attack: Slash
+                deals 1.5x damage
+        */
 	    virtual double specialAttack(int playerLvl)
         {
-            //TODO  
-        }
-
-	    virtual double defense(int playerLvl)
-        {
-            //TODO (inside character class maybe?)
+            //calculate damage within range
+            double damage = minDmg + rand() % (maxDmg - minDmg + 1);
+            //scale damage dealt
+            damage += playerLvl * scale;
+            //x1.5 damage bc of special attack
+            damage *= 1.5;
+            //return damage
+            return damage;
         }
 
         /*
             Special Move: Mighty Steed
                 deals 2x damage
         */
-	    virtual double specialMove(int playerLvl)
+	    virtual double specialMove(int playerLvl, double dmgTaken)
         {
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage dealt
             damage += playerLvl * scale;
-            //x2 damage bc of special attack
+            //x2 damage bc of special move
             damage *= 2;
             //return damage
             return damage;

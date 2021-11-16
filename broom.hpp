@@ -33,19 +33,36 @@ class Broom : public WeaponBehavior
             return damage;
         }
 
+        /*
+            Special Attack:
+                deals 1.75x damage
+        */
         virtual double specialAttack(int playerLvl)
         {
-            //TODO
+            //calculate damage within range
+            double damage = minDmg + rand() % (maxDmg - minDmg + 1);
+            //scale damage dealt
+            damage += playerLvl * scale;
+            //x1.75 damage bc of special attack
+            damage *= 1.75;
+            //return damage
+            return damage;
         }
 
-        virtual double defense(int playerLvl)
-        {
-            //TODO (inside character class maybe?)
-        }
-
+        /*
+            Special Move: Elixir of ?
+                deals 2.5x damage
+        */
         virtual double specialMove(int playerLvl)
         {
-            //TODO
+            //calculate damage within range
+            double damage = minDmg + rand() % (maxDmg - minDmg + 1);
+            //scale damage dealt
+            damage += playerLvl * scale;
+            //x2.5 damage bc of special move
+            damage *= 2.5;
+            //return damage
+            return damage;
         }
 
 };
