@@ -35,9 +35,7 @@ class Staff : public WeaponBehavior
 
         /*
             Special Attack: 
-                attacks twice
-                
-            
+                attacks twice        
         */
         virtual double specialAttack(int playerLvl)
         {
