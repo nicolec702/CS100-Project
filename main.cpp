@@ -20,11 +20,15 @@ int main(int argc, char* argv[]){
     std::cout << "Between 2 - 5" << std::endl;
     for(int i = 0; i < 5; i++)
         weapon.attack(1);
+    
+    std::cout << std::endl;
 
     weapon.setBehavior(new Broom());
     std::cout << "Between 3 - 5" << std::endl;
     for(int i = 0; i < 5; i++)
         weapon.attack(1);
+
+    std::cout << std::endl;
 
     weapon.setBehavior(new Staff());
     std::cout << "Between 3 - 6" << std::endl;
