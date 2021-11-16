@@ -57,7 +57,7 @@
  >   * Create smaller actionable development tasks as issues and assign them to team members. Place these in the `TODO` column.
  >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
- > ![UML Diagram](https://github.com/cs100/final-project-fabdu013-ncart018-vsand012-struo025-1/blob/master/Project%20UML.png)
+ > ![UML Diagram](ProjectUML.png)
  >The Character class will have two subclasses, InformationCharacter and AttackCharacter. The InformationCharacter will initiate an object of type Quests and there will be an aggregation link between both classes. The Quest class will read text from a file that will be used to narrate the storyline of our game. The AttackCharacter class will have an object of type Attribute and this will create an aggregation link between the AttackCharacter and Attribute class. This means that they can both exist independently of each other. The purpose of the attribute class is to keep track of the AttackCharacter’s hp, defense level, attack level, and stamina level. This is done in an effort to maintain modularity and keep the classes clean. AttackCharacter will also initiate an object of type Weapons. There will be an aggregation link between both classes. The Weapons class will make use of the strategy WeaponBehavior. WeaponsBehavior will declare an interface that all supported algorithms will use. These algorithms include LongSword, Staff, Daggers, Broom, and Basic. WeaponBehavior has an aggregation link with the Weapons class.
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
