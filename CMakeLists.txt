@@ -4,8 +4,7 @@ SET(CMAKE_CXX_STANDARD 11)
 
 ADD_SUBDIRECTORY(googletest)
 
-ADD_EXECUTABLE(main main.cpp weapons.hpp weaponBehavior.hpp
-	longSword.hpp)
+ADD_EXECUTABLE(main main.cpp weapons.cpp)
 
 ADD_EXECUTABLE(test test.cpp)
 

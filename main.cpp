@@ -5,10 +5,10 @@
 
 int main(int argc, char* argv[]){
     Weapons weapon("Sword");
-    weapon.setBehavior(new LongSword);
+    weapon.setBehavior(new LongSword());
 
-    for(int i = 0; i < 5; i++)
-        weapon.attack(1);
+    for(int i = 0; i < 10; i++)
+        weapon.specialMove(1);
 
     return 0;
     

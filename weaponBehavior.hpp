@@ -4,10 +4,10 @@
 class WeaponBehavior
 {
 	public:
-		virtual ~WeaponBehavior() = default;
-		virtual double attack(int playerLvl);
-		virtual double specialAttack(int playerLvl);
-		virtual double specialMove(int playerLvl);
+		//virtual ~WeaponBehavior() = default;
+		virtual double attack(int playerLvl) = 0;
+		virtual double specialAttack(int playerLvl) = 0;
+		virtual double specialMove(int playerLvl) = 0;
 
 };
 
