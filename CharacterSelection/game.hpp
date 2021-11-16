@@ -1,3 +1,6 @@
+#ifndef GAME_HPP
+#define GAME_HPP
+
 #include <iostream>
 
 class Game
@@ -14,3 +17,6 @@ class Game
 
 
 };
+
+
+#endif GAME_HPP
