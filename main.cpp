@@ -1,18 +1,11 @@
 #include <iostream>
 #include "CharacterSelection/CharacterSelection.hpp"
-
+#include "CharacterSelection/game.hpp"
 
 
 int main(int argc, char* argv[])
 {
-    char userInput;
-    std::cout << "Prompt: \n(a) New \n(b) Load" << '\n' << "Your input: ";
-    std::cin >> userInput;
-    
-
-
-
-
-
+    Game* gameClient = new Game();
+    gameClient -> newGame();   
     return 0;
 }

@@ -21,7 +21,7 @@ class Game
 
 void Game::screenUpdate()
 {
-    
+    system("clear");  
 }
 
 
@@ -30,12 +30,11 @@ void Game::newGame()
     char userInput;
     user = new Character();
     std::cout << "Welcome Prompt Message! It's time to create your character!" << '\n' << "[Press any Key To Continue...]";
-
-
-
-
-
-
+    while (!std::cin.get())
+    {
+        screenUpdate();
+        std::cout << "Welcome Prompt Message! It's time to create your character!" << '\n' << "[Press any Key To Continue...]";
+    }
 }
 
 
