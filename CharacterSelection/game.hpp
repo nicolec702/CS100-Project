@@ -55,7 +55,6 @@ void Game::newGame()
     user = new Character();
 
     screenUpdate();
-/*
     dialogueType("[Insert Welcome Prompt Message] It's time to create your character!");
     std::cout << '\n' << "[Press any Key To Continue...]";
     
@@ -137,7 +136,6 @@ void Game::newGame()
         }
         screenUpdate();
     }
-    */
 
     // PART 2: Class selection prompt //
     userKeypress = 0;
