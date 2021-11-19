@@ -3,6 +3,7 @@
 #include "CharacterSelection.hpp"
 
 #include <iostream>
+#include <Windows.h>
 #include <conio.h>
 #include <string.h>
 
@@ -14,12 +15,34 @@ class Game
     
     public:
         void screenUpdate();
+        void dialogueType(std::string x);
         void newGame();
 };
 
 void Game::screenUpdate()
 {
     system("cls");
+}
+
+void Game::dialogueType(std::string x)
+{
+    int i = 0;
+    for (i; i < x.size(); i++)
+    {
+        if (kbhit())
+        {
+            if (getch() == 13)
+            {
+                break;
+            }
+        }
+        std::cout << x[i];
+        Sleep(50);
+    }
+    for (i; i < x.size(); i++)
+    {
+        std::cout << x[i];
+    }
 }
 
 
@@ -32,13 +55,13 @@ void Game::newGame()
     user = new Character();
 
     screenUpdate();
-
-    std::cout << "Welcome Prompt Message! It's time to create your character!" << '\n' << "[Press any Key To Continue...]";
+/*
+    dialogueType("[Insert Welcome Prompt Message] It's time to create your character!");
+    std::cout << '\n' << "[Press any Key To Continue...]";
     
     // Awaits for user input... Once done, updates the screen. //
-
     getch();
-    _sleep(500);
+    Sleep(500);
     screenUpdate();
 
     // PART 1: Name gathering prompt. //
@@ -47,7 +70,8 @@ void Game::newGame()
     {
         userKeypress = 0;
         userInput = "";
-        std::cout << "Let us begin, please start by telling us your name..." << '\n';
+        dialogueType("Let us begin, please start by telling us your name...");
+        std::cout << '\n';
         while(userKeypress != 13)
         {
             userKeypress = getch();
@@ -76,15 +100,14 @@ void Game::newGame()
 
         while (userInput.size() != 0 && userInput.at(0) == ' ')
         {
-            userInput.erase(userInput.front());
+            userInput.erase(0, 1);
         }
 
         screenUpdate();
         
         if (userInput.size() != 0)
         {
-            std::cout << "Just to make sure, you said your name was " << userInput << " right?" << '\n';
-            std::cout << "[a] Yes" << '\n' << "[b] No" << '\n';
+            dialogueType("Just to make sure, you said your name was " + userInput + " right?" + '\n' + "[a] Yes" + '\n' + "[b] No" + '\n');
             while (1)
             {
                 userKeypress = getch();
@@ -93,13 +116,14 @@ void Game::newGame()
                     user->setName(userInput);
                     // TEST TO VERIFY NAME HAS BEEN SET //
                     //std::cout << "Name has been successfully set to " << user->getName() << "!" << '\n';
-                    //_sleep(5000);
+                    //Sleep(5000);
                     break;
                 }
                 else if (userKeypress == 'b')
                 {
                     screenUpdate();
-                    std::cout << "Okay, let's try this again then..." << '\n' << "[Press any Key To Continue...]";
+                    dialogueType("Okay, let's try this again then...");
+                    std::cout << '\n' << "[Press any Key To Continue...]";
                     getch();
                     break;
                 }
@@ -107,17 +131,77 @@ void Game::newGame()
         }
         else
         {
-            std::cout << "I'm sorry, I didn't catch that... Please say that again?" << '\n' << "[Press any Key To Continue...]";
+            dialogueType("I'm sorry, I didn't catch that... Please say that again?");
+            std::cout << '\n' << "[Press any Key To Continue...]";
             getch();
         }
         screenUpdate();
     }
+    */
 
     // PART 2: Class selection prompt //
     userKeypress = 0;
-    while(userKeypress != 13)
+    selectedClass = 0;
+    dialogueType("Okay " + user->getName() + ", it is time to choose your class..." + '\n'); 
+    std::cout << '\n' << "[Press any Key To Continue...]";
+    getch();
+    
+    while(1)
     {
-        
+        screenUpdate();
+        if (selectedClass == 0)
+        {
+             std::cout << "[ROGUE]             " << "WIZARD               " << "KNIGHT               " << "BOB"; 
+             std::cout << '\n' << "=================================================================" << '\n';
+             std::cout << "STATS:" << '\n' << "[===       ] HP: 10" << '\n' << "[=         ] DEF: 8" << '\n';
+        }
+        else if (selectedClass == 1)
+        {
+             std::cout << "ROGUE              " << "[WIZARD]              " << "KNIGHT               " << "BOB"; 
+             std::cout << '\n' << "=================================================================" << '\n';
+             std::cout << "STATS:" << '\n' << "[=         ] HP: 8" << '\n' << "[===       ] DEF: 10" << '\n';
+        }
+        else if (selectedClass == 2)
+        {
+             std::cout << "ROGUE               " << "WIZARD              " << "[KNIGHT]              " << "BOB"; 
+             std::cout << '\n' << "=================================================================" << '\n';
+             std::cout << "STATS:" << '\n' << "[==========] HP: 12" << '\n' << "[==========] DEF: 100" << '\n';
+        }
+        else if (selectedClass == 3)
+        {
+            std::cout << "ROGUE               " << "WIZARD               " << "KNIGHT             " << "[BOB]"; 
+            std::cout << '\n' << "=================================================================" << '\n';
+            std::cout << "STATS:" << '\n' << "[          ] HP: -10" << '\n' << "[          ] DEF: You'll be taking damage per turn." << '\n';
+        }
+
+        userKeypress = getch();
+        // KEYPRESS TEST //
+        // std::cout << userKeypress;
+
+        if (userKeypress == 77 && selectedClass < 3)
+        {
+            ++selectedClass;
+        }
+        else if (userKeypress == 75 && selectedClass > 0)
+        {
+            --selectedClass;
+        }
+
+        else if (userKeypress == 13)
+        {
+            std::cout << '\n';
+            std::cout.flush();
+            dialogueType("Are you sure you want to pick this class?");
+            std::cout << '\n' << "[a] Yes" << '\n' << "[b] No" << '\n';
+            while (userKeypress != 'a' && userKeypress != 'b')
+            {
+                userKeypress = getch();
+            }
+            if (userKeypress == 'a')
+            {
+                break;
+            }
+        }
     }
 
 
@@ -131,6 +215,4 @@ void Game::newGame()
 
 
 }
-
-
-#endif GAME_HPP
+#endif //GAME_HPP
