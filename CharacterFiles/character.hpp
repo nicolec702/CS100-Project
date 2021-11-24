@@ -1,11 +1,10 @@
-
 #ifndef __CHARACTER_HPP__
 #define __CHARACTER_HPP__
 
 #include <string>
 
 class Character {
-    protected:
+    private:
         std::string name;
     public:
         std::string getName(){ return name;}

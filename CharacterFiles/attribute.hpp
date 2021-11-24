@@ -1,33 +1,36 @@
-
 #ifndef __ATTRIBUTE_HPP__
 #define __ATTRIBUTE_HPP__
+#include "attributeBehavior.hpp"
+#include "weapons.hpp"
+#include "weaponBehavior.hpp"
+#include "longSword.hpp"
+#include "dagger.hpp"
+#include "staff.hpp"
+#include "broom.hpp"
+class AttributeBehavior;
 
-class Attribute {
-    private:
-        double hp;
-        double max_hp;
-        double defense;
-        double attack;
-        double stamina;
-        double max_stamina;
-    public:
-        Attribute() {}
-        Attribute(double hp, double defense, double attack, double stamina) { 
-            this->hp = this->max_hp = hp;
-            this->defense = defense;
-            this->attack = attack;
-            this->stamina = this->max_stamina = stamina;
-        }
-        double getHp() const { return hp; }
-        void setHp(double hp) { this->hp = hp;}
-        double getDefense() const { return defense; }
-        void setDefense(double defense) { this->defense = defense; }
-        double getAttack() const { return attack; }
-        void setAttack(double attack) { this->attack = attack; }
-        double getStamina() const { return stamina; }
-        void setStamina(double stamina) { this->stamina = stamina; }
+class Attribute{
+	private:
+		AttributeBehavior* behavior = nullptr;
+		double defenseStat;
+		double staminaStat;
+		double attackStat;
+		double hpStat;
+		int playerLvl=1;
 
-        
+	public:
+		//constructors
+		Attribute(){}
+		~Attribute();
+        void deleteAttribute();
+		void setBehavior(AttributeBehavior* newBehavior);
+		void updatedLevel(int newLevel);
+		void setStats();
+
+		double getDefenseStat(){ return this->defenseStat;}
+		double getStatminaStat() {return this->staminaStat;}
+		double getHpStat(){ return this->hpStat;}
+		double getAttackStat(){ return this->attackStat;}
+		
 };
-
 #endif
