@@ -1,3 +1,4 @@
+
 #ifndef __BASICWEAPON_HPP__
 #define __BASICWEAPON_HPP__
 
@@ -23,12 +24,12 @@ class BasicWeapon : public WeaponBehavior
             Normal Attack
                 deals normal damage
         */
-        virtual double attack(int playerLvl)
+        virtual double attack(double attackLvl)
         {
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage
-            damage += (playerLvl - 1) * scale;
+            damage += (attackLvl - 1) * scale;
             //return damage
             return damage;
         }
@@ -37,12 +38,12 @@ class BasicWeapon : public WeaponBehavior
             Special Attack
                 deals 1.25x damage
         */
-        virtual double specialAttack(int playerLvl)
+        virtual double specialAttack(double attackLvl)
         {
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage dealt
-            damage += (playerLvl - 1) * scale;
+            damage += (attackLvl - 1) * scale;
             //x1.25 damage bc of special attack
             damage *= 1.25;
             //return damage
@@ -53,12 +54,12 @@ class BasicWeapon : public WeaponBehavior
             Special Move
                 deals 2x damage
         */
-        virtual double specialMove(int playerLvl)
+        virtual double specialMove(double attackLvl)
         {
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage dealt
-            damage += (playerLvl - 1) * scale;
+            damage += (attackLvl - 1) * scale;
             //x2 damage bc of special attack
             damage *= 2;
             //return damage

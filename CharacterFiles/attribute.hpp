@@ -1,12 +1,14 @@
 #ifndef __ATTRIBUTE_HPP__
 #define __ATTRIBUTE_HPP__
 #include "attributeBehavior.hpp"
-#include "weapons.hpp"
-#include "weaponBehavior.hpp"
-#include "longSword.hpp"
-#include "dagger.hpp"
-#include "staff.hpp"
-#include "broom.hpp"
+#include "../WeaponsFiles/weapons.hpp"
+#include "../WeaponsFiles/weaponBehavior.hpp"
+#include "../WeaponsFiles/longSword.hpp"
+#include "../WeaponsFiles/dagger.hpp"
+#include "../WeaponsFiles/staff.hpp"
+#include "../WeaponsFiles/broom.hpp"
+#include "../WeaponsFiles/basicWeapon.hpp"
+
 class AttributeBehavior;
 
 class Attribute{

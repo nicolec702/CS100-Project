@@ -15,12 +15,12 @@ class Weapons{
 		Weapons(std::string name):name(name){}
 		//destructor
 		~Weapons();
-
 		void setBehavior(WeaponBehavior* newBehavior);
+		void setName(std::string weaponName) { name = weaponName; }
 		std::string getName(){ return name; }
 		
-		double attack(int playerLvl);
-		double specialAttack(int playerLvl);
-		double specialMove(int playerLvl);
+		double attack(double attackLvl);
+		double specialAttack(double attackLvl);
+		double specialMove(double attackLvl);
 };
 #endif
