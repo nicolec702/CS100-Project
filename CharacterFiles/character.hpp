@@ -4,7 +4,7 @@
 #include <string>
 
 class Character {
-    private:
+    protected:
         std::string name;
     public:
         Character(){}

@@ -17,8 +17,8 @@ int main(){
     NPC *narrator = new NPC("Narrator");
     NPC *mentor = new NPC("Mentor");
 
-    std::cout << narrator->getName() << std::endl;
-    std::cout << mentor ->getName() << std::endl;
+    //std::cout << narrator->getName() << std::endl;
+    //std::cout << mentor ->getName() << std::endl;
 
     std::ifstream file;
     file.open("tutorial.txt");
@@ -27,5 +27,10 @@ int main(){
         std::cout << "Tutorial file failed to open.\n";
         exit(1);
     }   
+	
+    narrator->populateDialogue(file);
 
+    for(int i = 0; i < narrator->dialogueLines(); i++)
+	    std::cout << narrator->getLineAt(i) << std::endl;
+    
 }

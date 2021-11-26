@@ -12,9 +12,7 @@ class NPC: public Character{
     public:
         NPC(){}
 
-        NPC(std::string name){
-                Character(name);
-        }
+        NPC(std::string charName): Character(charName){}
 
         void populateDialogue(std::ifstream& file){
             file.clear();
@@ -22,18 +20,22 @@ class NPC: public Character{
             std::string findName = Character::getName();
             while (!file.eof()) {           //while not at end of file
                 std::string temp = "";      //create temp string
-                getline(file, temp);        //retrieve line
-
+                getline(file, temp);        //retrieve line 
                 std::size_t found = temp.find(findName);
                 if (found != std::string::npos) //if name is found in line
                     dialogue.push_back(temp.substr(findName.size() + 2));  //add to dialogue vector
+		
             }
         }
 
-        std::string getLineAt(int i){  
-            return dialogue.at(i);  //retrieve dialogue line at i
+        std::string getLineAt(int index){  
+            return dialogue.at(index);  //retrieve dialogue line at i
         }
-
+	
+	int dialogueLines(){
+	    //std::cout << dialogue.size();
+	    return dialogue.size();
+	}
 };
 
 
