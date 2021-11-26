@@ -24,12 +24,12 @@ class LongSword : public WeaponBehavior
             Normal Attack: Stab
                 deals normal damage
         */
-             double attack(int playerLvl)
+             double attack(double attackLvl)
         {
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage
-            damage += (playerLvl - 1) * scale;
+            damage += (attackLvl - 1) * scale;
             //return damage
             return damage;
 
@@ -39,12 +39,12 @@ class LongSword : public WeaponBehavior
             Special Attack: Slash
                 deals 1.5x damage
         */
-	     double specialAttack(int playerLvl)
+	     double specialAttack(double attackLvl)
         {
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage dealt
-            damage += (playerLvl - 1)  * scale;
+            damage += (attackLvl - 1)  * scale;
             //x1.5 damage bc of special attack
             damage *= 1.5;
             //return damage
@@ -55,12 +55,12 @@ class LongSword : public WeaponBehavior
             Special Move: Mighty Steed
                 deals 2x damage
         */
-	     double specialMove(int playerLvl) 
+	     double specialMove(double attackLvl) 
         {
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage dealt
-            damage += (playerLvl - 1) * scale;
+            damage += (attackLvl - 1) * scale;
             //x2 damage bc of special move
             damage *= 2;
             //return damage

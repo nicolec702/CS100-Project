@@ -13,23 +13,23 @@ void Weapons::setBehavior(WeaponBehavior* newBehavior)
 	behavior = newBehavior;
 }
 
-double Weapons::attack(int playerLvl)
+double Weapons::attack(double attackLvl)
 {
-	double dmg = behavior->attack(playerLvl);
+	double dmg = behavior->attack(attackLvl);
 	std::cout << "You dealt " << dmg << " pts of damage" << std::endl;
 	return dmg;
 }
 
-double Weapons::specialAttack(int playerLvl)
+double Weapons::specialAttack(double attackLvl)
 {
-	double dmg = behavior->specialAttack(playerLvl);
+	double dmg = behavior->specialAttack(attackLvl);
 	std::cout << "You dealt " << dmg << " pts of damage" << std::endl;
 	return dmg;
 }
 
-double Weapons::specialMove(int playerLvl)
+double Weapons::specialMove(double attackLvl)
 {
-	double dmg = behavior->specialMove(playerLvl);
+	double dmg = behavior->specialMove(attackLvl);
 	std::cout << "You dealt " << dmg << " pts of damage" << std::endl;
 	return dmg;
 }

@@ -1,3 +1,4 @@
+
 #ifndef __BROOM_HPP__
 #define __BROOM_HPP__
 
@@ -23,12 +24,12 @@ class Broom : public WeaponBehavior
             Normal Attack: Bonk
                 deals normal damage
         */
-        virtual double attack(int playerLvl)
+        virtual double attack(double attackLvl)
         {
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage
-            damage += (playerLvl - 1) * scale;
+            damage += (attackLvl - 1) * scale;
             //return damage
             return damage;
         }
@@ -37,12 +38,12 @@ class Broom : public WeaponBehavior
             Special Attack:
                 deals 1.75x damage
         */
-        virtual double specialAttack(int playerLvl)
+        virtual double specialAttack(double attackLvl)
         {
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage dealt
-            damage += (playerLvl - 1) * scale;
+            damage += (attackLvl - 1) * scale;
             //x1.75 damage bc of special attack
             damage *= 1.75;
             //return damage
@@ -53,12 +54,12 @@ class Broom : public WeaponBehavior
             Special Move: Elixir of ?
                 deals 2.5x damage
         */
-        virtual double specialMove(int playerLvl)
+        virtual double specialMove(double attackLvl)
         {
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage dealt
-            damage += (playerLvl - 1) * scale;
+            damage += (attackLvl - 1) * scale;
             //x2.5 damage bc of special move
             damage *= 2.5;
             //return damage
@@ -67,3 +68,4 @@ class Broom : public WeaponBehavior
 
 };
 #endif
+

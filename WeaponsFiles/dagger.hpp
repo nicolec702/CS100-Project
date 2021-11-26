@@ -23,12 +23,12 @@ class Dagger : public WeaponBehavior
             Normal Attack: Swipe
                 deals normal damage
         */
-        virtual double attack(int playerLvl)
+        virtual double attack(double attackLvl)
         {
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage
-            damage += (playerLvl - 1) * scale;
+            damage += (attackLvl - 1) * scale;
             //return damage
             return damage;
         }
@@ -37,12 +37,12 @@ class Dagger : public WeaponBehavior
             Special Attack: Backstab
                 deal 2x damage
         */
-        virtual double specialAttack(int playerLvl)
+        virtual double specialAttack(double attackLvl)
         {
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage dealt
-            damage += (playerLvl - 1) * scale;
+            damage += (attackLvl - 1) * scale;
             //x2 damage bc of special attack
             damage *= 2;
             //return damage
@@ -53,14 +53,14 @@ class Dagger : public WeaponBehavior
             Special Move: Stroke of Luck
                 15% chance to deal 3x damage
         */
-        virtual double specialMove(int playerLvl)
+        virtual double specialMove(double attackLvl)
         {
             //calculate chance that this move will hit
             double chance = rand() % 101;
             //calculate base damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage
-            damage += (playerLvl - 1) * scale;
+            damage += (attackLvl - 1) * scale;
             //if chance is 15% or less, deal 3x damage
             if(chance <= 15)
                 damage *= 3;

@@ -23,12 +23,12 @@ class Staff : public WeaponBehavior
             Normal Attack:
                 deals normal damage
         */
-        virtual double attack(int playerLvl)
+        virtual double attack(double attackLvl)
         {
             //calculate damage within range
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             //scale damage
-            damage += (playerLvl - 1) * scale;
+            damage += (attackLvl - 1) * scale;
             //return damage
             return damage;
         }
@@ -37,7 +37,7 @@ class Staff : public WeaponBehavior
             Special Attack: 
                 attacks twice        
         */
-        virtual double specialAttack(int playerLvl)
+        virtual double specialAttack(double attackLvl)
         {
             double damage = minDmg + rand() % (maxDmg - minDmg + 1);
             damage += minDmg + rand() % (maxDmg - minDmg + 1);
@@ -50,7 +50,7 @@ class Staff : public WeaponBehavior
                 consistent damage output, x7.5 max dmg
             
         */
-        virtual double specialMove(int playerLvl)
+        virtual double specialMove(double attackLvl)
         {
             double damage = maxDmg * 7.5;
             return damage;
