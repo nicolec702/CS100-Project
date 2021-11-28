@@ -1,5 +1,3 @@
-
-
 #include "WeaponsFiles/weapons.hpp"
 #include "WeaponsFiles/weaponBehavior.hpp"
 #include "WeaponsFiles/longSword.hpp"
@@ -33,10 +31,10 @@ int main(int argc, char* argv[]){
 
         printf("WHAT WEAPON WILL YOU CHOOSE?\n1. STAFF \n2. LONGSWORD \n3. DAGGERS\n4. BROOM\nENTER CHOICE: ");
         std::cin>>weaponType;
-        printf("GIVE YOUR WEAPON A NAME: ");
-        std::cin>>weaponName;
+        //printf("GIVE YOUR WEAPON A NAME: ");
+        //std::cin>>weaponName;
 
-        PlayableCharacter player1(playerType, playerName, weaponType, weaponName);
+        PlayableCharacter player1(playerType, playerName, weaponType);
         //PlayableCharacter player2(4,"BOBBY",4,"BOOBY GO BOOM");
 
         NPAttackCharacter player2(4, "NPC", 4, "BOOMBOOM", 1);

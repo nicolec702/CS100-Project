@@ -7,50 +7,16 @@
 
 class PlayableCharacter: public AttackCharacter {
 private:
-    int exp, level, expNeeded;
+    int exp = 0, level = 1, expNeeded = 10;
 public:
-    PlayableCharacter(int characterClass, std::string playerName, int weaponClass, std::string weaponName){
-        exp=0; level=1; expNeeded=10;
+    PlayableCharacter() {}
+    PlayableCharacter(int characterClass, std::string playerName, int weaponClass){
         setName(playerName);
-        weapon.setName(weaponName);
-        switch(characterClass){
-        case 1: model.setBehavior(new Wizard()); break; // Wizard model
-        case 2: model.setBehavior(new Knight()); break; // Knight model
-        case 3: model.setBehavior(new Rogue()); break; // Rogue model
-        case 4: model.setBehavior(new Bob()); break; // Bob model
-        default: break;
-        }
-        switch (weaponClass){
-        case 1: weapon.setBehavior(new Staff()); break; // staff model 
-        case 2: weapon.setBehavior(new LongSword()); break; // longsword model
-        case 3: weapon.setBehavior(new Dagger()); break; // dagger model
-        case 4: weapon.setBehavior(new Broom()); break; // broom model
-        default: break;
-        }
-        model.setStats(); damageGiven = 0;
-        hp = model.getHpStat(); defense = model.getDefenseStat();
-        attack = model.getAttackStat(); stamina = model.getStatminaStat();
+        //weapon.setName(weaponName);
+        setCharacterType(characterClass);
+        setWeaponType(weaponClass);
     }
         
-    /*
-    void printVitals()
-    {
-        std::cout<<"\nName: "<<getName()<<std::endl;
-        std::cout<<"Attack: "<<model.getAttackStat()<<std::endl;
-        std::cout<<"Defense: "<<model.getDefenseStat()<<std::endl;
-        std::cout<<"Stamina: "<<model.getStatminaStat()<<std::endl;
-        std::cout<<"HP: "<<model.getHpStat()<<std::endl;
-    }
-        
-	void currentStats()
-    {
-        std::cout<<"\nName: "<<getName()<<std::endl;
-        std::cout<<"Attack: "<<attack<<std::endl;
-        std::cout<<"Defense: "<<defense<<std::endl;
-        std::cout<<"Stamina: "<<stamina<<std::endl;
-        std::cout<<"HP: "<<hp<<std::endl;
-    }
-	*/
     virtual void selectMove()
     {
         std::cout<<"\nCURRENT STAMINA: "<<stamina<<std::endl;
@@ -74,6 +40,32 @@ public:
             }
         }
         stamina += model.getStatminaStat()/3;
+    }
+
+    void setCharacterType(int characterClass)
+    {
+        switch(characterClass){
+        case 1: model.setBehavior(new Wizard()); break; // Wizard model
+        case 2: model.setBehavior(new Knight()); break; // Knight model
+        case 3: model.setBehavior(new Rogue()); break; // Rogue model
+        case 4: model.setBehavior(new Bob()); break; // Bob model
+        default: break;
+        }
+        model.setStats(); 
+        damageGiven = 0;
+        hp = model.getHpStat(); defense = model.getDefenseStat();
+        attack = model.getAttackStat(); stamina = model.getStatminaStat();
+    }
+
+    void setWeaponType(int weaponClass)
+    {
+        switch (weaponClass){
+        case 1: weapon.setBehavior(new Staff()); break; // staff model 
+        case 2: weapon.setBehavior(new LongSword()); break; // longsword model
+        case 3: weapon.setBehavior(new Dagger()); break; // dagger model
+        case 4: weapon.setBehavior(new Broom()); break; // broom model
+        default: break;
+        }
     }
 
     void victory()

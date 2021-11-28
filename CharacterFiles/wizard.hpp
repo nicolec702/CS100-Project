@@ -32,6 +32,10 @@ class Wizard : public AttributeBehavior
         {
             return stam + (playerLvl-1)*.2;
         }
+        virtual std::string modelType()
+        {
+            return "Wizard";
+        }
 
 };
 #endif
