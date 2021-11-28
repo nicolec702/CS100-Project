@@ -1,4 +1,4 @@
-
+/*
 #include "game.hpp"
 
 void Game::playerSelection()
@@ -127,3 +127,4 @@ void typingEffect(std::string str) {
         sleep(9);
     }
 }
+*/
