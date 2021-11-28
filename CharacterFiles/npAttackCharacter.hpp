@@ -8,7 +8,6 @@ class NPAttackCharacter: public AttackCharacter
 public:
     NPAttackCharacter(int characterClass, std::string npcName, int weaponClass, std::string weaponName, int level){
         setName(npcName);
-        weapon.setName(weaponName);
         switch(characterClass){
         case 1: model.setBehavior(new Wizard()); break; // Wizard model
         case 2: model.setBehavior(new Knight()); break; // Knight model
@@ -28,6 +27,7 @@ public:
         hp = model.getHpStat(); defense = model.getDefenseStat();
         attack = model.getAttackStat(); stamina = model.getStatminaStat();
     }
+    NPAttackCharacter(){}
 
     virtual void selectMove()
     {

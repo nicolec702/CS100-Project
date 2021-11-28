@@ -1,4 +1,4 @@
-#include "WeaponsFiles/weapons.hpp"
+/*#include "WeaponsFiles/weapons.hpp"
 #include "WeaponsFiles/weaponBehavior.hpp"
 #include "WeaponsFiles/longSword.hpp"
 #include "WeaponsFiles/dagger.hpp"
@@ -14,12 +14,15 @@
 #include "CharacterFiles/character.hpp"
 #include "CharacterFiles/playableCharacter.hpp"
 #include "CharacterFiles/npAttackCharacter.hpp"
+*/
+#include "game.hpp"
 
 
 #include <iostream>
 #include <iomanip>
 
 int main(int argc, char* argv[]){
+        /*
         std::cout<<"\n\nHELLO PLAYER, WELCOME TO A REALM OF ADVENTURE AND MYSTERY\n";
         std::string playerName, weaponName; 
         int playerType, weaponType;
@@ -68,5 +71,13 @@ int main(int argc, char* argv[]){
                 player2.currentStats();
 
         }
+        */
 
+       Game *newGame = new Game();
+       NPAttackCharacter* npc = new NPAttackCharacter();
+       npc->setName("NPC");
+       npc->setCharacterType(4);
+       npc->setWeaponType(4);
+       newGame->BatlleScene(npc);
+       std::cout<<"We here\n";
 }

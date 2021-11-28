@@ -32,6 +32,7 @@
 
 #include <sstream>
 #include <iomanip>
+#include <algorithm>
 
 class Game{
 private:

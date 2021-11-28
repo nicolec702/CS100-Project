@@ -12,7 +12,6 @@ public:
     PlayableCharacter() {}
     PlayableCharacter(int characterClass, std::string playerName, int weaponClass){
         setName(playerName);
-        //weapon.setName(weaponName);
         setCharacterType(characterClass);
         setWeaponType(weaponClass);
     }
@@ -42,31 +41,6 @@ public:
         stamina += model.getStatminaStat()/3;
     }
 
-    void setCharacterType(int characterClass)
-    {
-        switch(characterClass){
-        case 1: model.setBehavior(new Wizard()); break; // Wizard model
-        case 2: model.setBehavior(new Knight()); break; // Knight model
-        case 3: model.setBehavior(new Rogue()); break; // Rogue model
-        case 4: model.setBehavior(new Bob()); break; // Bob model
-        default: break;
-        }
-        model.setStats(); 
-        damageGiven = 0;
-        hp = model.getHpStat(); defense = model.getDefenseStat();
-        attack = model.getAttackStat(); stamina = model.getStatminaStat();
-    }
-
-    void setWeaponType(int weaponClass)
-    {
-        switch (weaponClass){
-        case 1: weapon.setBehavior(new Staff()); break; // staff model 
-        case 2: weapon.setBehavior(new LongSword()); break; // longsword model
-        case 3: weapon.setBehavior(new Dagger()); break; // dagger model
-        case 4: weapon.setBehavior(new Broom()); break; // broom model
-        default: break;
-        }
-    }
 
     void victory()
     {
