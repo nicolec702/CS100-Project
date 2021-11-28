@@ -29,7 +29,7 @@ void Game::dialogueType(std::string x)
     int i = 0;
     for (i; i < x.size(); i++)
     {
-        if (kbhit())
+        if (kbhit())         
         {
             if (getch() == 13)
             {
@@ -152,24 +152,28 @@ void Game::newGame()
              std::cout << "[ROGUE]             " << "WIZARD               " << "KNIGHT               " << "BOB"; 
              std::cout << '\n' << "=================================================================" << '\n';
              std::cout << "STATS:" << '\n' << "[===       ] HP: 10" << '\n' << "[=         ] DEF: 8" << '\n';
+             std::cout << "BACKGROUND: ";
         }
         else if (selectedClass == 1)
         {
              std::cout << "ROGUE              " << "[WIZARD]              " << "KNIGHT               " << "BOB"; 
              std::cout << '\n' << "=================================================================" << '\n';
              std::cout << "STATS:" << '\n' << "[=         ] HP: 8" << '\n' << "[===       ] DEF: 10" << '\n';
+             std::cout << "BACKGROUND: " << "";
         }
         else if (selectedClass == 2)
         {
              std::cout << "ROGUE               " << "WIZARD              " << "[KNIGHT]              " << "BOB"; 
              std::cout << '\n' << "=================================================================" << '\n';
              std::cout << "STATS:" << '\n' << "[==========] HP: 12" << '\n' << "[==========] DEF: 100" << '\n';
+             std::cout << "BACKGROUND: Once an admired people, wizards were persecuted to the point of extinction due to the fear of their power. All high level wizards are now dead and all that remains are a mediocre batch.";
         }
         else if (selectedClass == 3)
         {
             std::cout << "ROGUE               " << "WIZARD               " << "KNIGHT             " << "[BOB]"; 
             std::cout << '\n' << "=================================================================" << '\n';
             std::cout << "STATS:" << '\n' << "[          ] HP: -10" << '\n' << "[          ] DEF: You'll be taking damage per turn." << '\n';
+            std::cout << "BACKGROUND: ";
         }
 
         userKeypress = getch();
@@ -201,16 +205,5 @@ void Game::newGame()
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
 }
 #endif //GAME_HPP
