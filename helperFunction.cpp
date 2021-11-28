@@ -1,12 +1,5 @@
-#ifndef __HELPER_FUNCTIONS__
-#define __HELPER_FUNCTIONS__
-#include<iostream>
-#include<string>
-#include<sstream>
-#include<iomanip>
-#include<algorithm>
-//----------------
-/*
+#include "helperFunction.hpp"
+
 int verifyIntInput(std::string input) // returns -1 if inproper input
 {
     // erasing whitespace incase user enters " 1" instead of "1" by mistake
@@ -37,8 +30,3 @@ bool verifyStringInput(std::string input)
 	else isValid = false;
 	return isValid;
 }
-*/
-extern bool verifyStringInput( std::string input);
-extern int verifyIntInput(std::string input);
-
-#endif

@@ -7,4 +7,5 @@ ADD_EXECUTABLE(main
         game.cpp 
         WeaponsFiles/weapons.cpp 
         CharacterFiles/attribute.cpp
+        helperFunction.cpp
         )

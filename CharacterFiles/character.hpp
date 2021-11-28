@@ -2,6 +2,7 @@
 #define __CHARACTER_HPP__
 
 #include <string>
+#include "../helperFunction.hpp"
 
 class Character {
     private:

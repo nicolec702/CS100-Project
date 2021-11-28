@@ -2,7 +2,6 @@
 #define __PLAYABLE_CHARACTER_HPP__
 
 #include "attackCharacter.hpp"
-#include "../helperFunction.hpp"
 #include <string>
 #include <iostream>
 

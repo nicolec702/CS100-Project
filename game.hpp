@@ -28,7 +28,6 @@
 #include "CharacterFiles/character.hpp"
 #include "CharacterFiles/playableCharacter.hpp"
 #include "CharacterFiles/npAttackCharacter.hpp"
-#include "helperFunction.hpp"
 
 class Game{
 private:
