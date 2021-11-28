@@ -68,15 +68,14 @@ class AttackCharacter: public Character {
         {
             bool defeated = false;
             if(damage > 0){
-	            if(damage-defense<2) damage = 2; 
-                else damage=damage-defense;    
-
+	            if(damage-(defense/2)<2) damage = 2; 
+                else damage=damage-(defense/2);    
                 hp-=damage;
                 if(hp <= 0){
                     std::cout<<getName()<< " HAS BEEN DEFEATED"<<std::endl;
                     defeated = true; hp = 0;
                 }
-                std::cout<< "\n" << getName()<<"'S HP IS NOW "<< hp << std::endl;
+                std::cout<< getName()<<"'s hp is not "<< hp << std::endl;
             }
             return defeated;
             
@@ -88,18 +87,18 @@ class AttackCharacter: public Character {
             damageGiven = 0;
             if(defense != model.getDefenseStat() * 2) {
                 defense = defense + (model.getDefenseStat() / 4);
-                std::cout<<getName()<<" decides to defend!\n Defense has increased!\n";
+                std::cout<< "\n" << getName()<<" decides to defend!\nDefense has increased!"<<std::endl;
                 return true;
             }
             else {
-                std::cout<<"Defense already at cap. Choose different move.\n: ";
+                std::cout<<"\n"<<"Defense already at cap. Choose different move."<<std::endl;
                 return false;
         }
         }
 
         void normalAttack() { 
             damageGiven = weapon.attack(attack/10); 
-            std::cout<<getName() + " decides to attack!\n";
+            std::cout<<"\n"<<getName() << " decides to attack!"<<std::endl;
         }
 
         bool specialAttack()
@@ -107,12 +106,11 @@ class AttackCharacter: public Character {
             if(mana >= manaSpecialAttack){
                 mana -= manaSpecialAttack;
                 damageGiven = weapon.specialAttack(attack/10);
-                std::cout<<getName()<< "'s use SPECIAL ATTACK!"<<std::endl;
+                std::cout<<"\n"<<getName()<< " uses SPECIAL ATTACK!"<<std::endl;
                 return true;
             }
             else{
-                std::cout<<getName()<< "'s special attack failed. Try different move."<<std::endl;
-                damageGiven = 0;
+                std::cout<<"\n"<<getName()<< "'s special attack failed. Try different move."<<std::endl;
                 return false;
             }
         }
@@ -122,12 +120,11 @@ class AttackCharacter: public Character {
             if(mana > manaSpecialMove){
                 mana -= manaSpecialAttack;
                 damageGiven = weapon.specialMove(attack/10); 
-                std::cout<<getName()<< "'s use SPECIAL MOVE!"<<std::endl;
+                std::cout<<"\n"<<getName()<< " uses SPECIAL MOVE!"<<std::endl;
                 return true;
             }
             else{
-                std::cout<<getName()<<"'s special move failed. Try different move."<<std::endl;
-                damageGiven = 0;
+                std::cout<<"\n"<<getName()<<"'s special move failed. Try different move."<<std::endl;
                 return false;
             }
         }

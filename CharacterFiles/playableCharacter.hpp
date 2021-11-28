@@ -34,7 +34,7 @@ public:
             {
                 switch(move){
                 case 1: valid =  increaseDefense(); break; // defended this turn
-                case 2: normalAttack(); break; // regular attack
+                case 2: normalAttack(); valid = true; break; // regular attack
                 case 3: valid = specialAttack(); break; // special attack
                 case 4: valid = specialMove(); break; // special attack
                 default: valid = false; break;

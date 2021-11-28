@@ -71,7 +71,7 @@ void Game::playerSelection()
 			else cls();
 		}
 	}
-
+	cls();
 	std::cout<<"Lets begin with your training "<< player->getName()<<std::endl;
 }
 
@@ -99,5 +99,6 @@ void Game::BatlleScene(NPAttackCharacter* npc){
                         npc->selectMove();
                         defeated = player->takeDamage(npc->getDamagaGiven());
 				}
+				else player->victory();
         }
 }
