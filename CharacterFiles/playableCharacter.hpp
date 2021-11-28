@@ -15,6 +15,9 @@ public:
         setCharacterType(characterClass);
         setWeaponType(weaponClass);
     }
+
+    //void setModel(Attribute selectedModel) { model = selectedModel; }
+
         
     virtual void selectMove()
     {

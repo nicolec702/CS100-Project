@@ -1,4 +1,3 @@
-
 #ifndef __GAME_HPP__
 #define __GAME_HPP__
 
@@ -55,8 +54,9 @@ public:
 void Game::playerSelection()
 {
     std::string playerName = "0", intInput = "-1";//characterType = "-1", weaponType = "-1";
-	bool validated = false;
+    bool validated = false;
     Attribute model;
+    player = new PlayableCharacter();
 
 	std::cout<<"Welcome young warrior, remind me of your name again.\n";
 	while(!verifyStringInput(playerName))
@@ -66,6 +66,7 @@ void Game::playerSelection()
 		if(!verifyStringInput(playerName))
 			std::cout<<"\tThat is an invalid name, try again.\n";
 	}
+	printf("hello\n");
 	cls();
 	player->setName(playerName);
 	std::cout<<"Ah your name is "<< player->getName() << ". I've heard great things about you.\n";
@@ -83,13 +84,14 @@ void Game::playerSelection()
 		}
 		else{
 			cls();
+			int characterType = verifyIntInput(intInput);
 			switch(verifyIntInput(intInput))
 			{
-			case 1: model.setBehavior(new Wizard); 
-			case 2: model.setBehavior(new Knight);
-			case 3: model.setBehavior(new Rogue);
-			case 4: model.setBehavior(new Bob);
-			default: break;
+			case 1: model.setBehavior(new Wizard()); 
+			case 2: model.setBehavior(new Knight());
+			case 3: model.setBehavior(new Rogue());
+			case 4: model.setBehavior(new Bob());
+			default: model.setBehavior(new Wizard()); break;
 			}
 			model.setStats();
 			model.printBaseStats();
@@ -97,7 +99,26 @@ void Game::playerSelection()
 			std::getline(std::cin, intInput);
 			if(verifyIntInput(intInput) == 1)
 			{
-				validated = true;
+				cls();
+				player->setCharacterType(characterType);
+				cls();
+               			 while(validated==false)
+                		{
+                    			std::cout<<"What weapon do you use?\n";
+                    			std::cout<<"\t[1] Staff\n\t[2] Longsword\n\t[3] Dagger\n\t[4] Broom\n";
+                    			std::cout<<"\tEneter choice: ";
+                    			std::getline(std::cin, intInput);
+                    			if(verifyIntInput(intInput)<1 || verifyIntInput(intInput)>4)
+		            		{
+				        	std::cout<<"\tInvalid input. Try again\n";
+				        	validated = false;
+		            		}
+                    			else 
+                    			{ 
+                        			player ->setWeaponType(verifyIntInput(intInput));
+    			                    	validated = true;
+                    			}
+                		}
 			}
 			else cls();
 		}
