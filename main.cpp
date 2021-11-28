@@ -4,6 +4,9 @@
 #elif __linux__
 #include "CharacterSelection/UnixGame.hpp"
 
+#elif __APPLE__
+#include "CharacterSelection/UnixGame.hpp"
+
 #endif
 
 #include <iostream>
@@ -16,8 +19,11 @@ int main(int argc, char* argv[])
 
     #elif __linux__
         UnixGame* gameClient = new UnixGame();
-        gameClient -> CharacterScreen();   
+        gameClient -> CharacterScreen();  
 
+    #elif __APPLE__
+        UnixGame* gameClient = new UnixGame()
+        gameClient -> CharacterScreen();
 
     #endif
     return 0;
