@@ -1,11 +1,11 @@
-/*
 #include "game.hpp"
 
 void Game::playerSelection()
 {
     std::string playerName = "0", intInput = "-1";//characterType = "-1", weaponType = "-1";
-	bool validated = false;
+    bool validated = false;
     Attribute model;
+    player = new PlayableCharacter();
 
 	std::cout<<"Welcome young warrior, remind me of your name again.\n";
 	while(!verifyStringInput(playerName))
@@ -32,12 +32,13 @@ void Game::playerSelection()
 		}
 		else{
 			cls();
-			switch(verifyIntInput(intInput))
+			int characterType = verifyIntInput(intInput);
+			switch(characterType)
 			{
-			case 1: model.setBehavior(new Wizard); 
-			case 2: model.setBehavior(new Knight);
-			case 3: model.setBehavior(new Rogue);
-			case 4: model.setBehavior(new Bob);
+			case 1: model.setBehavior(new Wizard()); break;
+			case 2: model.setBehavior(new Knight()); break;
+			case 3: model.setBehavior(new Rogue()); break;
+			case 4: model.setBehavior(new Bob()); break;
 			default: break;
 			}
 			model.setStats();
@@ -46,7 +47,26 @@ void Game::playerSelection()
 			std::getline(std::cin, intInput);
 			if(verifyIntInput(intInput) == 1)
 			{
-				validated = true;
+				cls();
+				player->setCharacterType(characterType);
+				cls();
+               			 while(validated==false)
+                		{
+                    			std::cout<<"What weapon do you use?\n";
+                    			std::cout<<"\t[1] Staff\n\t[2] Longsword\n\t[3] Dagger\n\t[4] Broom\n";
+                    			std::cout<<"\tEneter choice: ";
+                    			std::getline(std::cin, intInput);
+                    			if(verifyIntInput(intInput)<1 || verifyIntInput(intInput)>4)
+		            		{
+				        	std::cout<<"\tInvalid input. Try again\n";
+				        	validated = false;
+		            		}
+                    			else 
+                    			{ 
+                        			player ->setWeaponType(verifyIntInput(intInput));
+    			                    	validated = true;
+                    			}
+                		}
 			}
 			else cls();
 		}
@@ -127,4 +147,3 @@ void typingEffect(std::string str) {
         sleep(9);
     }
 }
-*/

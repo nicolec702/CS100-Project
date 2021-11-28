@@ -50,7 +50,7 @@ public:
 
 
 };
-
+/*
 void Game::playerSelection()
 {
     std::string playerName = "0", intInput = "-1";//characterType = "-1", weaponType = "-1";
@@ -66,7 +66,6 @@ void Game::playerSelection()
 		if(!verifyStringInput(playerName))
 			std::cout<<"\tThat is an invalid name, try again.\n";
 	}
-	printf("hello\n");
 	cls();
 	player->setName(playerName);
 	std::cout<<"Ah your name is "<< player->getName() << ". I've heard great things about you.\n";
@@ -85,13 +84,13 @@ void Game::playerSelection()
 		else{
 			cls();
 			int characterType = verifyIntInput(intInput);
-			switch(verifyIntInput(intInput))
+			switch(characterType)
 			{
-			case 1: model.setBehavior(new Wizard()); 
-			case 2: model.setBehavior(new Knight());
-			case 3: model.setBehavior(new Rogue());
-			case 4: model.setBehavior(new Bob());
-			default: model.setBehavior(new Wizard()); break;
+			case 1: model.setBehavior(new Wizard()); break;
+			case 2: model.setBehavior(new Knight()); break;
+			case 3: model.setBehavior(new Rogue()); break;
+			case 4: model.setBehavior(new Bob()); break;
+			default: break;
 			}
 			model.setStats();
 			model.printBaseStats();
@@ -199,5 +198,5 @@ void typingEffect(std::string str) {
         sleep(9);
     }
 }
-
+*/
 #endif
