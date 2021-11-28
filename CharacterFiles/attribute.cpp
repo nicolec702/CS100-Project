@@ -15,7 +15,7 @@ void Attribute::setBehavior(AttributeBehavior* newBehavior)
 void Attribute::setStats()
 {
 	this->defenseStat = behavior->defense(playerLvl);
-	this->staminaStat = behavior->stamina(playerLvl);
+	this->manaStat = behavior->mana(playerLvl);
 	this->hpStat = behavior->health_points(playerLvl);
 	this->attackStat = behavior->attack(playerLvl);
 	this->model = behavior->modelType();
@@ -30,11 +30,11 @@ void Attribute::updatedLevel(int newLevel)
 
 void Attribute::printBaseStats()
 {
-	std::cout<<"\tType: "<<model<<std::endl;
+	std::cout<<"\tTYPE: "<<model<<std::endl;
 	std::cout<<"\tHP: "<<hpStat<<std::endl;
 	std::cout<<"\tATK: "<<attackStat<<std::endl;
 	std::cout<<"\tDEF: "<<defenseStat<<std::endl;
-	std::cout<<"\tSTM: "<<staminaStat<<std::endl;
+	std::cout<<"\tMANA: "<<manaStat<<std::endl;
 }
 
 

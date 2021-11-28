@@ -50,23 +50,23 @@ void Game::playerSelection()
 				cls();
 				player->setCharacterType(characterType);
 				cls();
-               			 while(validated==false)
-                		{
-                    			std::cout<<"What weapon do you use?\n";
-                    			std::cout<<"\t[1] Staff\n\t[2] Longsword\n\t[3] Dagger\n\t[4] Broom\n";
-                    			std::cout<<"\tEneter choice: ";
-                    			std::getline(std::cin, intInput);
-                    			if(verifyIntInput(intInput)<1 || verifyIntInput(intInput)>4)
-		            		{
-				        	std::cout<<"\tInvalid input. Try again\n";
-				        	validated = false;
-		            		}
-                    			else 
-                    			{ 
-                        			player ->setWeaponType(verifyIntInput(intInput));
-    			                    	validated = true;
-                    			}
-                		}
+               	while(validated==false)
+                {
+                	std::cout<<"What weapon do you use?\n";
+                    std::cout<<"\t[1] Staff\n\t[2] Longsword\n\t[3] Dagger\n\t[4] Broom\n";
+                    std::cout<<"\tEneter choice: ";
+                    std::getline(std::cin, intInput);
+                    if(verifyIntInput(intInput)<1 || verifyIntInput(intInput)>4)
+		            {
+				        std::cout<<"\tInvalid input. Try again\n";
+				        validated = false;
+		            }
+                    else 
+                    { 
+                        player ->setWeaponType(verifyIntInput(intInput));
+    			        validated = true;
+                    }
+                }
 			}
 			else cls();
 		}
@@ -86,7 +86,6 @@ void Game::BatlleScene(NPAttackCharacter* npc){
         npc->printVitals();
 
         printf("\nBATTLE BEGINS\n");
-        //std::cout << std::setw(80) << std::setfill('-') << "" << std::endl;
         bool defeated = false;
         while(defeated == false)
         {
@@ -100,50 +99,5 @@ void Game::BatlleScene(NPAttackCharacter* npc){
                         npc->selectMove();
                         defeated = player->takeDamage(npc->getDamagaGiven());
 				}
-                std::cout << std::setw(60) << std::setfill('-') << "" << std::endl;
-                player->currentStats();
-                std::cout << std::setw(60) << std::setfill('-') << "" << std::endl;
-                npc->currentStats();
-
         }
-}
-
-
-//----------------
-int Game::verifyIntInput(std::string input) // returns -1 if inproper input
-{
-    // erasing whitespace incase user enters " 1" instead of "1" by mistake
-	input.erase(remove_if(input.begin(), input.end(), ::isspace), input.end());
-	bool isNumber = true;
-	int x;
-	for (int i = 0; i < input.length(); i++) // checking each character in string
-		if (!isdigit(input[i])) isNumber = false; // checking if all characters input are digits
-
-	if (isNumber == true) // if string is an integer
-	{
-		std::stringstream num(input);
-		num >> x; // storing string to an int
-	}
-	else x = -1; // if string is not an int return value of -2
-	return x;
-}
-
-bool Game::verifyStringInput(std::string input)
-{
-    bool isValid = true;
-	if (isalpha(input[0])) // checking is name starts with a letter
-	{
-		for (int unsigned i = 0; i < input.length(); i++)
-			if (!(isalnum(input[i]) || isspace(input[i]))) // checking is name is only alphanumeric and white space
-				isValid = false;
-	}
-	else isValid = false;
-	return isValid;
-}
-
-void typingEffect(std::string str) {
-    for (int i = 0; i < str.size(); i++) {
-        std::cout << str[i];
-        sleep(9);
-    }
 }

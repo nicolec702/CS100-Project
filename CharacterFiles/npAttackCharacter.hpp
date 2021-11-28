@@ -25,26 +25,26 @@ public:
         }
         model.setStats(); damageGiven = 0;
         hp = model.getHpStat(); defense = model.getDefenseStat();
-        attack = model.getAttackStat(); stamina = model.getStatminaStat();
+        attack = model.getAttackStat(); mana = model.getManaStat();
     }
     NPAttackCharacter(){}
 
     virtual void selectMove()
     {
-        std::cout<<"\nCURRENT STAMINA: "<<stamina<<std::endl;
-        std::cout<<"STAMINA NEEDED FOR SPECIAL ATTACK: "<< staminaSpecialAttack<<std::endl;
-        std::cout<<"STAMINA NEEDED FOR SPECIAL MOVE: "<< staminaSpecialMove<<std::endl;
+        std::cout<<"\nCURRENT mana: "<<mana<<std::endl;
+        std::cout<<"MANA NEEDED FOR SPECIAL ATTACK: "<< manaSpecialAttack<<std::endl;
+        std::cout<<"MANA NEEDED FOR SPECIAL MOVE: "<< manaSpecialMove<<std::endl;
 
         bool hasSelecteMove = false;
 
-        if(stamina >= 3) // special attack
+        if(mana >= 3) // special attack
         {
             if( (rand() % 100) < 20){
                 specialAttack();
                 hasSelecteMove = true;
             }
         }
-        if( stamina >= 5 && hasSelecteMove == false) // special move
+        if( mana >= 5 && hasSelecteMove == false) // special move
         {
             if( (rand() % 100) < 75){
                 specialMove();
@@ -62,7 +62,7 @@ public:
         {
             normalAttack();
         }
-        stamina += model.getStatminaStat()/3;
+        mana += model.getManaStat()/3;
     }
 
 };

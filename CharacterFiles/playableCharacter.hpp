@@ -2,6 +2,7 @@
 #define __PLAYABLE_CHARACTER_HPP__
 
 #include "attackCharacter.hpp"
+#include "../helperFunction.hpp"
 #include <string>
 #include <iostream>
 
@@ -14,34 +15,35 @@ public:
         setName(playerName);
         setCharacterType(characterClass);
         setWeaponType(weaponClass);
-    }
-
-    //void setModel(Attribute selectedModel) { model = selectedModel; }
-
-        
+    }        
     virtual void selectMove()
     {
-        std::cout<<"\nCURRENT STAMINA: "<<stamina<<std::endl;
-        std::cout<<"STAMINA NEEDED FOR SPECIAL ATTACK: "<< staminaSpecialAttack<<std::endl;
-        std::cout<<"STAMINA NEEDED FOR SPECIAL MOVE: "<< staminaSpecialMove<<std::endl;
-
-        std::cout<<"\nSELECT A MOVE FROM THE FOLLOWING: "<<std::endl;
-        printf("1. DEFEND\n2. NORMAL ATTACK\n3. SPECIAL ATTACK\n4. SPECIAL MOVE\nChoose: ");
         bool valid = false;
-        while(valid == false){
-            int selection;
-            std::cin>>selection;
-            valid = true;
-            switch(selection)
+        std::string intInput;
+        std::cout<<"\nCURRENT MANA: "<<mana<<std::endl;
+        std::cout<<"MANA NEEDED FOR SPECIAL ATTACK: "<< manaSpecialAttack<<std::endl;
+        std::cout<<"MANA NEEDED FOR SPECIAL MOVE: "<< manaSpecialMove<<std::endl;
+        while(valid == false)
+        {
+            std::cout<<"\nSELECT A MOVE FROM THE FOLLOWING: "<<std::endl;
+            printf("1. DEFEND\n2. NORMAL ATTACK\n3. SPECIAL ATTACK\n4. SPECIAL MOVE\nChoose: ");
+            std::getline(std::cin, intInput);
+            int move = verifyIntInput(intInput);
+            if(move<1 || move >4)
+                std::cout<<"Invalid choice. Try again\n";
+            else
             {
-            case 1: valid =  increaseDefense(); break; // defended this turn
-            case 2: normalAttack(); break; // regular attack
-            case 3: specialAttack(); break; // special attack
-            case 4: specialMove(); break; // special attack
-            default: valid = false; break;
+                switch(move){
+                case 1: valid =  increaseDefense(); break; // defended this turn
+                case 2: normalAttack(); break; // regular attack
+                case 3: valid = specialAttack(); break; // special attack
+                case 4: valid = specialMove(); break; // special attack
+                default: valid = false; break;
+                }
             }
+
         }
-        stamina += model.getStatminaStat()/3;
+        mana += model.getManaStat()/3;
     }
 
 

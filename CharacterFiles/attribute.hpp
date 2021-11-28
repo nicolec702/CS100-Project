@@ -15,7 +15,7 @@ class Attribute{
 	private:
 		AttributeBehavior* behavior = nullptr;
 		double defenseStat;
-		double staminaStat;
+		double manaStat;
 		double attackStat;
 		double hpStat;
 		int playerLvl=1;
@@ -32,7 +32,7 @@ class Attribute{
 		void printBaseStats();
 
 		double getDefenseStat(){ return this->defenseStat;}
-		double getStatminaStat() {return this->staminaStat;}
+		double getManaStat() {return this->manaStat;}
 		double getHpStat(){ return this->hpStat;}
 		double getAttackStat(){ return this->attackStat;}
 		std::string getModelType() { return this->model;}

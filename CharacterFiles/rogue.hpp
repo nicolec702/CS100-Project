@@ -28,7 +28,7 @@ class Rogue : public AttributeBehavior
             return atk + (3* playerLvl) + (.5 * playerLvl);
         }
         
-        virtual double stamina(int playerLvl)
+        virtual double mana(int playerLvl)
         {
             return stam + (playerLvl-1)*.2;
         }

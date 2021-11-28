@@ -28,7 +28,7 @@ class Wizard : public AttributeBehavior
             return atk + (3 * playerLvl) + (1 * playerLvl);
         }
 
-        virtual double stamina(int playerLvl)
+        virtual double mana(int playerLvl)
         {
             return stam + (playerLvl-1)*.2;
         }
