@@ -29,6 +29,7 @@ bool Game::mainMenu()
     while(1)
     {
         std::string input;
+        menuArt();
         std::cout << "\n\t\t----------------------------" << std::endl;
         std::cout << "\n\t\t      Main Menu   " << std::endl;
         std::cout << "\n\t\t----------------------------" << std::endl;
@@ -44,10 +45,12 @@ bool Game::mainMenu()
         default: cls(); std::cout<<"Invalid option Try again\n"; break;
         }
     }
+
 }
 
 void Game::playerSelection()
 {
+    cls();
     std::string playerName = "0", intInput = "-1";//characterType = "-1", weaponType = "-1";
     bool validated = false;
     Attribute model;
