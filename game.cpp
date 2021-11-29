@@ -432,3 +432,10 @@ void Game::scene1() {
 
     cls();
 }
+
+void Game::scene2(){
+    
+    
+}
+
+

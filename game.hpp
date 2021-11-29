@@ -40,6 +40,7 @@ public:
     void BatlleScene(NPAttackCharacter* npc);
     void tutorial();
     void scene1();
+    void scene2();
     bool mainMenu();
     void menuArt();
     //----------

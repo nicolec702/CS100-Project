@@ -49,6 +49,12 @@ public:
 
         }
     }
+
+    void clearDialogueLines(){
+	 for(int i = 0; i < dialogue.size(); i++)
+	    dialogue.clear();
+	 //std::cout << dialogue.size();
+    }
 };
 
 #endif
