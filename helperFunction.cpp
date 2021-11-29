@@ -1,6 +1,6 @@
 #include "helperFunction.hpp"
 #ifdef __unix__
-#define INT_MAX = 2147483647
+#define int INT_MAX = 2147483647
 #endif
 
 
