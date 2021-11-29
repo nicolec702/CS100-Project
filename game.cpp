@@ -381,3 +381,27 @@ void Game::scene1() {
     cls();
 }
 
+void Game::validateInput(std::string prompt, int& userInput, int expected) {
+   
+
+	while (userInput != expected) {
+        std::cout << "\033[F";
+        std::cout << prompt << " ";
+        std::cin >> userInput;
+    }
+
+    std::cout << std::endl;
+    std::cin.get();
+}
+
+void Game::validateInput(std::string prompt, int& userInput, int expected1, int expected2) {
+
+    while (userInput != expected1 && userInput != expected2) {
+        std::cout << "\033[F";
+        std::cout << prompt << " ";
+        std::cin >> userInput;
+    }
+
+    std::cout << std::endl;
+    std::cin.get();
+}
