@@ -35,8 +35,8 @@ bool Game::mainMenu()
         std::cout << "\n\t\t----------------------------" << std::endl;
         std::cout << "\t\t  1. Start Game" << std::endl;
         std::cout << "\t\t  2. Quit" << std::endl;
-        std::cout << "\n\t\t----------------------------" << std::endl;
-        std::cout << "\t  Enter: " << std::endl;
+        std::cout << "\t\t----------------------------" << std::endl;
+        std::cout << "\t\t  Enter: ";
         std::getline(std::cin, input);
         switch(verifyIntInput(input))
         {
