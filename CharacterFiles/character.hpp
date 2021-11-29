@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include "../helperFunction.hpp"
 
 class Character {
 protected:
