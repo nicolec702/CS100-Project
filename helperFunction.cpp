@@ -1,8 +1,6 @@
 #include "helperFunction.hpp"
-#ifdef __unix__
-#define int INT_MAX = 2147483647
-#endif
 
+const int INT_MAX = 2147483647
 
 int verifyIntInput(std::string input) // returns -1 if inproper input
 {
