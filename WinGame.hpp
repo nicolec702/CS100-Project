@@ -45,25 +45,23 @@ void newGame::playerSelection()
     Attribute model;
     std::string userInput;
     int userKeypress;
-    int selectedClass;
+    int selectedType;
     player = new PlayableCharacter();
 
-    cls();
-    dialogueType("[Insert Welcome Prompt Message] It's time to create your character!");
-    std::cout << '\n' << "[Press any Key To Continue...]";
-    
-    // Awaits for user input... Once done, updates the screen. //
-    getch();
-    Sleep(500);
-    cls();
-
     // PART 1: Name gathering prompt. //
+        cls();
+        dialogueType("From the deafening silence, you hear a voice.. as if it was calling out to you.");
+        std::cout << '\n' << "[Press any Key To Continue...]";
+        getch();
+        cls();
+
 
     while (player->getName().empty() == true)
     {
         userKeypress = 0;
         userInput = "";
-        dialogueType("Let us begin, please start by telling us your name...");
+
+        dialogueType("Welcome young warrior, remind me of your name again?");
         std::cout << '\n';
         while(userKeypress != 13)
         {
@@ -74,7 +72,7 @@ void newGame::playerSelection()
                 {
                     userInput.pop_back();
                     cls();
-                    std::cout << "Let us begin, please start by telling us your name..." << '\n';
+                    std::cout << "Welcome young warrior, remind me of your name again?" << '\n';
                     std::cout << userInput;
                 }
             }
@@ -133,54 +131,57 @@ void newGame::playerSelection()
 
     // PART 2: Class selection prompt //
     userKeypress = 0;
-    selectedClass = 0;
-    dialogueType("Okay " + player->getName() + ", it is time to choose your class..." + '\n'); 
+    selectedType = 0;
+    dialogueType("Ah your name is " + player->getName() + ". I've heard great things about you.\n" + "What kind of warrior are you?\n"); 
     std::cout << '\n' << "[Press any Key To Continue...]";
     getch();
+    
+    
     
     while(1)
     {
         cls();
-        if (selectedClass == 0)
+        if (selectedType == 0)
         {
              std::cout << "[ROGUE]             " << "WIZARD               " << "KNIGHT               " << "BOB"; 
              std::cout << '\n' << "=================================================================" << '\n';
              std::cout << "STATS:" << '\n' << "[==== ] HP: 13" << '\n' << "[==== ] DEF: 9" << '\n' << "[==== ] ATK: 13" << '\n' << "[==== ] STAMINA: 1.75" << '\n';             
-             std::cout << "BACKGROUND: ";
+             std::cout << "BACKGROUND: Coming from a life of poverty, this Rogue has gone through quite a troubled past to learn the fine skills of, amongst other things, lock-picking, stealth, and thievery.";
         }
-        else if (selectedClass == 1)
+        else if (selectedType == 1)
         {
              std::cout << "ROGUE              " << "[WIZARD]              " << "KNIGHT               " << "BOB"; 
              std::cout << '\n' << "=================================================================" << '\n';
              std::cout << "STATS:" << '\n' << "[===  ] HP: 12" << '\n' << "[===  ] DEF: 8" << '\n' << "[=====] ATK: 15" << '\n' << "[===  ] STAMINA: 1.5" << '\n';             
-             std::cout << "BACKGROUND: " << "";
+             std::cout << "BACKGROUND: Once an admired people, wizards were persecuted to the point of extinction due to the fear of their power. All high level wizards are now dead and all that remains are a mediocre batch.";
         }
-        else if (selectedClass == 2)
+        else if (selectedType == 2)
         {
              std::cout << "ROGUE               " << "WIZARD              " << "[KNIGHT]              " << "BOB"; 
              std::cout << '\n' << "=================================================================" << '\n';
              std::cout << "STATS:" << '\n' << "[=====] HP: 14" << '\n' << "[=====] DEF: 10" << '\n' << "[==   ] ATK: 12" << '\n' << "[===  ] STAMINA: 1.5" << '\n';             
-             std::cout << "BACKGROUND: Once an admired people, wizards were persecuted to the point of extinction due to the fear of their power. All high level wizards are now dead and all that remains are a mediocre batch.";
+             std::cout << "BACKGROUND: This knight has went through alot in the battlefield but after the loss of his family, vengance is the only thing on this knight's mind. The target? The government that he works for.";
         }
-        else if (selectedClass == 3)
+
+        else if (selectedType == 3)
         {
             std::cout << "ROGUE               " << "WIZARD               " << "KNIGHT             " << "[BOB]"; 
             std::cout << '\n' << "=================================================================" << '\n';
             std::cout << "STATS:" << '\n' << "[==   ] HP: 10" << '\n' << "[=    ] DEF: 5" << '\n' << "[=    ] ATK: 10" << '\n' << "[=====] STAMINA: 2" << '\n';
-            std::cout << "BACKGROUND: ";
+            std::cout << "BACKGROUND: A simpleton. Tax evasion is his secret hidden talent.";
         }
 
         userKeypress = getch();
         // KEYPRESS TEST //
         // std::cout << userKeypress;
 
-        if (userKeypress == 77 && selectedClass < 3)
+        if (userKeypress == 77 && selectedType < 3)
         {
-            ++selectedClass;
+            ++selectedType;
         }
-        else if (userKeypress == 75 && selectedClass > 0)
+        else if (userKeypress == 75 && selectedType > 0)
         {
-            --selectedClass;
+            --selectedType;
         }
 
         else if (userKeypress == 13)
@@ -195,25 +196,72 @@ void newGame::playerSelection()
             }
             if (userKeypress == 'a')
             {
-                switch(selectedClass)
-                {
-                    case 1: model.setBehavior(new Rogue());
-                    case 2: model.setBehavior(new Wizard());
-                    case 3: model.setBehavior(new Knight());
-                    case 4: model.setBehavior(new Bob());
-                }
+                player->setCharacterType(selectedType + 1);
                 break;
             }
         }
     }
 
 
+    selectedType = 0;
+    userKeypress = 0;
+    dialogueType("Now, which one of these weapons are yours..?");
+    while (1)
+    {
+        cls();
+        if (selectedType == 0)
+        {
+            std::cout << "Now, which one of these weapons are yours..? \n";
+            std::cout << "[STAFF]             " << "LONG SWORD               " << "DAGGER               " << "BROOM\n"; 
+        }
+        else if (selectedType == 1)
+        {
+            std::cout << "Now, which one of these weapons are yours..? \n";
+            std::cout << "STAFF              " << "[LONG SWORD]              " << "DAGGER               " << "BROOM\n"; 
 
+        }
+        else if (selectedType == 2)
+        {
+            std::cout << "Now, which one of these weapons are yours..? \n";
+            std::cout << "STAFF               " << "LONG SWORD              " << "[DAGGER]            " << "BROOM\n"; 
+        }
+        else if (selectedType == 3)
+        {
+            std::cout << "Now, which one of these weapons are yours..? \n";
+            std::cout << "STAFF               " << "LONG SWORD               " << "DAGGER             " << "[BROOM]\n"; 
+        }
+        
+        userKeypress = getch();
 
-
-
-
-
-
+        if (userKeypress == 77 && selectedType < 3)
+        {
+            ++selectedType;
+        }
+        else if (userKeypress == 75 && selectedType > 0)
+        {
+            --selectedType;
+        }
+        else if (userKeypress == 13)
+        {
+            std::cout << '\n';
+            std::cout.flush();
+            dialogueType("Are you sure you want to pick this weapon?");
+            std::cout << '\n' << "[a] Yes" << '\n' << "[b] No" << '\n';
+            while (userKeypress != 'a' && userKeypress != 'b')
+            {
+                userKeypress = getch();
+            }
+            if (userKeypress == 'a')
+            {
+                player->setWeaponType(selectedType + 1);
+                break;
+            }
+        }
+    }
+    cls();
+    dialogueType("Lets begin with your training...");
+    std::cout << '\n' << "[Press any Key To Continue...]";
+    getch();
+    cls();
 }
 #endif //WINGAME_HPP
