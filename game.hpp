@@ -43,9 +43,5 @@ public:
 
     //----------
     void cls(){ std::cout << "\033[2J\033[1;1H"; }
-    void validateInput(std::string prompt, int& userInput, int expected);
-    void validateInput(std::string prompt, int& userInput, int expected1, int expected2);
-
-
 };
 #endif

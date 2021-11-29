@@ -8,15 +8,22 @@
 
 class Character {
 protected:
-    std::string name;
+    std::string name, pName;
     std::vector<std::string> dialogue;
     int index = -1;
 
 public:
     Character() {}
+
     Character(std::string name) { this->name = name; }
     std::string getName() { return name; }
-    void setName(std::string n) { name = n; }
+    void setName(std::string n) { name = pName = n; }
+    std::string getPlayerName() { return pName;}
+    void setPlayerName(std::string playerName)
+    {
+        name = "Player";
+        pName = playerName;
+    }
 
     std::string getLineAt(int index) { return dialogue.at(index); }
     int lineCount() { return dialogue.size(); }

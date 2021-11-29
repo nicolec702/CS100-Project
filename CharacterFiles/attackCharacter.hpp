@@ -17,17 +17,16 @@ class AttackCharacter: public Character {
         Weapons weapon;
         double hp, defense, attack, mana, damageGiven;
         double manaSpecialAttack = 3, manaSpecialMove=5;
+        std::string pName = "character";
     public:
         ~AttackCharacter(){}
         AttackCharacter(){}
         virtual void selectMove() {}
-	
         double getHp() const {return hp;}
         double getDefense() const {return defense;}
         double getAttack() const {return attack;}
         double getMana() const {return mana; }
         double getDamagaGiven() const {return damageGiven;}
-
 
         void setCharacterType(int characterClass)
         {
@@ -72,10 +71,10 @@ class AttackCharacter: public Character {
                 else damage=damage-(defense/2);    
                 hp-=damage;
                 if(hp <= 0){
-                    std::cout<<getName()<< " HAS BEEN DEFEATED"<<std::endl<<std::endl;
+                    std::cout<<getPlayerName()<< " HAS BEEN DEFEATED"<<std::endl<<std::endl;
                     defeated = true; hp = 0;
                 }
-                else std::cout<< getName()<<"'s hp is now "<< hp << std::endl;
+                else std::cout<< getPlayerName()<<"'s hp is now "<< hp << std::endl;
             }
             return defeated;
             
@@ -87,7 +86,7 @@ class AttackCharacter: public Character {
             damageGiven = 0;
             if(defense != model.getDefenseStat() * 2) {
                 defense = defense + (model.getDefenseStat() / 4);
-                std::cout<< "\n" << getName()<<" decides to defend!\nDefense has increased!"<<std::endl;
+                std::cout<< "\n" << getPlayerName()<<" decides to defend!\nDefense has increased!"<<std::endl;
                 return true;
             }
             else {
@@ -98,7 +97,7 @@ class AttackCharacter: public Character {
 
         void normalAttack() { 
             damageGiven = weapon.attack(attack/10); 
-            std::cout<<"\n"<<getName() << " decides to attack!"<<std::endl;
+            std::cout<<"\n"<<getPlayerName() << " decides to attack!"<<std::endl;
         }
 
         bool specialAttack()
@@ -106,11 +105,11 @@ class AttackCharacter: public Character {
             if(mana >= manaSpecialAttack){
                 mana -= manaSpecialAttack;
                 damageGiven = weapon.specialAttack(attack/10);
-                std::cout<<"\n"<<getName()<< " uses SPECIAL ATTACK!"<<std::endl;
+                std::cout<<"\n"<<getPlayerName()<< " uses SPECIAL ATTACK!"<<std::endl;
                 return true;
             }
             else{
-                std::cout<<"\n"<<getName()<< "'s special attack failed. Try different move."<<std::endl;
+                std::cout<<"\n"<<getPlayerName()<< "'s special attack failed. Try different move."<<std::endl;
                 return false;
             }
         }
@@ -120,18 +119,18 @@ class AttackCharacter: public Character {
             if(mana > manaSpecialMove){
                 mana -= manaSpecialAttack;
                 damageGiven = weapon.specialMove(attack/10); 
-                std::cout<<"\n"<<getName()<< " uses SPECIAL MOVE!"<<std::endl;
+                std::cout<<"\n"<<getPlayerName()<< " uses SPECIAL MOVE!"<<std::endl;
                 return true;
             }
             else{
-                std::cout<<"\n"<<getName()<<"'s special move failed. Try different move."<<std::endl;
+                std::cout<<"\n"<<getPlayerName()<<"'s special move failed. Try different move."<<std::endl;
                 return false;
             }
         }
     /////////////
         void printVitals()
         {
-            std::cout<<"\nName: "<<getName()<<std::endl;
+            std::cout<<"\nName: "<<getPlayerName()<<std::endl;
             std::cout<<"Attack: "<<model.getAttackStat()<<std::endl;
             std::cout<<"Defense: "<<model.getDefenseStat()<<std::endl;
             std::cout<<"Mana: "<<model.getManaStat()<<std::endl;
@@ -140,7 +139,7 @@ class AttackCharacter: public Character {
         
 	    void currentStats()
         {
-            std::cout<<"\nName: "<<getName()<<std::endl;
+            std::cout<<"\nName: "<<getPlayerName()<<std::endl;
             std::cout<<"Attack: "<<attack<<std::endl;
             std::cout<<"Defense: "<<defense<<std::endl;
             std::cout<<"Mana: "<<mana<<std::endl;

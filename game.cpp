@@ -16,8 +16,8 @@ void Game::playerSelection()
 			std::cout<<"\tThat is an invalid name, try again.\n";
 	}
 	cls();
-	player->setName(playerName);
-	std::cout<<"Ah your name is "<< player->getName() << ". I've heard great things about you.\n";
+	player->setPlayerName(playerName);
+	std::cout<<"Ah your name is "<< player->getPlayerName() << ". I've heard great things about you.\n";
 	while(verifyIntInput(intInput) == -1 || validated == false)
 	{
 		std::cout<<"What kind of warrior are you?\n";
@@ -72,13 +72,13 @@ void Game::playerSelection()
 		}
 	}
 	cls();
-	std::cout<<"Lets begin with your training "<< player->getName()<<std::endl;
+	std::cout<<"Lets begin with your training "<< player->getPlayerName()<<std::endl;
 }
 
 void Game::BatlleScene(NPAttackCharacter* npc){
 
 	std::cout << std::setw(80) << std::setfill('-') << "" << std::endl;
-        std::cout<<player->getName()<< "'S BASE STATS: \n";
+        std::cout<<player->getPlayerName()<< "'S BASE STATS: \n";
         player->printVitals();
 
         std::cout << std::setw(80) << std::setfill('-') << "" << std::endl;
@@ -90,7 +90,7 @@ void Game::BatlleScene(NPAttackCharacter* npc){
         while(defeated == false)
         {
                 std::cout << std::setw(60) << std::setfill('-') << "" << std::endl;
-                std::cout<<player->getName()<<"'S TURN\n";
+                std::cout<<player->getPlayerName()<<"'S TURN\n";
                 player->selectMove();
                 defeated = npc->takeDamage(player->getDamagaGiven());
                 if(defeated == false) {
@@ -278,20 +278,22 @@ void Game::scene1() {
             std::cout << narrator->nextLine();
             std::cin.get();
         }
-        std::cout << "\n\t\t" + player->getName() + ": " << player->nextLine();
+        //////////Error///////////
+        std::cout << "\n\t\t" + player->getPlayerName() + ": " << player->nextLine();
         std::cin.get();
         std::cout << "\t\t\t" << player->nextLine() << std::endl;
         std::cin.get();
         std::cout << narrator->nextLine() << std::endl;
         std::cin.get();
     case 2: 
+        //////////ERROR/////////////
         if (choice.at(2) == 2) {
             for(int i = 0; i < 3; i++)
                 narrator->nextLine(); 
             for(int i = 0; i < 2; i++)
                 player->nextLine(); 
         }
-        std::cout << "\t\t" + player->getName() + ": " << player->nextLine() << std::endl;
+        std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
         std::cin.get();
         std::cout << narrator->nextLine();
         std::cin.get();
@@ -312,7 +314,7 @@ void Game::scene1() {
             std::cout << narrator->nextLine();
             std::cin.get();
         }
-        std::cout << "\n\t\t" + player->getName() + ": " << player->nextLine() << std::endl;
+        std::cout << "\n\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
         std::cin.get();
         break;
     case 2:
@@ -325,7 +327,7 @@ void Game::scene1() {
             std::cin.get();
         }
 
-        std::cout << "\n\t\t" + player->getName() + ": " << player->nextLine() << std::endl;
+        std::cout << "\n\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
         std::cout << "\t\t\t" << player->nextLine() << std::endl;
         std::cout << "\t\t\t" << player->nextLine() << std::endl;
         std::cin.get();
@@ -361,17 +363,17 @@ void Game::scene1() {
     std::cout << "\n\t\t" + mentor->getName() + ": " << mentor->nextLine() << std::endl;
     std::cout << "\t\t\t" << mentor->nextLine() << std::endl; 
     std::cin.get();
-    std::cout << "\t\t" + player->getName() + ": " << player->nextLine() << std::endl;
+    std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
     std::cin.get();
     std::cout << "\t\t" + mentor->getName() + ": " << mentor->nextLine() << std::endl;
     std::cin.get();
-    std::cout << "\t\t" + player->getName() + ": " << player->nextLine() << std::endl;
+    std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
     std::cout << "\t\t\t" << player->nextLine() << std::endl;
     std::cin.get();
     std::cout << "\t\t" + mentor->getName() + ": " << mentor->nextLine() << std::endl;
     std::cout << "\t\t\t" << mentor->nextLine() << std::endl;
     std::cin.get();
-    std::cout << "\t\t" + player->getName() + ": " << player->nextLine() << std::endl;
+    std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
     std::cin.get();
     std::cout << "\t\t" + mentor->getName() + ": " << mentor->nextLine() << std::endl;
     std::cin.get();
@@ -379,29 +381,4 @@ void Game::scene1() {
     std::cout << narrator->nextLine();
 
     cls();
-}
-
-void Game::validateInput(std::string prompt, int& userInput, int expected) {
-   
-
-	while (userInput != expected) {
-        std::cout << "\033[F";
-        std::cout << prompt << " ";
-        std::cin >> userInput;
-    }
-
-    std::cout << std::endl;
-    std::cin.get();
-}
-
-void Game::validateInput(std::string prompt, int& userInput, int expected1, int expected2) {
-
-    while (userInput != expected1 && userInput != expected2) {
-        std::cout << "\033[F";
-        std::cout << prompt << " ";
-        std::cin >> userInput;
-    }
-
-    std::cout << std::endl;
-    std::cin.get();
 }

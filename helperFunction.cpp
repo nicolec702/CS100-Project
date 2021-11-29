@@ -31,7 +31,7 @@ bool verifyStringInput(std::string input)
 	return isValid;
 }
 
-/*
+
 void validateInput(std::string prompt, int& userInput, int expected) {
    
 
@@ -56,4 +56,3 @@ void validateInput(std::string prompt, int& userInput, int expected1, int expect
     std::cout << std::endl;
     std::cin.get();
 }
-*/

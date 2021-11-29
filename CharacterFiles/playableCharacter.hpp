@@ -11,10 +11,10 @@ private:
 public:
     PlayableCharacter() {}
     PlayableCharacter(int characterClass, std::string playerName, int weaponClass){
-        setName(playerName);
+        setPlayerName(playerName);
         setCharacterType(characterClass);
         setWeaponType(weaponClass);
-    }        
+    }
     virtual void selectMove()
     {
         bool valid = false;
