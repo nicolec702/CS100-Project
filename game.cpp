@@ -78,29 +78,30 @@ void Game::playerSelection()
 void Game::BatlleScene(NPAttackCharacter* npc){
 
 	std::cout << std::setw(80) << std::setfill('-') << "" << std::endl;
-        std::cout<<player->getPlayerName()<< "'S BASE STATS: \n";
-        player->printVitals();
+    std::cout<<player->getPlayerName()<< "'S BASE STATS: \n";
+    player->printVitals();
 
-        std::cout << std::setw(80) << std::setfill('-') << "" << std::endl;
-        std::cout<<npc->getName()<< "'S BASE STATS: \n";
-        npc->printVitals();
+    std::cout << std::setw(80) << std::setfill('-') << "" << std::endl;
+    std::cout<<npc->getName()<< "'S BASE STATS: \n";
+    npc->printVitals();
 
-        printf("\nBATTLE BEGINS\n");
-        bool defeated = false;
-        while(defeated == false)
-        {
-                std::cout << std::setw(60) << std::setfill('-') << "" << std::endl;
-                std::cout<<player->getPlayerName()<<"'S TURN\n";
-                player->selectMove();
-                defeated = npc->takeDamage(player->getDamagaGiven());
-                if(defeated == false) {
-                        std::cout << std::setw(60) << std::setfill('-') << "" << std::endl;
-                        std::cout<<npc->getName()<<"'S TURN\n";
-                        npc->selectMove();
-                        defeated = player->takeDamage(npc->getDamagaGiven());
-				}
-				else player->victory();
-        }
+    printf("\nBATTLE BEGINS\n");
+    bool defeated = false;
+    while(defeated == false)
+    {
+            std::cout << std::setw(60) << std::setfill('-') << "" << std::endl;
+            std::cout<<player->getPlayerName()<<"'S TURN\n";
+            player->selectMove();
+            defeated = npc->takeDamage(player->getDamagaGiven());
+            if(defeated == false) {
+                    std::cout << std::setw(60) << std::setfill('-') << "" << std::endl;
+                    std::cout<<npc->getName()<<"'S TURN\n";
+                    npc->selectMove();
+                    defeated = player->takeDamage(npc->getDamagaGiven());
+			}
+			else player->victory();
+    }
+    player->resetValues();
 }
 //////////////////////
 //////////////////////

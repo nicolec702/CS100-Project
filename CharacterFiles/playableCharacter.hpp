@@ -7,7 +7,7 @@
 
 class PlayableCharacter: public AttackCharacter {
 private:
-    int exp = 0, level = 1, expNeeded = 10;
+    int exp = 0, level = 1, expNeeded = 5;
 public:
     PlayableCharacter() {}
     PlayableCharacter(int characterClass, std::string playerName, int weaponClass){
@@ -49,12 +49,18 @@ public:
     void victory()
     {
         exp += 5;
+        std::cout<<getPlayerName()<<" had gained 5 exp points!"<<std::endl;
+        std::cout<<"Current Level: "<< level<<std::endl;
+        std::cout<<"Current EXP: "<< exp <<std::endl;
+        std::cout<<"EXP To Next Level: "<< expNeeded-exp <<std::endl;
         if(exp > expNeeded)
         {
             level++;
             model.updatedLevel(level);
             exp-=expNeeded;
             expNeeded+=5;
+            std::cout<<getPlayerName()<<" you are now level "<< level << "!!"<<std::endl;
+            printVitals();
         }
     }
 

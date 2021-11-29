@@ -57,11 +57,11 @@ class AttackCharacter: public Character {
         void resetValues()
         {
             defense = model.getDefenseStat();
-            hp = model.getHpStat();
             attack = model.getAttackStat();
             mana = model.getManaStat();
             damageGiven = 0;
         }
+        void fullHealth() { hp = model.getHpStat();}
 
         bool takeDamage(double damage)
         {
