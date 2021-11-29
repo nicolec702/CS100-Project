@@ -4,8 +4,4 @@ SET(CMAKE_CXX_STANDARD 11)
 
 ADD_EXECUTABLE(main 
         main.cpp
-        game.cpp 
-        WeaponsFiles/weapons.cpp 
-        CharacterFiles/attribute.cpp
-        helperFunction.cpp
         )
