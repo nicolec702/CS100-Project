@@ -8,7 +8,7 @@ int main(int argc, char* argv[]){
        {
               newGame->playerSelection();
               //newGame->tutorial();
-              newGame->scene1();
+              //newGame->scene1();
 	      newGame->scene2();
        }
 }

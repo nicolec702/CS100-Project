@@ -53,6 +53,7 @@ public:
     void clearDialogueLines(){
 	 for(int i = 0; i < dialogue.size(); i++)
 	    dialogue.clear();
+	 index = -1;
 	 //std::cout << dialogue.size();
     }
 };

@@ -225,6 +225,9 @@ void Game::tutorial() {
     std::cin.get();
 
     cls();    //clear screen for next scene
+
+    delete narrator;
+    delete mentor;
 }
 
 void Game::scene1() {
@@ -431,11 +434,229 @@ void Game::scene1() {
     std::cout << narrator->nextLine();
 
     cls();
+
+    delete narrator;
+    delete mentor;
+    delete girl;
+    delete option1;
+    delete option2;
 }
 
-void Game::scene2(){
-    
-    
+void Game::scene2(){ 
+    player->clearDialogueLines();
+
+    Character* narrator = new Character("Narrator");
+    Character* farmer = new Character("Farmer");
+    Character* option1 = new Character("Option 1");
+    Character* option2 = new Character("Option 2");
+
+    std::vector<int> choice;
+    int input;
+    std::string choicePrompt = "\t\tWhat will you choose?: ";
+
+    std::ifstream file;
+    file.open("scene2.txt");
+    if(file.fail())
+       std::cout << "Scene 2 file failed to open";
+
+    narrator->populateDialogue(file);
+    option2->populateDialogue(file);
+
+   for(int i = 0; i < 2; i++)
+      std::cout << narrator->nextLine() << std::endl;
+
+   std::cin.get();
+   //std::endl;
+
+   std::cout << "\t\t1. " << option2->nextLine() << std::endl;
+   std::cout << "\n" << choicePrompt << " ";
+   std::cin >> input;
+   validateInput(choicePrompt, input, 1, 2);
+   choice.push_back(input);
+
+   switch(choice.at(0)){
+   case 1:
+	 for(int i = 0; i < 2; i++){
+	    std::cout << narrator->nextLine() << std::endl;
+	 }
+	 for(int i = 0; i < 2; i++){
+	     std::cin.get();
+	     std::cout << narrator->nextLine();
+	 }
+	 std::cin.get();
+
+   	std::cout << "\n\t\t1. " << option2->nextLine() << std::endl;
+   	std::cout << "\t\t2. " << option2->nextLine() << std::endl;
+   	std::cout << "\n" << choicePrompt << " ";
+   	std::cin >> input;
+   	validateInput(choicePrompt, input, 1, 2);
+   	choice.push_back(input);
+     	break;
+   }
+
+   file.close();
+
+   switch(choice.at(1)){
+   case 1:
+	   file.open("farmerJob.txt");
+	   if(file.fail())
+		   std::cout << "Farmer Job file failed to open";
+
+	   narrator->clearDialogueLines();
+	   option1->clearDialogueLines();
+	   option2->clearDialogueLines();
+	   
+
+	   narrator->populateDialogue(file);
+	   player->populateDialogue(file);
+	   farmer->populateDialogue(file);
+	   option1->populateDialogue(file);
+	   option2->populateDialogue(file);
+
+	   for(int i = 0; i < 2; i++){
+	   	std::cout << narrator->nextLine();
+	   	std::cin.get();
+	   }
+
+	   std::cout << "\n\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
+	   std::cin.get();
+
+	   std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
+	   std::cin.get();
+
+	   std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
+	   std::cout << "\t\t\t"  << farmer ->nextLine() << std::endl;
+  	   std::cin.get();
+	 
+	   std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
+	   std::cin.get();
+
+	   std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
+	   std::cout << "\t\t\t" << farmer->nextLine() << std::endl;
+	   std::cin.get();
+
+	   std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
+	   std::cin.get();
+
+	   std::cout << narrator->nextLine();
+	   std::cin.get();
+	   
+	   std::cout << narrator->nextLine() << std::endl;
+	   std::cin.get();
+	   std::cout << narrator->nextLine() << std::endl;
+
+	   std::cout << "\n----------------BATTLE SEQUENCE ---------------\n" << std::endl;
+
+	   std::cout << narrator->nextLine() << std::endl;
+	   std::cin.get();
+	   
+	   std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
+	   std::cin.get();
+
+	   std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
+	   std::cin.get();
+
+	    std::cout << narrator->nextLine() << std::endl;
+	    std::cin.get();
+
+	   //std::cout << std::endl;
+	   std::cout << "\t\t1. " << option1->nextLine() << std::endl;
+	   std::cout << "\t\t2. " << option2->nextLine() << std::endl;
+	   std::cout << "\n" << choicePrompt << " ";
+	   std::cin >> input;
+	   validateInput(choicePrompt, input, 1, 2);
+           choice.push_back(input);
+		
+	   switch(choice.at(2)){
+           case 1:
+		std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine();
+		std::cin.get();
+		std::cout << "\t\t\t...";
+		std::cin.get();
+
+		player->nextLine(); player->nextLine(); narrator->nextLine(); farmer->nextLine();
+		break;
+	   case 2:
+		player->nextLine();
+		std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
+		std::cout << "\t\t\t" << player->nextLine() << std::endl;
+		std::cin.get();
+		std::cout << narrator->nextLine() << std::endl;
+		std::cin.get();
+		std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
+		std::cin.get();		
+		break;
+	   }
+
+	   std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
+	   std::cin.get();
+	   std::cout << narrator->nextLine() << std::endl;
+	   std::cin.get();
+	   std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
+	   for(int i = 0; i < 3; i++)
+	   	std::cout << "\t\t\t" << farmer->nextLine() << std::endl;
+	   std::cin.get();
+
+	   std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
+	   std::cin.get();
+
+	   break;
+	
+   case 2:
+	   file.open("bountyJob.txt");
+	   if(file.fail())
+		   std::cout << "Bounty Job File Failed to Open";
+
+	   narrator->clearDialogueLines();
+	   narrator->populateDialogue(file);
+
+	   Character* demon = new Character("Demon");
+	   demon->populateDialogue(file);
+
+	   for(int i = 0; i < 2; i++){
+		std::cout << narrator->nextLine();
+		std::cin.get();
+	   }
+	   std::cout << std::endl;
+
+	   std::cout << narrator->nextLine() << std::endl;
+	   std::cout << narrator->nextLine() << std::endl;
+	   std::cin.get();
+	   
+	   std::cout << narrator->nextLine();
+	   std::cin.get();
+	   std::cout << narrator->nextLine() << std::endl;
+	   std::cin.get();
+
+	   std::cout << narrator->nextLine();
+	   std::cout << narrator->nextLine() << std::endl;
+	   std::cin.get();
+
+	   std::cout << "\n----------------BATTLE SCENE----------------------\n\n";
+	
+	   for(int i = 0; i < 2; i++){
+	   	std::cout << narrator->nextLine();
+	   	std::cout << narrator->nextLine() << std::endl;
+	   	std::cin.get();
+	   }
+
+	   std::cout << narrator->nextLine();
+	   std::cin.get();
+	   std::cout << narrator->nextLine() << std::endl;
+	   std::cin.get();
+
+	   std::cout << "\t\t" + demon->getName() + ": " << demon->nextLine() << std::endl;
+	   std::cin.get();
+
+	   std::cout << narrator->nextLine() << std::endl;
+	   std::cout << narrator->nextLine();
+	   std::cin.get();
+
+   	   break;
+   }
+
+   cls();
+
 }
 
 
