@@ -1,6 +1,5 @@
 #ifndef WINGAME_HPP
 #define WINGAME_HPP
-#include "CharacterSelection.hpp"
 #include "Game.hpp"
 
 #include <iostream>
@@ -8,24 +7,18 @@
 #include <conio.h>
 #include <string.h>
 
-class WinGame : public Game
+class newGame : public Game
 {
-    private:
-        int gameState;
-        Character* user;
-    
     public:
-        void screenUpdate();
         void dialogueType(std::string x);
-        void CharacterScreen();
+        void playerSelection();
+        void cls()
+        {
+             system("cls");
+        }
 };
 
-void WinGame::screenUpdate()
-{
-    system("cls");
-}
-
-void WinGame::dialogueType(std::string x)
+void newGame::dialogueType(std::string x)
 {
     int i = 0;
     for (i; i < x.size(); i++)
@@ -47,26 +40,26 @@ void WinGame::dialogueType(std::string x)
 }
 
 
-void WinGame::CharacterScreen()
+void newGame::playerSelection()
 {
-
+    Attribute model;
     std::string userInput;
     int userKeypress;
     int selectedClass;
-    user = new Character();
+    player = new PlayableCharacter();
 
-    screenUpdate();
+    cls();
     dialogueType("[Insert Welcome Prompt Message] It's time to create your character!");
     std::cout << '\n' << "[Press any Key To Continue...]";
     
     // Awaits for user input... Once done, updates the screen. //
     getch();
     Sleep(500);
-    screenUpdate();
+    cls();
 
     // PART 1: Name gathering prompt. //
 
-    while (user->getName().empty() == true)
+    while (player->getName().empty() == true)
     {
         userKeypress = 0;
         userInput = "";
@@ -80,7 +73,7 @@ void WinGame::CharacterScreen()
                 if (userInput.empty() == false)
                 {
                     userInput.pop_back();
-                    screenUpdate();
+                    cls();
                     std::cout << "Let us begin, please start by telling us your name..." << '\n';
                     std::cout << userInput;
                 }
@@ -103,7 +96,7 @@ void WinGame::CharacterScreen()
             userInput.erase(0, 1);
         }
 
-        screenUpdate();
+        cls();
         
         if (userInput.size() != 0)
         {
@@ -113,7 +106,7 @@ void WinGame::CharacterScreen()
                 userKeypress = getch();
                 if (userKeypress == 'a')
                 {
-                    user->setName(userInput);
+                    player->setName(userInput);
                     // TEST TO VERIFY NAME HAS BEEN SET //
                     //std::cout << "Name has been successfully set to " << user->getName() << "!" << '\n';
                     //Sleep(5000);
@@ -121,7 +114,7 @@ void WinGame::CharacterScreen()
                 }
                 else if (userKeypress == 'b')
                 {
-                    screenUpdate();
+                    cls();
                     dialogueType("Okay, let's try this again then...");
                     std::cout << '\n' << "[Press any Key To Continue...]";
                     getch();
@@ -135,45 +128,45 @@ void WinGame::CharacterScreen()
             std::cout << '\n' << "[Press any Key To Continue...]";
             getch();
         }
-        screenUpdate();
+        cls();
     }
 
     // PART 2: Class selection prompt //
     userKeypress = 0;
     selectedClass = 0;
-    dialogueType("Okay " + user->getName() + ", it is time to choose your class..." + '\n'); 
+    dialogueType("Okay " + player->getName() + ", it is time to choose your class..." + '\n'); 
     std::cout << '\n' << "[Press any Key To Continue...]";
     getch();
     
     while(1)
     {
-        screenUpdate();
+        cls();
         if (selectedClass == 0)
         {
              std::cout << "[ROGUE]             " << "WIZARD               " << "KNIGHT               " << "BOB"; 
              std::cout << '\n' << "=================================================================" << '\n';
-             std::cout << "STATS:" << '\n' << "[===       ] HP: 10" << '\n' << "[=         ] DEF: 8" << '\n';
+             std::cout << "STATS:" << '\n' << "[==== ] HP: 13" << '\n' << "[==== ] DEF: 9" << '\n' << "[==== ] ATK: 13" << '\n' << "[==== ] STAMINA: 1.75" << '\n';             
              std::cout << "BACKGROUND: ";
         }
         else if (selectedClass == 1)
         {
              std::cout << "ROGUE              " << "[WIZARD]              " << "KNIGHT               " << "BOB"; 
              std::cout << '\n' << "=================================================================" << '\n';
-             std::cout << "STATS:" << '\n' << "[=         ] HP: 8" << '\n' << "[===       ] DEF: 10" << '\n';
+             std::cout << "STATS:" << '\n' << "[===  ] HP: 12" << '\n' << "[===  ] DEF: 8" << '\n' << "[=====] ATK: 15" << '\n' << "[===  ] STAMINA: 1.5" << '\n';             
              std::cout << "BACKGROUND: " << "";
         }
         else if (selectedClass == 2)
         {
              std::cout << "ROGUE               " << "WIZARD              " << "[KNIGHT]              " << "BOB"; 
              std::cout << '\n' << "=================================================================" << '\n';
-             std::cout << "STATS:" << '\n' << "[==========] HP: 12" << '\n' << "[==========] DEF: 100" << '\n';
+             std::cout << "STATS:" << '\n' << "[=====] HP: 14" << '\n' << "[=====] DEF: 10" << '\n' << "[==   ] ATK: 12" << '\n' << "[===  ] STAMINA: 1.5" << '\n';             
              std::cout << "BACKGROUND: Once an admired people, wizards were persecuted to the point of extinction due to the fear of their power. All high level wizards are now dead and all that remains are a mediocre batch.";
         }
         else if (selectedClass == 3)
         {
             std::cout << "ROGUE               " << "WIZARD               " << "KNIGHT             " << "[BOB]"; 
             std::cout << '\n' << "=================================================================" << '\n';
-            std::cout << "STATS:" << '\n' << "[          ] HP: -10" << '\n' << "[          ] DEF: You'll be taking damage per turn." << '\n';
+            std::cout << "STATS:" << '\n' << "[==   ] HP: 10" << '\n' << "[=    ] DEF: 5" << '\n' << "[=    ] ATK: 10" << '\n' << "[=====] STAMINA: 2" << '\n';
             std::cout << "BACKGROUND: ";
         }
 
@@ -202,9 +195,25 @@ void WinGame::CharacterScreen()
             }
             if (userKeypress == 'a')
             {
+                switch(selectedClass)
+                {
+                    case 1: model.setBehavior(new Rogue());
+                    case 2: model.setBehavior(new Wizard());
+                    case 3: model.setBehavior(new Knight());
+                    case 4: model.setBehavior(new Bob());
+                }
                 break;
             }
         }
     }
+
+
+
+
+
+
+
+
+
 }
 #endif //WINGAME_HPP
