@@ -103,7 +103,7 @@ void Game::playerSelection()
                 {
                 	std::cout<<"What weapon do you use?\n";
                     std::cout<<"\t[1] Staff\n\t[2] Longsword\n\t[3] Dagger\n\t[4] Broom\n";
-                    std::cout<<"\tEneter choice: ";
+                    std::cout<<"\tEnter choice: ";
                     std::getline(std::cin, intInput);
                     if(verifyIntInput(intInput)<1 || verifyIntInput(intInput)>4)
 		            {
@@ -155,6 +155,27 @@ void Game::BatlleScene(NPAttackCharacter* npc){
 //////////////////////
 //////////////////////
 /////////////////////
+
+void Game::displayArt(std::string fileName){
+	std::ifstream file;
+	file.open(fileName);
+	if(file.fail())
+		std::cout << "Failed to open ASCII file";
+	
+		
+	std::cout << std::endl;
+	std::string temp;
+	while(!file.eof()){
+		getline(file, temp);
+		std::cout << "\t\t\t"  << temp << std::endl;
+	}
+
+	std::cout << std::endl;
+
+	file.clear();
+	file.seekg(0, std::ios::beg);
+}
+
 
 void Game::tutorial() {
     Character* narrator = new Character("Narrator");
@@ -284,6 +305,7 @@ void Game::scene1() {
             narrator->nextLine();
             narrator->nextLine();
         }
+	displayArt("littlegirl.txt");
         std::cout <<"\t\t" + girl->getName() + ": " << girl->nextLine();
         std::cin.get();
         break;
@@ -299,6 +321,7 @@ void Game::scene1() {
 
     switch (choice.at(1)) {
     case 1:
+	displayArt("littlegirl.txt");    
         std::cout << "\t\t" + girl->getName() + ": " << girl->nextLine();
         std::cin.get();
         girl->nextLine();
@@ -306,7 +329,8 @@ void Game::scene1() {
 
     case 2:
         girl->nextLine();
-        std::cout << "\t\t" + girl->getName() + ": " << girl->nextLine();
+        displayArt("littlegirl.txt");
+	std::cout << "\t\t" + girl->getName() + ": " << girl->nextLine();
         std::cin.get();
         break;
     }
@@ -399,6 +423,7 @@ void Game::scene1() {
             player->nextLine();
     }
 
+    displayArt("littleGirlDemon.txt");
     for (int i = 0; i < 3; i++) {
         std::cout << narrator->nextLine();
         std::cin.get();
@@ -412,22 +437,29 @@ void Game::scene1() {
         std::cout << narrator->nextLine();
         std::cin.get();
     }
-
+    
+    displayArt("mentor.txt");
     std::cout << "\n\t\t" + mentor->getName() + ": " << mentor->nextLine() << std::endl;
     std::cout << "\t\t\t" << mentor->nextLine() << std::endl; 
     std::cin.get();
     std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
     std::cin.get();
+
+    displayArt("mentor.txt");
     std::cout << "\t\t" + mentor->getName() + ": " << mentor->nextLine() << std::endl;
     std::cin.get();
     std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
     std::cout << "\t\t\t" << player->nextLine() << std::endl;
     std::cin.get();
+
+    displayArt("mentor.txt");
     std::cout << "\t\t" + mentor->getName() + ": " << mentor->nextLine() << std::endl;
     std::cout << "\t\t\t" << mentor->nextLine() << std::endl;
     std::cin.get();
     std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
     std::cin.get();
+
+    displayArt("mentor.txt");
     std::cout << "\t\t" + mentor->getName() + ": " << mentor->nextLine() << std::endl;
     std::cin.get();
 
@@ -517,13 +549,15 @@ void Game::scene2(){
 	   	std::cout << narrator->nextLine();
 	   	std::cin.get();
 	   }
-
+	
+	   displayArt("farmer.txt");
 	   std::cout << "\n\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
 	   std::cin.get();
 
 	   std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
 	   std::cin.get();
 
+	   displayArt("farmer.txt");
 	   std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
 	   std::cout << "\t\t\t"  << farmer ->nextLine() << std::endl;
   	   std::cin.get();
@@ -531,6 +565,7 @@ void Game::scene2(){
 	   std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
 	   std::cin.get();
 
+	   displayArt("farmer.txt");
 	   std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
 	   std::cout << "\t\t\t" << farmer->nextLine() << std::endl;
 	   std::cin.get();
@@ -553,6 +588,7 @@ void Game::scene2(){
 	   std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
 	   std::cin.get();
 
+	   displayArt("farmer.txt");
 	   std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
 	   std::cin.get();
 
@@ -583,6 +619,7 @@ void Game::scene2(){
 		std::cin.get();
 		std::cout << narrator->nextLine() << std::endl;
 		std::cin.get();
+		displayArt("farmer.txt");
 		std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
 		std::cin.get();		
 		break;
@@ -592,6 +629,7 @@ void Game::scene2(){
 	   std::cin.get();
 	   std::cout << narrator->nextLine() << std::endl;
 	   std::cin.get();
+	   displayArt("farmer.txt");
 	   std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
 	   for(int i = 0; i < 3; i++)
 	   	std::cout << "\t\t\t" << farmer->nextLine() << std::endl;
@@ -656,6 +694,11 @@ void Game::scene2(){
    }
 
    cls();
+
+   delete narrator;
+   delete farmer;
+   delete option1;
+   delete option2;
 
 }
 

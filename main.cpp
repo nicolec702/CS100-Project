@@ -11,4 +11,6 @@ int main(int argc, char* argv[]){
               //newGame->scene1();
 	      newGame->scene2();
        }
+
+       delete newGame;
 }

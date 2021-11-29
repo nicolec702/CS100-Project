@@ -35,7 +35,7 @@ private:
     PlayableCharacter *player;
 public:
     Game(){}
-
+    ~Game(){ delete player; }
     void playerSelection();
     void BatlleScene(NPAttackCharacter* npc);
     void tutorial();
@@ -43,7 +43,12 @@ public:
     void scene2();
     bool mainMenu();
     void menuArt();
+    //-----------
+    void displayArt(std::string fileName);
     //----------
+ 	
     void cls(){ std::cout << "\033[2J\033[1;1H"; }
+
+
 };
 #endif
