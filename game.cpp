@@ -1,5 +1,51 @@
 #include "game.hpp"
 
+void Game::menuArt()
+{
+    std::cout<<"            _.------.                        .----.__            \n";
+    std::cout<<"            /         \\_.       ._           /---.__  \\          \n";
+    std::cout<<"           |  O    O   |\\___  //|          /       `\\ |         \n";
+    std::cout<<"           |  .vvvvv.  | )   `(/ |         | o     o  \\|         \n";
+    std::cout<<"           /  |     |  |/      \\ |  /|   ./| .vvvvv.  |\\         \n";
+    std::cout<<"          /   `^^^^^'  / _   _  `|_ ||  / /| |     |  | \\        \n";
+    std::cout<<"        ./  /|         | O)  O   ) \\|| //' | `^vvvv'  |/\\\\       \n";
+    std::cout<<"       /   / |         \\        /  | | ~   \\          |  \\\\      \n";
+    std::cout<<"       \\  /  |        / \\ Y   /'   | \\     |          |   ~      \n";
+    std::cout<<"        `'   |  _     |  `._/' |   |  \\     7        /           \n";
+    std::cout<<"          _.-'-' `-'-'|  |`-._/   /    \\ _ /    .    |           \n";
+    std::cout<<"     __.-'            \\  \\   .   / \\_.  \\ -|_/\\/ `--.|_          \n";
+    std::cout<<"  --'                  \\  \\ |   /    |  |              `-        \n";
+    std::cout<<"                        \\uU \\UU/     |  /   :F_P:                \n";
+    std::cout<<"     ___   _______  ______    _______  ______   _______  ___      ___    \n";   
+    std::cout<<"|   | |   _   ||    _ |  |       ||      | |       ||   |    |   |       \n";
+    std::cout<<"|   | |  |_|  ||   | ||  |    ___||  _    ||    ___||   |    |   |       \n";
+    std::cout<<"|   | |       ||   |_||_ |   |___ | | |   ||   |___ |   |    |   |       \n";
+    std::cout<<"|   | |       ||    __  ||    ___|| |_|   ||    ___||   |___ |   |___    \n";
+    std::cout<<"|   | |   _   ||   |  | ||   |___ |       ||   |___ |       ||       |   \n";
+    std::cout<<"|___| |__| |__||___|  |_||_______||______| |_______||_______||_______|   ";
+}
+bool Game::mainMenu()
+{
+    while(1)
+    {
+        std::string input;
+        std::cout << "\n\t\t----------------------------" << std::endl;
+        std::cout << "\n\t\t      Main Menu   " << std::endl;
+        std::cout << "\n\t\t----------------------------" << std::endl;
+        std::cout << "\t\t  1. Start Game" << std::endl;
+        std::cout << "\t\t  2. Quit" << std::endl;
+        std::cout << "\n\t\t----------------------------" << std::endl;
+        std::cout << "\t  Enter: " << std::endl;
+        std::getline(std::cin, input);
+        switch(verifyIntInput(input))
+        {
+        case 1: return true;
+        case 2: return false;
+        default: cls(); std::cout<<"Invalid option Try again\n"; break;
+        }
+    }
+}
+
 void Game::playerSelection()
 {
     std::string playerName = "0", intInput = "-1";//characterType = "-1", weaponType = "-1";

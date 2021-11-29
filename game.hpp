@@ -40,7 +40,8 @@ public:
     void BatlleScene(NPAttackCharacter* npc);
     void tutorial();
     void scene1();
-
+    bool mainMenu();
+    void menuArt();
     //----------
     void cls(){ std::cout << "\033[2J\033[1;1H"; }
 };
