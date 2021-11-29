@@ -6,7 +6,7 @@
 class NPAttackCharacter: public AttackCharacter
 {
 public:
-    NPAttackCharacter(int characterClass, std::string npcName, int weaponClass, std::string weaponName, int level){
+    NPAttackCharacter(int characterClass, std::string npcName, int weaponClass, int level){
         setName(npcName);
         switch(characterClass){
         case 1: model.setBehavior(new Wizard()); break; // Wizard model
@@ -64,7 +64,7 @@ public:
         }
         mana += model.getManaStat()/3;
     }
-
+    
 };
 
 

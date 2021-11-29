@@ -28,21 +28,21 @@
 #include "CharacterFiles/character.hpp"
 #include "CharacterFiles/playableCharacter.hpp"
 #include "CharacterFiles/npAttackCharacter.hpp"
+#include <fstream>
 
 class Game{
 private:
     PlayableCharacter *player;
 public:
     Game(){}
+
     void playerSelection();
     void BatlleScene(NPAttackCharacter* npc);
+    void tutorial();
+    void scene1();
 
     //----------
     void cls(){ std::cout << "\033[2J\033[1;1H"; }
-    //bool verifyStringInput( std::string input);
-    //int verifyIntInput(std::string input);
-    //----------
-    //void typingEffect(std::string str);
 
 
 };

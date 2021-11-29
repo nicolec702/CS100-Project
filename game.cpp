@@ -106,63 +106,11 @@ void Game::BatlleScene(NPAttackCharacter* npc){
 //////////////////////
 /////////////////////
 
-#ifdef __unix__
-# include <unistd.h>
-#define sleep(x) usleep(1000 *(x))
-#elif defined _WIN32
-# include <windows.h>
-#define sleep(x) Sleep(1000 * (x))
-#endif
-
-#include <fstream>
-
-void validateInput(std::string prompt, int& userInput, int expected);
-void validateInput(std::string prompt, int& userInput, int expected1, int expected2);
-void tutorial();
-void scene1();
-
-
-
-int main() {
-    tutorial();
-    scene1();
-}
-
-void validateInput(std::string prompt, int& userInput, int expected) {
-   
-
-    while (userInput != expected) {
-        std::cout << "\033[F";
-        std::cout << prompt << " ";
-        std::cin >> userInput;
-    }
-
-    std::cout << std::endl;
-    std::cin.get();
-}
-
-void validateInput(std::string prompt, int& userInput, int expected1, int expected2) {
-
-    while (userInput != expected1 && userInput != expected2) {
-        std::cout << "\033[F";
-        std::cout << prompt << " ";
-        std::cin >> userInput;
-    }
-
-    std::cout << std::endl;
-    std::cin.get();
-}
-
-void tutorial() {
+void Game::tutorial() {
     Character* narrator = new Character("Narrator");
     Character* mentor = new Character("Mentor");
-
-    //std::cout << narrator->getName() << std::endl;
-    //std::cout << mentor ->getName() << std::endl;
-
     std::ifstream file;
     file.open("tutorial.txt");
-
     if (file.fail()) {
         std::cout << "Tutorial file failed to open.\n";
         exit(1);
@@ -226,14 +174,13 @@ void tutorial() {
     std::cout << narrator->nextLine() << std::endl;
     std::cin.get();
 
-    std::cout << "\033[2J\033[1;1H";    //clear screen for next scene
+    cls();    //clear screen for next scene
 }
 
-void scene1() {
+void Game::scene1() {
     Character* narrator = new Character("Narrator");
     Character* mentor = new Character("Mentor");
-    NPAttackCharacter* girl = new NPAttackCharacter(1, "Little girl", 2, "Sword", 10);
-    PlayableCharacter* player = new PlayableCharacter(1, "Player", 2, "Sword");
+    NPAttackCharacter* girl = new NPAttackCharacter(1, "Little girl", 2, 10);
     Character* option1 = new Character("Option 1");
     Character* option2 = new Character("Option 2");
 
@@ -403,7 +350,8 @@ void scene1() {
     }
     std::cout << std::endl;
 
-    std::cout << " ------------INSERT BATTLE HERE-----------------" << std::endl << std::endl;
+    //INSERT BATTLE HERE
+    BatlleScene(girl);
 
     for (int i = 0; i < 3; i++) {
         std::cout << narrator->nextLine();
@@ -430,6 +378,6 @@ void scene1() {
 
     std::cout << narrator->nextLine();
 
-    std::cout << "\033[2J\033[1;1H";
+    cls();
 }
 
