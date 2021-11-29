@@ -104,7 +104,7 @@ void newGame::playerSelection()
                 userKeypress = getch();
                 if (userKeypress == 'a')
                 {
-                    player->setName(userInput);
+                    player->setPlayerName(userInput);
                     // TEST TO VERIFY NAME HAS BEEN SET //
                     //std::cout << "Name has been successfully set to " << user->getName() << "!" << '\n';
                     //Sleep(5000);
