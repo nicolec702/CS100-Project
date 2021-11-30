@@ -72,12 +72,12 @@ class AttackCharacter: public Character {
                 else damage=damage-(defense/2);    
                 hp-=damage;
                 if(hp <= 0){
-                    std::cout<<"\t\t\t"<<getPlayerName()<< " HAS BEEN DEFEATED"<<std::endl<<std::endl;
+                    std::cout<<getPlayerName()<< " HAS BEEN DEFEATED"<<std::endl<<std::endl;
                     defeated = true; hp = 0;
                 }
                 else 
                 {
-                    std::cout<<"\t\t\t"<<damage<<" pts of damage was inflicted!"<<std::endl;
+                    std::cout<<damage<<" pts of damage was inflicted!"<<std::endl;
                     std::cout<< "\t\t\t"<<getPlayerName()<<"'s hp is now "<< hp << std::endl;
                 }
             }
