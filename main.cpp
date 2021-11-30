@@ -2,6 +2,8 @@
 #include "WinGame.hpp"
 #elif __linux__
 #include "UnixGame.hpp"
+#elif __APPLE__
+#include "UnixGame.hpp"
 #endif
 #include <iomanip>
 
