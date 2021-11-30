@@ -9,6 +9,14 @@ int main(int argc, char* argv[]){
               newGame->playerSelection();
               //newGame->tutorial();
               //newGame->scene1();
-	      newGame->scene2();
+	      //newGame->scene2();
+
+             NPAttackCharacter *girl= new NPAttackCharacter(1, "girl", 2, 1);
+             for(int i=0; i<3; i++)
+             {
+                    newGame->ArtBattleScene(girl);
+                    girl->resetValues();
+                    girl->getFullHealth();
+             }
        }
 }

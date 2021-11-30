@@ -27,6 +27,7 @@ class AttackCharacter: public Character {
         double getAttack() const {return attack;}
         double getMana() const {return mana; }
         double getDamagaGiven() const {return damageGiven;}
+        double getFullHealth() { return model.getHpStat();}
 
         void setCharacterType(int characterClass)
         {

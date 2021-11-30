@@ -1,35 +1,11 @@
 #include "game.hpp"
 
-void Game::menuArt()
-{
-    std::cout<<"            _.------.                        .----.__            \n";
-    std::cout<<"            /         \\_.       ._           /---.__  \\          \n";
-    std::cout<<"           |  O    O   |\\___  //|          /       `\\ |         \n";
-    std::cout<<"           |  .vvvvv.  | )   `(/ |         | o     o  \\|         \n";
-    std::cout<<"           /  |     |  |/      \\ |  /|   ./| .vvvvv.  |\\         \n";
-    std::cout<<"          /   `^^^^^'  / _   _  `|_ ||  / /| |     |  | \\        \n";
-    std::cout<<"        ./  /|         | O)  O   ) \\|| //' | `^vvvv'  |/\\\\       \n";
-    std::cout<<"       /   / |         \\        /  | | ~   \\          |  \\\\      \n";
-    std::cout<<"       \\  /  |        / \\ Y   /'   | \\     |          |   ~      \n";
-    std::cout<<"        `'   |  _     |  `._/' |   |  \\     7        /           \n";
-    std::cout<<"          _.-'-' `-'-'|  |`-._/   /    \\ _ /    .    |           \n";
-    std::cout<<"     __.-'            \\  \\   .   / \\_.  \\ -|_/\\/ `--.|_          \n";
-    std::cout<<"  --'                  \\  \\ |   /    |  |              `-        \n";
-    std::cout<<"                        \\uU \\UU/     |  /   :F_P:                \n";
-    std::cout<<"     ___   _______  ______    _______  ______   _______  ___      ___    \n";   
-    std::cout<<"|   | |   _   ||    _ |  |       ||      | |       ||   |    |   |       \n";
-    std::cout<<"|   | |  |_|  ||   | ||  |    ___||  _    ||    ___||   |    |   |       \n";
-    std::cout<<"|   | |       ||   |_||_ |   |___ | | |   ||   |___ |   |    |   |       \n";
-    std::cout<<"|   | |       ||    __  ||    ___|| |_|   ||    ___||   |___ |   |___    \n";
-    std::cout<<"|   | |   _   ||   |  | ||   |___ |       ||   |___ |       ||       |   \n";
-    std::cout<<"|___| |__| |__||___|  |_||_______||______| |_______||_______||_______|   ";
-}
 bool Game::mainMenu()
 {
     while(1)
     {
         std::string input;
-        menuArt();
+        displayArt("menuArt.txt");
         std::cout << "\n\t\t----------------------------" << std::endl;
         std::cout << "\n\t\t      Main Menu   " << std::endl;
         std::cout << "\n\t\t----------------------------" << std::endl;
@@ -659,4 +635,40 @@ void Game::scene2(){
 
 }
 
+
+void Game::ArtBattleScene(NPAttackCharacter* npc)
+{
+    bool defeated = false, valid = true;
+    std::string input;
+    std::cout<<"Battle Begins!"<<std::endl;
+    while(defeated == false)
+    {
+        std::cout<<"\t\t"<<player->getPlayerName()<<"\t\t"<<npc->getPlayerName()<<std::endl;
+        displayArt("battleArt.txt");
+        std::cout<<"\tHP:   "<<player->getHp()<<"/"<<player->getFullHealth()<<
+            "\t\tHP:     "<<npc->getHp()<<"/"<<npc->getFullHealth()<<std::endl;
+        std::cout<<"\tMANA: "<<player->getMana()<<"\t\tMANA: "<<npc->getMana()<<std::endl;
+        std::cout<<"\n1) Defend\t2)Attack\t3)Special Attack\t4)Special Move"<<std::endl;
+        std::cout << std::setw(60) << std::setfill('-') << "" << std::endl;
+        std::cout<<"Enter: ";
+        std::getline(std::cin, input);
+        valid = player->simplerSelectMove(verifyIntInput(input));
+        if(valid)
+        {
+            defeated = npc->takeDamage(player->getDamagaGiven());
+            if(defeated == false) {
+                    npc->selectMove();
+                    defeated = player->takeDamage(npc->getDamagaGiven());
+            }
+            else player->victory();
+            
+            npc->selectMove();
+        }
+        else{
+            std::cout<<"Invalid choice. Try again\n";
+        }
+        std::cin.get();
+        cls();
+    }
+}
 

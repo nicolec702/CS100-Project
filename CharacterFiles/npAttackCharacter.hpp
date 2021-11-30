@@ -31,9 +31,9 @@ public:
 
     virtual void selectMove()
     {
-        std::cout<<"\nCURRENT mana: "<<mana<<std::endl;
-        std::cout<<"MANA NEEDED FOR SPECIAL ATTACK: "<< manaSpecialAttack<<std::endl;
-        std::cout<<"MANA NEEDED FOR SPECIAL MOVE: "<< manaSpecialMove<<std::endl;
+        //std::cout<<"\nCURRENT mana: "<<mana<<std::endl;
+        //std::cout<<"MANA NEEDED FOR SPECIAL ATTACK: "<< manaSpecialAttack<<std::endl;
+        //std::cout<<"MANA NEEDED FOR SPECIAL MOVE: "<< manaSpecialMove<<std::endl;
 
         bool hasSelecteMove = false;
 

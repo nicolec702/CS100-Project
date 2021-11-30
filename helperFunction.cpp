@@ -56,3 +56,23 @@ void validateInput(std::string prompt, int& userInput, int expected1, int expect
     std::cout << std::endl;
     std::cin.get();
 }
+
+void displayArt(std::string fileName){
+	std::ifstream file;
+	file.open(fileName);
+	if(file.fail())
+		std::cout << "Failed to open ASCII file";
+	
+		
+	std::cout << std::endl;
+	std::string temp;
+	while(!file.eof()){
+		getline(file, temp);
+		std::cout << "\t\t\t"  << temp << std::endl;
+	}
+
+	std::cout << std::endl;
+
+	file.clear();
+	file.seekg(0, std::ios::beg);
+}
