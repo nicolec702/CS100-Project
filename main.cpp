@@ -1,9 +1,9 @@
 #if _WIN32
-#include "WinGame.hpp"
+#include "BaseGameFiles/WinGame.hpp"
 #elif __linux__
-#include "UnixGame.hpp"
+#include "BaseGameFiles/UnixGame.hpp"
 #elif __APPLE__
-#include "UnixGame.hpp"
+#include "BaseGameFiles/UnixGame.hpp"
 #endif
 #include <iomanip>
 
