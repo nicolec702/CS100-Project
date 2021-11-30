@@ -1,4 +1,4 @@
-#include "../BaseGameFiles/helperFunction.cpp"
+//#include "../BaseGameFiles/helperFunction.cpp"
 #include "../CharacterFiles/attribute.hpp"
 #include "../CharacterFiles/attributeBehavior.hpp"
 #include "../CharacterFiles/wizard.hpp"
@@ -38,7 +38,3 @@ TEST(Attribute, VerifyRogueDef)
 }
 
 
-int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}
