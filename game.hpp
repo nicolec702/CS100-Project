@@ -48,9 +48,7 @@ class Game
         void scene1();
         void scene2();
         void scene3();
-	bool mainMenu();
-        void menuArt();
-        void displayArt(std::string filename);
+	    bool mainMenu();
 };
 
 #endif //GAME_HPP

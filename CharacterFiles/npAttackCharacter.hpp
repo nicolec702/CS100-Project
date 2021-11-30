@@ -29,7 +29,7 @@ public:
     }
     NPAttackCharacter(){}
 
-    virtual void selectMove()
+    virtual bool selectMove(int i)
     {
         std::cout<<"\nCURRENT mana: "<<mana<<std::endl;
         std::cout<<"MANA NEEDED FOR SPECIAL ATTACK: "<< manaSpecialAttack<<std::endl;
@@ -63,7 +63,10 @@ public:
             normalAttack();
         }
         mana += model.getManaStat()/3;
+
+        return true;
     }
+    
     
 };
 
