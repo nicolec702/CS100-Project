@@ -37,4 +37,35 @@ TEST(Attribute, VerifyRogueDef)
     delete model;
 }
 
+////
+
+TEST(Attribute, VerifyBobAttack)
+{
+    Attribute *model = new Attribute();
+    model->setBehavior(new Bob());
+    model->setStats();
+
+    EXPECT_EQ(model->getAttackStat(), 13);
+    delete model;
+}
+
+TEST(Attribute, VerifyBobHP)
+{
+    Attribute *model = new Attribute();
+    model->setBehavior(new Bob());
+    model->setStats();
+
+    EXPECT_EQ(model->getHpStat(), 13);
+    delete model;
+}
+
+TEST(Attribute, VerifyBobDef)
+{
+    Attribute *model = new Attribute();
+    model->setBehavior(new Bob());
+    model->setStats();
+    EXPECT_EQ(model->getDefenseStat(), 8);
+    delete model;
+}
+
 

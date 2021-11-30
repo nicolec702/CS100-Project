@@ -22,12 +22,69 @@ TEST(PlayableCharacter, verifyAttackKnight){
     delete player;
 }
 
+TEST(PlayableCharacter, verifyDefenseKnight){
+    
+    PlayableCharacter *player = new PlayableCharacter();
+    player->setPlayerName("Knight");
+    player->setCharacterType (2);
+    EXPECT_EQ(player->getDefense(), 13);
+    delete player;
+}
+
+TEST(PlayableCharacter, verifyManaKnight){
+    
+    PlayableCharacter *player = new PlayableCharacter();
+    player->setPlayerName("Knight");
+    player->setCharacterType (2);
+    EXPECT_EQ(player->getMana(), 1.5);
+    delete player;
+}
+
+TEST(PlayableCharacter, verifyHpRogue){
+    
+    PlayableCharacter *player = new PlayableCharacter();
+    player->setPlayerName("Rogue");
+    player->setCharacterType (3);
+    EXPECT_EQ(player->getHp(), 16);
+    delete player;
+}
+
 TEST(PlayableCharacter, verifyNameChange){
     
     PlayableCharacter *player = new PlayableCharacter();
     player->setPlayerName("Player 1");
     player->setPlayerName ("Hello");
     EXPECT_EQ(player->getPlayerName(), "Hello");
+    delete player;
+}
+
+TEST(PlayableCharacter, verifyAttackKnight){
+    
+    PlayableCharacter *player = new PlayableCharacter();
+    player->setPlayerName("Knight");
+    player->setCharacterType (2);
+    player->increaseDefense();
+    EXPECT_EQ(player->getAttack(), 15);
+    delete player;
+}
+
+TEST(PlayableCharacter, increaseDefenseValidation){
+    
+    PlayableCharacter *player = new PlayableCharacter();
+    player->setPlayerName("Knight");
+    player->setCharacterType (2);
+    EXPECT_TRUE(player->increaseDefense());
+    delete player;
+}
+
+TEST(PlayableCharacter, increaseDefenseRejection){
+    
+    PlayableCharacter *player = new PlayableCharacter();
+    player->setPlayerName("Knight");
+    player->setCharacterType (2);
+    for (int i = 0; i<4; i++)
+        player->increaseDefense();
+    EXPECT_False(player->increaseDefense());
     delete player;
 }
 
