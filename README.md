@@ -72,4 +72,4 @@
 
 ## Testing
 > The project was tested by creating unit tests with the gtest submodule, and valgrind for memory leak checks.
-![Valgrind](valgrind.png)
+![Valgrind](Screenshots/valgrind.png)
