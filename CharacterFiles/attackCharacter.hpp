@@ -69,8 +69,10 @@ class AttackCharacter: public Character {
         {
             bool defeated = false;
             if(damage > 0){
-	            if(damage-(defense/2)<2) damage = 2; 
-                else damage=damage-(defense/2);    
+	            if(damage-(defense/3)<1) damage = 1; 
+                else damage=damage-(defense/3);
+                ////
+                /////    
                 hp-=damage;
                 if(hp <= 0){
                     std::cout<<getPlayerName()<< " HAS BEEN DEFEATED"<<std::endl<<std::endl;
@@ -120,7 +122,7 @@ class AttackCharacter: public Character {
 
         bool specialMove()
         {
-            if(mana > manaSpecialMove){
+            if(mana >= manaSpecialMove){
                 mana -= manaSpecialAttack;
                 damageGiven = weapon.specialMove(attack/10); 
                 std::cout<<"\n\t\t\t"<<getPlayerName()<< " uses SPECIAL MOVE! ";
@@ -134,11 +136,11 @@ class AttackCharacter: public Character {
     /////////////
         void printVitals()
         {
-            std::cout<<"\nName: "<<getPlayerName()<<std::endl;
-            std::cout<<"Attack: "<<model.getAttackStat()<<std::endl;
-            std::cout<<"Defense: "<<model.getDefenseStat()<<std::endl;
-            std::cout<<"Mana: "<<model.getManaStat()<<std::endl;
-            std::cout<<"HP: "<<model.getHpStat()<<std::endl;
+            std::cout<<"\n\t\tName: "<<getPlayerName()<<std::endl;
+            std::cout<<"\t\tAttack: "<<model.getAttackStat()<<std::endl;
+            std::cout<<"\t\tDefense: "<<model.getDefenseStat()<<std::endl;
+            std::cout<<"\t\tMana: "<<model.getManaStat()<<std::endl;
+            std::cout<<"\t\tHP: "<<model.getHpStat()<<std::endl;
         }
         
 	    void currentStats()

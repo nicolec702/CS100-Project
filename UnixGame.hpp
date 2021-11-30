@@ -58,6 +58,7 @@ void newGame::playerSelection()
 		}
 		else{
 			cls();
+			std::cout<<"Player Type: \n"<<std::endl;
 			int characterType = verifyIntInput(intInput);
 			switch(characterType)
 			{
@@ -69,7 +70,31 @@ void newGame::playerSelection()
 			}
 			model.setStats();
 			model.printBaseStats();
-			std::cout<<"Are you sure you want to be a "<< model.getModelType() <<"? [1] yes [2] no\n Enter: ";
+			switch(characterType)
+            {
+            case 1:
+                std::cout << "\nBACKGROUND: Once an admired people, wizards were persecuted\n"
+										"\t    to the point of extinction due to the fear of their power.\n"
+										"\t    All high level wizards are now dead and all that remains are a mediocre batch.";
+                break;
+            case 2: 
+                std::cout << "\nBACKGROUND: This knight has went through alot in the battlefield\n"
+										"\t    but after the loss of his family, vengance is the only thing"
+										"\t    on this knight's mind. The target? The government that he works for.";
+
+                break;
+            case 3:
+				std::cout << "\nBACKGROUND: Coming from a life of poverty,this Rogue has\n" 
+										  "\t    gone through quite a troubled past to learn the fine skills of,\n"
+										  "\t    amongst other things, lock-picking, stealth, and thievery.";
+ 
+                break;
+            case 4:
+                std::cout << "\nBACKGROUND: A simpleton. Tax evasion is his secret hidden talent.";
+                break;
+            default: break;
+            }
+			std::cout<<"\n\nAre you sure you want to be a "<< model.getModelType() <<"? [1] yes [2] no\n Enter: ";
 			std::getline(std::cin, intInput);
 			if(verifyIntInput(intInput) == 1)
 			{

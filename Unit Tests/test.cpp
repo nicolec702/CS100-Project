@@ -15,6 +15,7 @@
 #include "../CharacterFiles/character.hpp"
 #include "../CharacterFiles/playableCharacter.hpp"
 #include "../CharacterFiles/npAttackCharacter.hpp"
+#include "weaponsTests.cpp"
 #include "gtest/gtest.h"
 
 TEST(HelperFunctions, verifyIntInputTRUE){
