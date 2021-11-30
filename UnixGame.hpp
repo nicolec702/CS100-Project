@@ -49,7 +49,7 @@ void newGame::playerSelection()
 		std::cout<<"What kind of warrior are you?\n";
 		std::cout << std::setw(50) << std::setfill('-') << "" << std::endl;
 		std::cout<<"\t[1] Wizard\n\t[2] Knight\n\t[3] Rogue\n\t[4] Bob\n";
-		std::cout<<"\tEneter choice: ";
+		std::cout<<"\tEnter choice: ";
 		std::getline(std::cin, intInput);
 		if(verifyIntInput(intInput)<1 || verifyIntInput(intInput)>4)
 		{

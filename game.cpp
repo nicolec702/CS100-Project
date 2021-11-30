@@ -131,6 +131,8 @@ void Game::playerSelection()
 	}
 	cls();
 	std::cout<<"Lets begin with your training "<< player->getPlayerName()<<std::endl;
+	std::cin.get();
+	cls();
 }
 
 void Game::BatlleScene(NPAttackCharacter* npc){
