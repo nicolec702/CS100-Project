@@ -1,5 +1,6 @@
-.vscode
+.vscode/
 .gitignore
 a.exe
 backup
 CharacterSelection
+build/
