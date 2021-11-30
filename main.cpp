@@ -1,6 +1,6 @@
 #if _WIN32
 #include "WinGame.hpp"
-#elif
+#elif __linux__
 #include "UnixGame.hpp"
 #endif
 #include <iomanip>
