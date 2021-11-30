@@ -22,6 +22,7 @@ class AttackCharacter: public Character {
         ~AttackCharacter(){}
         AttackCharacter(){}
         virtual bool selectMove(int) { return true; }
+        int getLevel() const {return model.getLevel();}
         double getHp() const {return hp;}
         double getDefense() const {return defense;}
         double getAttack() const {return attack;}

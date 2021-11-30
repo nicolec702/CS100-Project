@@ -31,6 +31,7 @@ class Attribute{
 		void setStats();
 		void printBaseStats();
 
+		int getLevel() const {return this->playerLvl;}
 		double getDefenseStat(){ return this->defenseStat;}
 		double getManaStat() {return this->manaStat;}
 		double getHpStat(){ return this->hpStat;}
