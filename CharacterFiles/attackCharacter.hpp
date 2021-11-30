@@ -136,10 +136,10 @@ class AttackCharacter: public Character {
         void printVitals()
         {
             std::cout<<"\nName: "<<getPlayerName()<<std::endl;
-            std::cout<<"Attack: "<<model.getAttackStat()<<std::endl;
-            std::cout<<"Defense: "<<model.getDefenseStat()<<std::endl;
-            std::cout<<"Mana: "<<model.getManaStat()<<std::endl;
-            std::cout<<"HP: "<<model.getHpStat()<<std::endl;
+            std::cout<<"\t\tAttack: "<<model.getAttackStat()<<std::endl;
+            std::cout<<"\t\tDefense: "<<model.getDefenseStat()<<std::endl;
+            std::cout<<"\t\tMana: "<<model.getManaStat()<<std::endl;
+            std::cout<<"\t\tHP: "<<model.getHpStat()<<std::endl;
         }
         
 	    void currentStats()
