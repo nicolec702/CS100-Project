@@ -2,24 +2,12 @@
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # Iaredell
- > Your author list below should include links to all members GitHub (remove existing author).
  
  > Authors: [Nicole Carter (ncart018)](https://github.com/nicolec702) 
  > [Fadak Abdullah (@fabdu013)](https://github.com/faduckie)
 [Steven Truong (@struo025)](https://github.com/Steven-Eon)
 [Victor Sandoval (@vsand012)](https://github.com/VMSandoval25)
- 
- > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list, start thinking about the features you will implement, what design patterns can help you implement them, and why. If you want to propose your own original idea, you will have to contact an instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). Your project needs to implement at least two design patterns iteratively, which you will have to justify for later phases.The project work should be divided almost equally among team members and each member is expected to work on at least one design pattern (more than one partner may work on a pattern) and some of its test cases. You can of course help each other, but it needs to be clear who will be responsible for which patterns and for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings. While Daily Scrums are not required we highly recommend you practice them too.
- 
- > ## Expectations
- > * Incorporate **at least two** distinct design patterns. You need to include at least *one* design pattern that we will teach this session:
- >   * Composite, Strategy, Abstract Factory or Visitor
- > * All design patterns need to be linked together (it can't be two distinct projects)
- > * Your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
- > * Each member of the group must actively participate in the Github Project board and reviewing commited code.
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold one check-in meeting with your lab TA in addition to the final demo.
+
 
 ## Project Description
 > **Project Importance:**
@@ -30,7 +18,7 @@
 > **Features:**
 > - A Storyline.
 > - Dialogue System.
->   - Plan using dialogue tree
+>   - Plan on using dialogue tree
 > - XP Scaling System
 >   - Later quests/enemies give you more xp
 >   - They also deal more damage/have more health
@@ -41,44 +29,17 @@
 >   - Gain xp through:
 >     - Killing enemies
 >     - Completing quests
->   - Everytime you level up your health/damage dealt is increased
-> 
-> **Proposed Features (implement if we have time):**
-> - “Endless” Mode.
-> - Side Quests.
-> - Each character has a special ability.
-> - Item drops / shop items
-> - Better armor/better weapons
+>   - Every time you level up your health/damage dealt is increased
 
- > ## Phase II
- > In addition to completing the "Class Diagram" section below, you will need to:
- > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Create smaller actionable development tasks as issues and assign them to team members. Place these in the `TODO` column.
- >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
+
 ## Class Diagram
  > ![UML Diagram](ProjectUML.png)
  >The Character class will have two subclasses, InformationCharacter and AttackCharacter. The InformationCharacter will initiate an object of type Quests and there will be an aggregation link between both classes. The Quest class will read text from a file that will be used to narrate the storyline of our game. The AttackCharacter class will have an object of type Attribute and this will create an aggregation link between the AttackCharacter and Attribute class. This means that they can both exist independently of each other. The purpose of the attribute class is to keep track of the AttackCharacter’s hp, defense level, attack level, and stamina level. This is done in an effort to maintain modularity and keep the classes clean. AttackCharacter will also initiate an object of type Weapons. There will be an aggregation link between both classes. The Weapons class will make use of the strategy WeaponBehavior. WeaponsBehavior will declare an interface that all supported algorithms will use. These algorithms include LongSword, Staff, Daggers, Broom, and Basic. WeaponBehavior has an aggregation link with the Weapons class.
  > ## Phase III
- > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
- > * Before the meeting you should perform a sprint plan like you did in Phase II.
- > * You should also update this README file by adding the following:
- >   * What design patterns did you use? For each design pattern you must explain in 4-5 sentences:
- >     * Why did you pick this pattern? And what feature did you implement with it?
- >     * How did the design pattern help you write better code?
- >        * **Strategy Pattern**
- >           * For our weapons class we decided to use the strategy pattern because we realized that the weapons the player characters will be using are all the same object with similar member variables, the only difference is how much damage each weapon deals. Instead of creating five different classes for each weapon, we could create one class that has five different ‘strategies’ that could be swapped out depending on which weapon the player character is using. These strategies refer to the weapon behavior so we have a long sword strategy, a staff strategy, a dagger strategy, etc. This helps with minimizing unnecessary and redundant code and allows us to add more weapon strategies if we need to without any problems.
- >       * **Composite Pattern**
- >           * For the character class in our program we will be utilizing the composite pattern because we noticed that the different characters in our game (NPCs and Playable characters) have similar characteristics. We will achieve this by creating a parent object named Character and two subclasses named AttackCharacter and InformationCharacter. In this specific scenario the two subclasses are the leafs and the Character class is the composite object. Although the two leafs inherit methods from the parent class they will also have their unique methods pertaining to only them, for example the AttackClass will have a method that calculates a character’s hp when battle and on the other hand the InformationCharacter will have a method that reads text from a file and helps in narrating the plot of the game to the user.
- 
- >   * An updated class diagram that reflects the design patterns you used. You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description).
- >   * Make sure your README file (and Project board) are up-to-date reflecting the current status of your project. Previous versions of the README file should still be visible through your commit history.
-> 
-> During the meeting with your TA you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
+ > **Strategy Pattern**
+ > * For our weapons class we decided to use the strategy pattern because we realized that the weapons the player characters will be using are all the same object with similar member variables, the only difference is how much damage each weapon deals. Instead of creating five different classes for each weapon, we could create one class that has five different ‘strategies’ that could be swapped out depending on which weapon the player character is using. These strategies refer to the weapon behavior so we have a long sword strategy, a staff strategy, a dagger strategy, etc. This helps with minimizing unnecessary and redundant code and allows us to add more weapon strategies if we need to without any problems.
+ > **Abstract Factory Pattern**
+ > * ...(will add)
 
  
  > ## Final deliverable
@@ -93,5 +54,4 @@
  ## Installation/Usage
  > Instructions on installing and running your application
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
- 
+ > * The project was tested by creating unit tests with the gtest submodule, and valgrind for memory leak checks.
