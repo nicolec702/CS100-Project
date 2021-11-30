@@ -58,15 +58,6 @@ TEST(PlayableCharacter, verifyNameChange){
     delete player;
 }
 
-TEST(PlayableCharacter, verifyAttackKnight){
-    
-    PlayableCharacter *player = new PlayableCharacter();
-    player->setPlayerName("Knight");
-    player->setCharacterType (2);
-    player->increaseDefense();
-    EXPECT_EQ(player->getAttack(), 15);
-    delete player;
-}
 
 TEST(PlayableCharacter, increaseDefenseValidation){
     
@@ -84,7 +75,7 @@ TEST(PlayableCharacter, increaseDefenseRejection){
     player->setCharacterType (2);
     for (int i = 0; i<4; i++)
         player->increaseDefense();
-    EXPECT_False(player->increaseDefense());
+    EXPECT_FALSE(player->increaseDefense());
     delete player;
 }
 
