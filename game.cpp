@@ -29,6 +29,7 @@ bool Game::mainMenu()
     while(1)
     {
         std::string input;
+	cls();
         menuArt();
         std::cout << "\n\t\t----------------------------" << std::endl;
         std::cout << "\n\t\t      Main Menu   " << std::endl;
@@ -72,7 +73,7 @@ void Game::playerSelection()
 		std::cout<<"What kind of warrior are you?\n";
 		std::cout << std::setw(50) << std::setfill('-') << "" << std::endl;
 		std::cout<<"\t[1] Wizard\n\t[2] Knight\n\t[3] Rogue\n\t[4] Bob\n";
-		std::cout<<"\tEneter choice: ";
+		std::cout<<"\tEnter choice: ";
 		std::getline(std::cin, intInput);
 		if(verifyIntInput(intInput)<1 || verifyIntInput(intInput)>4)
 		{
@@ -700,4 +701,137 @@ void Game::scene2(){
    delete option1;
    delete option2;
 
+}
+
+void Game::scene3(){
+	std::ifstream file;
+	file.open("scene3.txt");
+	if(file.fail())
+		std::cout << "Scene 3 file failed to open";
+	
+	Character* narrator = new Character("Narrator");
+	Character* option1 = new Character("Option 1");
+	Character* option2 = new Character("Option 2");
+
+	narrator->populateDialogue(file);
+	option1->populateDialogue(file);
+	option2->populateDialogue(file);
+
+	std::string choicePrompt = "\t\tWhat will you choose?: ";
+	int choice;
+
+	for(int i = 0; i < 4; i++)
+		std::cout << narrator->nextLine() << std::endl;
+	std::cin.get();
+
+	std::cout << narrator->nextLine() << std::endl;
+	std::cout << narrator->nextLine() << std::endl;
+	std::cin.get();
+
+	std::cout << "\t\t1. " << option1->nextLine() << std::endl;
+	std::cout << "\t\t2. " << option2->nextLine() << std::endl;
+	std::cout << "\n" << choicePrompt;
+	std::cin >> choice;
+	validateInput(choicePrompt, choice, 1,2);
+
+	switch(choice){
+	case 1:
+		std::cout << narrator->nextLine() << std::endl;
+		std::cin.get();
+		std::cout << narrator->nextLine() << std::endl;
+		std::cout << std::endl;
+
+		narrator->nextLine(); narrator->nextLine();
+		break;
+         case 2:
+	        narrator->nextLine(); narrator->nextLine();
+		std::cout << narrator->nextLine() << std::endl;
+		std::cout << narrator->nextLine() << std::endl;
+		std::cin.get();
+		break;
+	}
+	
+	std::cout << "\n-------------BATTLE SCENE--------\n";
+	
+	std::cout << std::endl;
+	for(int i = 0; i < 3; i++)
+		std::cout << narrator->nextLine() << std::endl;
+	std::cin.get();
+	
+	for(int i = 0; i < 4; i++)
+		std::cout << narrator->nextLine() << std::endl;
+	std::cin.get();
+
+	std::cout << narrator->nextLine() << std::endl;
+	std::cin.get();
+	std::cout << narrator->nextLine() << std::endl;
+	
+	bool surviveSwarm = 0;
+	bool surviveBoss = 0;
+	//battle loop with demons levels 1 - 6
+	std::cout << "\n-------------BATTLE SCENE--------\n";
+	
+	std::cout << std::endl;
+
+	switch(surviveSwarm){
+	case 0:
+		std::cout << narrator->nextLine() << std::endl;
+		std::cin.get();
+		std::cout << narrator->nextLine();
+		std::cin.get();
+		std::cout << narrator->nextLine() << std::endl;
+		std::cin.get();
+		break;
+	case 1:
+		for(int i = 0; i < 3; i++)
+			narrator->nextLine();
+		
+		for(int i = 0; i < 2; i++){
+			std::cout << narrator->nextLine() << std::endl;
+			std::cout << narrator->nextLine() << std::endl;
+		 	std::cin.get();
+		}
+
+		 std::cout << "\n--------FINAL BATTLE SCENE--------\n";
+		 
+		 std::cout << std::endl;
+		 switch(surviveBoss){
+		 case 0:
+			 std::cout << narrator->nextLine() << std::endl;
+			 std::cin.get();
+			 std::cout << narrator->nextLine() << std::endl;
+			 for(int i = 0; i < 3; i++){
+				std::cout << narrator->nextLine() << std::endl;
+			 	std::cin.get();
+			 }
+			 //std::cout << narrator->nextLine() << std::endl;
+			 //std::cin.get();
+			 break;
+		 case 1:
+			 for(int i = 0; i < 5; i++)
+				 narrator->nextLine();
+			 std::cout << narrator->nextLine();
+			 std::cin.get();
+			 std::cout << narrator->nextLine() << std::endl;
+			 std::cin.get();
+
+			 std::cout << narrator->nextLine();
+			 std::cin.get();
+			 std::cout << narrator->nextLine() << std::endl;
+			 std::cin.get();
+
+			 std::cout << narrator->nextLine() << std::endl;
+			 std::cin.get();
+			 break;
+		 }	
+		 
+		 break;
+	}
+
+	std::cout << "\t\t\t\t\t\t\tFin." << std::endl;
+	std::cin.get();
+
+	delete option1;
+	delete option2;
+	delete narrator;
 }

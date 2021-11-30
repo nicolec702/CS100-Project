@@ -47,7 +47,8 @@ class Game
         void tutorial();
         void scene1();
         void scene2();
-        bool mainMenu();
+        void scene3();
+	bool mainMenu();
         void menuArt();
         void displayArt(std::string filename);
 };

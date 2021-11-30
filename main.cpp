@@ -16,9 +16,10 @@ int main(int argc, char* argv[]){
        if (GameClient->mainMenu())
        {
               GameClient->playerSelection();
-              GameClient->tutorial();
-              GameClient->scene1();
-              GameClient->scene2();
+             // GameClient->tutorial();
+             // GameClient->scene1();
+             // GameClient->scene2();
+	     GameClient->scene3();
        }
        delete GameClient;
        return 0;
