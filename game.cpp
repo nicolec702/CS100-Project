@@ -71,6 +71,27 @@ void Game::BatlleScene(NPAttackCharacter* npc){
 //////////////////////
 /////////////////////
 
+void Game::MustWinBattleScene(NPAttackCharacter* npc)
+{
+    while (npc->getHp() > 0)
+    {
+        npc->resetValues();
+        npc->fullHealth();
+        if (player->getHp() <= 0)
+        {
+            player->resetValues();
+            player->fullHealth();
+        }
+        BatlleScene(npc);
+
+        if (player->getHp() <= 0)
+        {
+            std::cout << "Let's try that again... \n";
+            std::cin.get();
+            cls();
+        }
+    }    
+}
 
 void Game::tutorial() {
     Character* narrator = new Character("Narrator");
@@ -376,6 +397,9 @@ void Game::scene2(){
     Character* farmer = new Character("Farmer");
     Character* option1 = new Character("Option 1");
     Character* option2 = new Character("Option 2");
+    NPAttackCharacter* Demon1 = new NPAttackCharacter(rand() % 4 + 1, "Demon 1", rand() % 4 + 1, 1);
+    NPAttackCharacter* Demon2 = new NPAttackCharacter(rand() % 4 + 1, "Demon 2", rand() % 4 + 1, 1);
+    NPAttackCharacter* Demon3 = new NPAttackCharacter(rand() % 4 + 1, "Demon", rand() % 4 + 1, 2);
 
     std::vector<int> choice;
     int input;
@@ -398,7 +422,7 @@ void Game::scene2(){
    std::cout << "\t\t1. " << option2->nextLine() << std::endl;
    std::cout << "\n" << choicePrompt << " ";
    std::cin >> input;
-   validateInput(choicePrompt, input, 1, 2);
+   validateInput(choicePrompt, input, 1);
    choice.push_back(input);
 
    switch(choice.at(0)){
@@ -428,6 +452,7 @@ void Game::scene2(){
 	   file.open("farmerJob.txt");
 	   if(file.fail())
 		   std::cout << "Farmer Job file failed to open";
+
 
 	   narrator->clearDialogueLines();
 	   option1->clearDialogueLines();
@@ -475,7 +500,8 @@ void Game::scene2(){
 	   std::cin.get();
 	   std::cout << narrator->nextLine() << std::endl;
 
-	   std::cout << "\n----------------BATTLE SEQUENCE ---------------\n" << std::endl;
+       MustWinBattleScene(Demon1);
+       MustWinBattleScene(Demon2);
 
 	   std::cout << narrator->nextLine() << std::endl;
 	   std::cin.get();
@@ -565,7 +591,7 @@ void Game::scene2(){
 	   std::cout << narrator->nextLine() << std::endl;
 	   std::cin.get();
 
-	   std::cout << "\n----------------BATTLE SCENE----------------------\n\n";
+	   MustWinBattleScene(Demon3);
 	
 	   for(int i = 0; i < 2; i++){
 	   	std::cout << narrator->nextLine();
@@ -594,7 +620,9 @@ void Game::scene2(){
    delete farmer;
    delete option1;
    delete option2;
-
+   delete Demon1;
+   delete Demon2;
+   delete Demon3;
 }
 
 void Game::scene3(){
