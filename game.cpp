@@ -643,14 +643,14 @@ void Game::ArtBattleScene(NPAttackCharacter* npc)
     std::cout<<"Battle Begins!"<<std::endl;
     while(defeated == false)
     {
-        std::cout<<"\t\t"<<player->getPlayerName()<<"\t\t"<<npc->getPlayerName()<<std::endl;
+        std::cout<<"\t\t\t\t"<<player->getPlayerName()<<"\t\t"<<npc->getPlayerName()<<std::endl;
         displayArt("battleArt.txt");
-        std::cout<<"\tHP:   "<<player->getHp()<<"/"<<player->getFullHealth()<<
+        std::cout<<"\t\t\tHP:   "<<player->getHp()<<"/"<<player->getFullHealth()<<
             "\t\tHP:     "<<npc->getHp()<<"/"<<npc->getFullHealth()<<std::endl;
-        std::cout<<"\tMANA: "<<player->getMana()<<"\t\tMANA: "<<npc->getMana()<<std::endl;
-        std::cout<<"\n1) Defend\t2)Attack\t3)Special Attack\t4)Special Move"<<std::endl;
-        std::cout << std::setw(60) << std::setfill('-') << "" << std::endl;
-        std::cout<<"Enter: ";
+        std::cout<<"\t\t\tMANA: "<<player->getMana()<<"\t\t\tMANA: "<<npc->getMana()<<std::endl;
+        std::cout<<"\n\t\t1) Defend\t2)Attack\t3)Special Attack\t4)Special Move"<<std::endl;
+        //std::cout << std::setw(60) << std::setfill('-') << "" << std::endl;
+        std::cout<<"\t\tEnter: ";
         std::getline(std::cin, input);
         valid = player->simplerSelectMove(verifyIntInput(input));
         if(valid)
