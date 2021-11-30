@@ -16,7 +16,7 @@ int main(int argc, char* argv[]){
              {
                     newGame->ArtBattleScene(girl);
                     girl->resetValues();
-                    girl->getFullHealth();
+                    girl->fullHealth();
              }
        }
 }

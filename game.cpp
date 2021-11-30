@@ -662,7 +662,7 @@ void Game::ArtBattleScene(NPAttackCharacter* npc)
                 if(defeated == true)
                     player->victory();
             }
-            else std::cout<<"\t\t\tInvalid choice. Try again \n";
+            else std::cout<<"\n\t\t\tInvalid choice. Try again";
         }
         else
         {
