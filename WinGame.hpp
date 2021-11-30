@@ -1,7 +1,7 @@
 #ifndef WINGAME_HPP
 #define WINGAME_HPP
-#include "Game.hpp"
-
+#include "game.hpp"
+#include "game.cpp"
 #include <iostream>
 #include <Windows.h>
 #include <conio.h>
@@ -42,6 +42,7 @@ void newGame::dialogueType(std::string x)
 
 void newGame::playerSelection()
 {
+    system("chcp 65001");
     Attribute model;
     std::string userInput;
     int userKeypress;

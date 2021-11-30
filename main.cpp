@@ -18,6 +18,6 @@ int main(int argc, char* argv[]){
               GameClient->scene1();
               GameClient->scene2();
        }
-       delete GameClient();
+       delete GameClient;
        return 0;
 }

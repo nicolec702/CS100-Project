@@ -1,8 +1,8 @@
 #ifndef UNIXGAME_HPP
 #define UNIXGAME_HPP
+#include "game.hpp"
+#include "game.cpp"
 
-
-#include "Game.hpp"
 #include <iostream>
 
 
