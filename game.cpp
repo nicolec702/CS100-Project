@@ -1,7 +1,8 @@
 #include "game.hpp"
 
 bool Game::mainMenu()
-{
+{  
+   cls();
    while(1){    
     
         std::string input;

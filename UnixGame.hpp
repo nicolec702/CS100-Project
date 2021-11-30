@@ -105,7 +105,7 @@ void newGame::playerSelection()
                 {
                 	std::cout<<"What weapon do you use?\n";
                     std::cout<<"\t[1] Staff\n\t[2] Longsword\n\t[3] Dagger\n\t[4] Broom\n";
-                    std::cout<<"\tEneter choice: ";
+                    std::cout<<"\tEnter choice: ";
                     std::getline(std::cin, intInput);
                     if(verifyIntInput(intInput)<1 || verifyIntInput(intInput)>4)
 		            {
