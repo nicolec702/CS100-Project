@@ -133,7 +133,7 @@ void newGame::playerSelection()
     // PART 2: Class selection prompt //
     userKeypress = 0;
     selectedType = 0;
-    dialogueType("Ah your name is " + player->getName() + ". I've heard great things about you.\n" + "What kind of warrior are you?\n"); 
+    dialogueType("Ah your name is " + player->getPlayerName() + ". I've heard great things about you.\n" + "What kind of warrior are you?\n"); 
     std::cout << '\n' << "[Press any Key To Continue...]";
     getch();
     
@@ -147,21 +147,21 @@ void newGame::playerSelection()
              std::cout << "[ROGUE]             " << "WIZARD               " << "KNIGHT               " << "BOB"; 
              std::cout << '\n' << "=================================================================" << '\n';
              std::cout << "STATS:" << '\n' << "[==== ] HP: 13" << '\n' << "[==== ] DEF: 9" << '\n' << "[==== ] ATK: 13" << '\n' << "[==== ] STAMINA: 1.75" << '\n';             
-             std::cout << "BACKGROUND: Coming from a life of poverty, this Rogue has gone through quite a troubled past to learn the fine skills of, amongst other things, lock-picking, stealth, and thievery.";
+             std::cout << "BACKGROUND: Coming from a life of poverty, this Rogue has gone through quite a troubled past to learn the fine skills of,\namongst other things, lock-picking, stealth, and thievery.";
         }
         else if (selectedType == 1)
         {
              std::cout << "ROGUE              " << "[WIZARD]              " << "KNIGHT               " << "BOB"; 
              std::cout << '\n' << "=================================================================" << '\n';
              std::cout << "STATS:" << '\n' << "[===  ] HP: 12" << '\n' << "[===  ] DEF: 8" << '\n' << "[=====] ATK: 15" << '\n' << "[===  ] STAMINA: 1.5" << '\n';             
-             std::cout << "BACKGROUND: Once an admired people, wizards were persecuted to the point of extinction due to the fear of their power. All high level wizards are now dead and all that remains are a mediocre batch.";
+             std::cout << "BACKGROUND: Once an admired people, wizards were persecuted to the point of extinction due to the fear of their power.\nAll high level wizards are now dead and all that remains are a mediocre batch.";
         }
         else if (selectedType == 2)
         {
              std::cout << "ROGUE               " << "WIZARD              " << "[KNIGHT]              " << "BOB"; 
              std::cout << '\n' << "=================================================================" << '\n';
              std::cout << "STATS:" << '\n' << "[=====] HP: 14" << '\n' << "[=====] DEF: 10" << '\n' << "[==   ] ATK: 12" << '\n' << "[===  ] STAMINA: 1.5" << '\n';             
-             std::cout << "BACKGROUND: This knight has went through alot in the battlefield but after the loss of his family, vengance is the only thing on this knight's mind. The target? The government that he works for.";
+             std::cout << "BACKGROUND: This knight has went through alot in the battlefield but after the loss of his family, \nvengance is the only thing on this knight's mind. The target? The government that he works for.";
         }
 
         else if (selectedType == 3)
