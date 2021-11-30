@@ -77,7 +77,7 @@ class AttackCharacter: public Character {
                 }
                 else 
                 {
-                    std::cout<<"\t\t\t"<<damage<<"pts of damage was inflicted!\n"<<std::endl;
+                    std::cout<<"\t\t\t"<<damage<<" pts of damage was inflicted!"<<std::endl;
                     std::cout<< "\t\t\t"<<getPlayerName()<<"'s hp is now "<< hp << std::endl;
                 }
             }
@@ -91,7 +91,7 @@ class AttackCharacter: public Character {
             damageGiven = 0;
             if(defense != model.getDefenseStat() * 2) {
                 defense = defense + (model.getDefenseStat() / 4);
-                std::cout<< "\n\t\t\t" << getPlayerName()<<" decides to defend!\nDefense has increased!"<<std::endl;
+                std::cout<< "\n\t\t\t" << getPlayerName()<<" decides to defend! Defense has increased!"<<std::endl;
                 return true;
             }
             else {
@@ -102,7 +102,7 @@ class AttackCharacter: public Character {
 
         void normalAttack() { 
             damageGiven = weapon.attack(attack/10); 
-            std::cout<<"\n\t\t\t"<<getPlayerName() << " decides to attack!"<<std::endl;
+            std::cout<<"\n\t\t\t"<<getPlayerName() << " decides to attack! ";
         }
 
         bool specialAttack()
@@ -110,7 +110,7 @@ class AttackCharacter: public Character {
             if(mana >= manaSpecialAttack){
                 mana -= manaSpecialAttack;
                 damageGiven = weapon.specialAttack(attack/10);
-                std::cout<<"\n\t\t"<<getPlayerName()<< " uses SPECIAL ATTACK!"<<std::endl;
+                std::cout<<"\n\t\t\t"<<getPlayerName()<< " uses SPECIAL ATTACK! ";
                 return true;
             }
             else{
@@ -124,7 +124,7 @@ class AttackCharacter: public Character {
             if(mana > manaSpecialMove){
                 mana -= manaSpecialAttack;
                 damageGiven = weapon.specialMove(attack/10); 
-                std::cout<<"\n\t\t\t"<<getPlayerName()<< " uses SPECIAL MOVE!"<<std::endl;
+                std::cout<<"\n\t\t\t"<<getPlayerName()<< " uses SPECIAL MOVE! ";
                 return true;
             }
             else{

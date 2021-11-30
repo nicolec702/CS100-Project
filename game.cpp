@@ -656,15 +656,17 @@ void Game::ArtBattleScene(NPAttackCharacter* npc)
         {
             defeated = npc->takeDamage(player->getDamagaGiven());
             if(defeated == false) {
+                    std::cout<<"\t\t\tPRESS ENTER TO CONTINUE";
+                    std::cin.get();
                     npc->selectMove();
                     defeated = player->takeDamage(npc->getDamagaGiven());
             }
             else player->victory();
         }
         else{
-            std::cout<<"Invalid choice. Try again \n";
+            std::cout<<"\t\t\tInvalid choice. Try again \n";
         }
-        std::cout<<"PRESS ENTER TO CONTINUE";
+        std::cout<<"\t\t\tPRESS ENTER TO CONTINUE";
         std::cin.get();
         cls();
     }
