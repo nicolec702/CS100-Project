@@ -45,6 +45,19 @@ public:
         mana += model.getManaStat()/3;
     }
 
+    bool simplerSelectMove(int move)
+    {
+        bool valid = false;
+        switch(move){
+            case 1: valid =  increaseDefense(); break; // defended this turn
+            case 2: normalAttack(); valid = true; break; // regular attack
+            case 3: valid = specialAttack(); break; // special attack
+            case 4: valid = specialMove(); break; // special attack
+            default: valid = false; break;
+        }
+        if(valid) mana+=model.getManaStat()/3;
+        return valid;
+    }
 
     void victory()
     {
