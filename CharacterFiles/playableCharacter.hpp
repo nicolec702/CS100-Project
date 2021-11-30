@@ -62,19 +62,23 @@ public:
     void victory()
     {
         exp += 5;
-        std::cout<<getPlayerName()<<" had gained 5 exp points!"<<std::endl;
-        std::cout<<"Current Level: "<< level<<std::endl;
-        std::cout<<"Current EXP: "<< exp <<std::endl;
-        std::cout<<"EXP To Next Level: "<< expNeeded-exp <<std::endl;
+        displayArt("victory.txt");
+        std::cout<<"\t\t"<<getPlayerName()<<" had gained 5 exp points!"<<std::endl;
+        std::cout<<"\t\t"<<"Current Level: "<< level<<std::endl;
+        std::cout<<"\t\t"<<"Current EXP: "<< exp <<std::endl;
+        std::cout<<"\t\t"<<"EXP To Next Level: "<< expNeeded-exp <<std::endl;
         if(exp > expNeeded)
         {
             level++;
             model.updatedLevel(level);
             exp-=expNeeded;
             expNeeded+=5;
-            std::cout<<getPlayerName()<<" you are now level "<< level << "!!"<<std::endl;
+            std::cout<<"\t\t"<<getPlayerName()<<" you are now level "<< level << "!!"<<std::endl;
             printVitals();
         }
+        if(hp<(hp-model.getHpStat()/4))
+            hp=model.getHpStat();
+        else hp+=model.getHpStat()/4;
     }
 
    
