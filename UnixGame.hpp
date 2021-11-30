@@ -2,7 +2,7 @@
 #define UNIXGAME_HPP
 
 
-#include "Game.hpp"
+#include "game.hpp"
 #include <iostream>
 
 

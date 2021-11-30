@@ -701,3 +701,15 @@ void Game::scene2(){
    delete option2;
 
 }
+
+void Game::scene3(){
+    Character* narrator = new Character("Narrator");
+    
+    std::ifstream file;
+    file.open("scene3.txt");
+    if(file.fail())
+	    std::cout << "Scene 3 File failed to open";
+
+
+    delete narrator;
+}

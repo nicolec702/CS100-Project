@@ -1,6 +1,6 @@
 #if _WIN32
 #include "WinGame.hpp"
-#elif
+#elif __linux__
 #include "UnixGame.hpp"
 #endif
 #include <iomanip>
@@ -14,10 +14,11 @@ int main(int argc, char* argv[]){
        if (GameClient->mainMenu())
        {
               GameClient->playerSelection();
-              GameClient->tutorial();
-              GameClient->scene1();
-              GameClient->scene2();
+             // GameClient->tutorial();
+              //GameClient->scene1();
+             // GameClient->scene2();
+	     GameClient->scene3();
        }
-       delete GameClient();
+       delete GameClient;
        return 0;
 }
