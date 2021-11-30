@@ -31,15 +31,11 @@ public:
 
     virtual bool selectMove(int i)
     {
-        std::cout<<"\nCURRENT mana: "<<mana<<std::endl;
-        std::cout<<"MANA NEEDED FOR SPECIAL ATTACK: "<< manaSpecialAttack<<std::endl;
-        std::cout<<"MANA NEEDED FOR SPECIAL MOVE: "<< manaSpecialMove<<std::endl;
-
         bool hasSelecteMove = false;
 
         if(mana >= 3) // special attack
         {
-            if( (rand() % 100) < 20){
+            if( (rand() % 100) < 30){
                 specialAttack();
                 hasSelecteMove = true;
             }
@@ -66,7 +62,6 @@ public:
 
         return true;
     }
-    
     
 };
 
