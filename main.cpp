@@ -3,7 +3,6 @@
 #elif
 #include "UnixGame.hpp"
 #endif
-
 #include <iomanip>
 
 
@@ -19,5 +18,6 @@ int main(int argc, char* argv[]){
               GameClient->scene1();
               GameClient->scene2();
        }
+       delete GameClient();
        return 0;
 }

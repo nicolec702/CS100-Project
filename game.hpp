@@ -38,6 +38,8 @@ class Game
         PlayableCharacter* player;
 
     public:
+        Game(){}
+        ~Game(){ delete player; }
         virtual void dialogueType(std::string x) = 0;
         virtual void playerSelection() = 0;
         virtual void cls() = 0;
