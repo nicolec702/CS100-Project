@@ -1,4 +1,4 @@
-#include "../helperFunction.cpp"
+#include "../BaseGameFiles/helperFunction.cpp"
 #include "../WeaponsFiles/weapons.cpp"
 #include "../WeaponsFiles/weaponBehavior.hpp"
 #include "../WeaponsFiles/longSword.hpp"
@@ -16,6 +16,8 @@
 #include "../CharacterFiles/playableCharacter.hpp"
 #include "../CharacterFiles/npAttackCharacter.hpp"
 #include "weaponsTests.cpp"
+#include "characterTest.cpp"
+#include "attributeTest.cpp"
 //#include "helperFunctionTests.cpp"
 #include "gtest/gtest.h"
 

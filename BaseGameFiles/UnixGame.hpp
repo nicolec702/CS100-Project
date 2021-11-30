@@ -79,7 +79,7 @@ void newGame::playerSelection()
                 break;
             case 2: 
                 std::cout << "\nBACKGROUND: This knight has went through alot in the battlefield\n"
-										"\t    but after the loss of his family, vengance is the only thing"
+										"\t    but after the loss of his family, vengance is the only thing\n"
 										"\t    on this knight's mind. The target? The government that he works for.";
 
                 break;
