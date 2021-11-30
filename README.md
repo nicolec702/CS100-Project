@@ -27,9 +27,9 @@
 
 
 ## Class Diagrams
-> ![Character Diagram](Screenshots/Project UML Char.png)
-> ![Weapons Diagram](Screenshots/Project UML Weapons.png)
-> ![Game Diagram](Screenshots/Project UML Game.png)
+> ![Character Diagram](https://github.com/cs100/final-project-fabdu013-ncart018-vsand012-struo025-1/blob/master/Screenshots/Project%20UML%20Char.png)
+> ![Weapons Diagram](https://github.com/cs100/final-project-fabdu013-ncart018-vsand012-struo025-1/blob/master/Screenshots/Project%20UML%20Game.png)
+> ![Game Diagram](https://github.com/cs100/final-project-fabdu013-ncart018-vsand012-struo025-1/blob/master/Screenshots/Project%20UML%20Weapons.png)
 >The Character class has one subclass (AttackCharacter), and AttackCharacter has two subclasses (NPAttackCharacter and PlayableCharacter). The AttackCharacter class tracks the players' stats/attributes in order to perform specific attack moves, as well as output the vitals and attributes of the player to the screen. The Attribute class has one subclass (AttributeBehavior). The purpose of the Attribute class is to keep track of the AttackCharacter’s hp, defense level, attack level, and stamina level. This is done in an effort to maintain modularity and keep the classes clean. AttackCharacter will also initiate an object of type Weapons. There will be an aggregation link between both classes. The Weapons class will make use of the strategy WeaponBehavior. WeaponsBehavior will declare an interface that all supported algorithms will use. These algorithms include LongSword, Staff, Daggers, Broom, and Basic. The Game class reads from files to output the storyline, choice prompts, and initiates the battle sequences.
 
 
