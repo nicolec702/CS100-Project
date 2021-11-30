@@ -6,13 +6,13 @@ bool Game::mainMenu()
     {
         std::string input;
         displayArt("menuArt.txt");
-        std::cout << "\n\t\t\t\t----------------------------" << std::endl;
-        std::cout << "\n\t\t\t\t      Main Menu   " << std::endl;
-        std::cout << "\n\t\t\t\t----------------------------" << std::endl;
-        std::cout << "\t\t\t\t  1. Start Game" << std::endl;
-        std::cout << "\t\t\t\t  2. Quit" << std::endl;
-        std::cout << "\t\t\t\t----------------------------" << std::endl;
-        std::cout << "\t\t\t\t  Enter: ";
+        std::cout << "\n\\tt\t\t\t----------------------------" << std::endl;
+        std::cout << "\n\t\t\t\t\t      Main Menu   " << std::endl;
+        std::cout << "\n\t\t\t\t\t----------------------------" << std::endl;
+        std::cout << "\t\t\t\t\t  1. Start Game" << std::endl;
+        std::cout << "\t\t\t\t\t  2. Quit" << std::endl;
+        std::cout << "\t\t\t\t\t----------------------------" << std::endl;
+        std::cout << "\t\t\t\t\t  Enter: ";
         std::getline(std::cin, input);
         switch(verifyIntInput(input))
         {
@@ -641,6 +641,7 @@ void Game::ArtBattleScene(NPAttackCharacter* npc)
     bool defeated = false, valid = true;
     std::string input;
     std::cout<<"Battle Begins!"<<std::endl;
+    int turn = 1;
     while(defeated == false)
     {
         std::cout<<"\t\t\t"<<player->getPlayerName()<<"\t\t\t\t"<<npc->getPlayerName()<<std::endl;
@@ -649,24 +650,28 @@ void Game::ArtBattleScene(NPAttackCharacter* npc)
             "\t\tHP:     "<<npc->getHp()<<"/"<<npc->getFullHealth()<<std::endl;
         std::cout<<"\t\t\tMANA: "<<player->getMana()<<"\t\t\tMANA:    "<<npc->getMana()<<std::endl;
         std::cout<<"\n\t\t1) Defend\t2)Attack\t3)Special Attack\t4)Special Move"<<std::endl;
-        std::cout<<"\t\tEnter: ";
-        std::getline(std::cin, input);
-        valid = player->simplerSelectMove(verifyIntInput(input));
-        if(valid)
+        
+        if(turn == 1)
         {
-            defeated = npc->takeDamage(player->getDamagaGiven());
-            if(defeated == false) {
-                    std::cout<<"\t\t\tPRESS ENTER TO CONTINUE";
-                    std::cin.get();
-                    npc->selectMove();
-                    defeated = player->takeDamage(npc->getDamagaGiven());
+            std::cout<<"\t\tEnter: ";
+            std::getline(std::cin, input);
+            valid = player->simplerSelectMove(verifyIntInput(input));
+            if(valid) {
+                defeated = npc->takeDamage(player->getDamagaGiven());
+                --turn;
+                if(defeated == true)
+                    player->victory();
             }
-            else player->victory();
+            else std::cout<<"\t\t\tInvalid choice. Try again \n";
         }
-        else{
-            std::cout<<"\t\t\tInvalid choice. Try again \n";
+        else
+        {
+            npc->selectMove();
+            ++turn;
+            defeated = player->takeDamage(npc->getDamagaGiven());
+
         }
-        std::cout<<"\t\t\tPRESS ENTER TO CONTINUE";
+        std::cout<<"\n\t\t\tPRESS ENTER TO CONTINUE";
         std::cin.get();
         cls();
     }
