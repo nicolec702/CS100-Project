@@ -1,18 +1,12 @@
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # Iaredell
  
- > Authors: [Nicole Carter (ncart018)](https://github.com/nicolec702) 
- > [Fadak Abdullah (@fabdu013)](https://github.com/faduckie)
-[Steven Truong (@struo025)](https://github.com/Steven-Eon)
-[Victor Sandoval (@vsand012)](https://github.com/VMSandoval25)
+ > Authors: [Nicole Carter (ncart018)](https://github.com/nicolec702), [Fadak Abdullah (@fabdu013)](https://github.com/faduckie), [Steven Truong (@struo025)](https://github.com/Steven-Eon), [Victor Sandoval (@vsand012)](https://github.com/VMSandoval25)
 
 
 ## Project Description
 > **Project Importance:**
-> - We found the Text-Based RPG game to be the most creatively liberating out of the list of projects. We still had a guideline of what we needed to do, but we also have  infinite possibilities to expand on the project.
-
+> We found the Text-Based RPG game to be the most creatively liberating out of the list of projects. We still had a guideline of what we needed to do, but we also have  infinite possibilities to expand on the project.
+>
 > Language: C++
 > 
 > **Features:**
@@ -32,26 +26,50 @@
 >   - Every time you level up your health/damage dealt is increased
 
 
-## Class Diagram
- > ![UML Diagram](ProjectUML.png)
- >The Character class will have two subclasses, InformationCharacter and AttackCharacter. The InformationCharacter will initiate an object of type Quests and there will be an aggregation link between both classes. The Quest class will read text from a file that will be used to narrate the storyline of our game. The AttackCharacter class will have an object of type Attribute and this will create an aggregation link between the AttackCharacter and Attribute class. This means that they can both exist independently of each other. The purpose of the attribute class is to keep track of the AttackCharacter’s hp, defense level, attack level, and stamina level. This is done in an effort to maintain modularity and keep the classes clean. AttackCharacter will also initiate an object of type Weapons. There will be an aggregation link between both classes. The Weapons class will make use of the strategy WeaponBehavior. WeaponsBehavior will declare an interface that all supported algorithms will use. These algorithms include LongSword, Staff, Daggers, Broom, and Basic. WeaponBehavior has an aggregation link with the Weapons class.
- > ## Phase III
- > **Strategy Pattern**
- > * For our weapons class we decided to use the strategy pattern because we realized that the weapons the player characters will be using are all the same object with similar member variables, the only difference is how much damage each weapon deals. Instead of creating five different classes for each weapon, we could create one class that has five different ‘strategies’ that could be swapped out depending on which weapon the player character is using. These strategies refer to the weapon behavior so we have a long sword strategy, a staff strategy, a dagger strategy, etc. This helps with minimizing unnecessary and redundant code and allows us to add more weapon strategies if we need to without any problems.
- > **Abstract Factory Pattern**
- > * ...(will add)
+## Class Diagrams
+> ![Character Diagram](Screenshots/Project UML Char.png)
+> ![Weapons Diagram](Screenshots/Project UML Weapons.png)
+> ![Game Diagram](Screenshots/Project UML Game.png)
+>The Character class has one subclass (AttackCharacter), and AttackCharacter has two subclasses (NPAttackCharacter and PlayableCharacter). The AttackCharacter class tracks the players' stats/attributes in order to perform specific attack moves, as well as output the vitals and attributes of the player to the screen. The Attribute class has one subclass (AttributeBehavior). The purpose of the Attribute class is to keep track of the AttackCharacter’s hp, defense level, attack level, and stamina level. This is done in an effort to maintain modularity and keep the classes clean. AttackCharacter will also initiate an object of type Weapons. There will be an aggregation link between both classes. The Weapons class will make use of the strategy WeaponBehavior. WeaponsBehavior will declare an interface that all supported algorithms will use. These algorithms include LongSword, Staff, Daggers, Broom, and Basic. The Game class reads from files to output the storyline, choice prompts, and initiates the battle sequences.
+
+
+## Design Patterns
+> **Strategy Pattern**
+> - For our weapons class we decided to use the strategy pattern because we realized that the weapons the player characters will be using are all the same object with similar member variables, the only difference is how much damage each weapon deals. Instead of creating five different classes for each weapon, we could create one class that has five different ‘strategies’ that could be swapped out depending on which weapon the player character is using. These strategies refer to the weapon behavior so we have a long sword strategy, a staff strategy, a dagger strategy, etc. This helps with minimizing unnecessary and redundant code and allows us to add more weapon strategies if we need to without any problems.
+>
+> **Abstract Factory Pattern**
+> - For our Game class, we noticed that some of our implementations were not compatible when jumping from one operating system to the other. This is critical as platform compatibility is necessary; we would want the program to run regardless of which operating system one is running on. This issue with platform dependency has led us to choose an Abstract Factory Design Pattern so that the program can detect the operating system in use and act accordingly by instantiating the associated objects vital to run the program.
 
  
- > ## Final deliverable
- > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
- 
- ## Screenshots
- > Screenshots of the input/output after running your application
- ## Installation/Usage
- > Instructions on installing and running your application
- ## Testing
- > * The project was tested by creating unit tests with the gtest submodule, and valgrind for memory leak checks.
+## Final deliverable
+
+## Screenshots
+> ![Pic1](pic1.png)
+> ![Pic2](pic2.png)
+> ![Pic5](pic5.png)
+> ![Pic6](pic6.png)
+> ![Pic7](pic7.png)
+> ![Pic8](pic8.png)
+> ![Pic9](pic9.png)
+
+
+## Installation/Usage
+> Method 1: Zip File
+> - Download ZIP file onto local device
+> - Extract contents
+> - Open command terminal
+> - Run 'cd' to the file path you extracted your contents to
+> - Run 'g++ -o iaredell.exe main.cpp' to compile
+> - Run iaredell.exe file
+
+> Method 2: Terminal
+> - Clone repository to hammer
+> - Run 'cd' to repository
+> - Run 'cmake3 .'
+> - Run 'make'
+> - Run './main'
+
+
+## Testing
+> The project was tested by creating unit tests with the gtest submodule, and valgrind for memory leak checks.
+![Valgrind](valgrind.png)
