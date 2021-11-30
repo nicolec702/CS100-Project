@@ -50,7 +50,7 @@ void Game::BatlleScene(NPAttackCharacter* npc){
                 defeated = npc->takeDamage(player->getDamagaGiven());
                 --turn;
                 if(defeated == true)
-                    player->victory();
+                    player->victory(npc->getLevel());
             }
             else std::cout<<"\n\t\t\tInvalid choice. Try again";
         }
@@ -91,6 +91,17 @@ void Game::MustWinBattleScene(NPAttackCharacter* npc)
             cls();
         }
     }    
+}
+
+bool Game::ConditionalBattleScene(NPAttackCharacter* npc)
+{
+    player->resetValues();
+    BatlleScene(npc);
+    if (player->getHp() <= 0)
+    {
+        return false; // If the player dies, the player has lost the conditional battle.
+    }
+    return true; // If the player lives, the player has won the conditional battle.
 }
 
 void Game::tutorial() {
@@ -630,6 +641,21 @@ void Game::scene3(){
 	file.open("scene3.txt");
 	if(file.fail())
 		std::cout << "Scene 3 file failed to open";
+
+
+
+    NPAttackCharacter* DemonGuard1 = new NPAttackCharacter(rand() % 4 + 1, "Demon Guard 1", rand() % 4 + 1, 2);
+    NPAttackCharacter* DemonGuard2 = new NPAttackCharacter(rand() % 4 + 1, "Demon Guard 2", rand() % 4 + 1, 2);
+
+    NPAttackCharacter* Onslaught1 = new NPAttackCharacter(rand() % 4 + 1, "Demon 1", rand() % 4 + 1, 1);
+    NPAttackCharacter* Onslaught2 = new NPAttackCharacter(rand() % 4 + 1, "Demon 2", rand() % 4 + 1, 2);
+    NPAttackCharacter* Onslaught3 = new NPAttackCharacter(rand() % 4 + 1, "Demon 3", rand() % 4 + 1, 3);
+    NPAttackCharacter* Onslaught4 = new NPAttackCharacter(rand() % 4 + 1, "Demon 4", rand() % 4 + 1, 4);
+    NPAttackCharacter* Onslaught5 = new NPAttackCharacter(rand() % 4 + 1, "Demon 5", rand() % 4 + 1, 5);
+    NPAttackCharacter* Onslaught6 = new NPAttackCharacter(rand() % 4 + 1, "Demon 6", rand() % 4 + 1, 6);
+
+    NPAttackCharacter* FinalBoss = new NPAttackCharacter(rand() % 4 + 1, "Asmodeus", rand() % 4 + 1, 6);
+
 	
 	Character* narrator = new Character("Narrator");
 	Character* option1 = new Character("Option 1");
@@ -673,7 +699,8 @@ void Game::scene3(){
 		break;
 	}
 	
-	std::cout << "\n-------------BATTLE SCENE--------\n";
+	MustWinBattleScene(DemonGuard1);
+    MustWinBattleScene(DemonGuard2);
 	
 	std::cout << std::endl;
 	for(int i = 0; i < 3; i++)
@@ -691,7 +718,29 @@ void Game::scene3(){
 	bool surviveSwarm = 0;
 	bool surviveBoss = 0;
 	//battle loop with demons levels 1 - 6
-	std::cout << "\n-------------BATTLE SCENE--------\n";
+
+    surviveSwarm = ConditionalBattleScene(Onslaught1);
+    if (player->getHp() > 0)
+    {
+        surviveSwarm = ConditionalBattleScene(Onslaught2);
+    }
+    if (player->getHp() > 0)
+    {
+        surviveSwarm = ConditionalBattleScene(Onslaught3);
+    }
+    if (player->getHp() > 0)
+    {
+        surviveSwarm = ConditionalBattleScene(Onslaught4);
+    }
+    if (player->getHp() > 0)
+    {
+        surviveSwarm = ConditionalBattleScene(Onslaught5);
+    }
+    if (player->getHp() > 0)
+    {
+        surviveSwarm = ConditionalBattleScene(Onslaught6);
+    }
+
 	
 	std::cout << std::endl;
 
@@ -714,7 +763,7 @@ void Game::scene3(){
 		 	std::cin.get();
 		}
 
-		 std::cout << "\n--------FINAL BATTLE SCENE--------\n";
+		surviveBoss = ConditionalBattleScene(FinalBoss);
 		 
 		 std::cout << std::endl;
 		 switch(surviveBoss){

@@ -45,6 +45,7 @@ class Game
         virtual void cls() = 0;
         void BatlleScene(NPAttackCharacter* npc);
         void MustWinBattleScene(NPAttackCharacter* npc);
+        bool ConditionalBattleScene(NPAttackCharacter* npc);
         void tutorial();
         void scene1();
         void scene2();
