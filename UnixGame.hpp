@@ -30,7 +30,7 @@ void newGame::playerSelection()
     bool validated = false;
     Attribute model;
     player = new PlayableCharacter();
-
+    cls();
 	std::cout<<"Welcome young warrior, remind me of your name again.\n";
 	while(!verifyStringInput(playerName))
 	{
@@ -38,6 +38,8 @@ void newGame::playerSelection()
 		std::getline(std::cin, playerName);
 		if(!verifyStringInput(playerName))
 			std::cout<<"\tThat is an invalid name, try again.\n";
+			std::cout << "\033[F";
+			std::cout << "\033[F";
 	}
 	cls();
 	player->setPlayerName(playerName);

@@ -15,10 +15,10 @@ int main(int argc, char* argv[]){
        newGame* GameClient = new newGame();
        if (GameClient->mainMenu())
        {
-              GameClient->playerSelection();
-             // GameClient->tutorial();
-             // GameClient->scene1();
-             // GameClient->scene2();
+             GameClient->playerSelection();
+             GameClient->tutorial();
+             GameClient->scene1();
+             GameClient->scene2();
 	     GameClient->scene3();
        }
        delete GameClient;

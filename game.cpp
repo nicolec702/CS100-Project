@@ -26,8 +26,8 @@ void Game::menuArt()
 }
 bool Game::mainMenu()
 {
-    while(1)
-    {
+   while(1){    
+    
         std::string input;
 	cls();
         menuArt();
@@ -38,6 +38,7 @@ bool Game::mainMenu()
         std::cout << "\t\t  2. Quit" << std::endl;
         std::cout << "\t\t----------------------------" << std::endl;
         std::cout << "\t\t  Enter: ";
+
         std::getline(std::cin, input);
         switch(verifyIntInput(input))
         {
@@ -45,7 +46,10 @@ bool Game::mainMenu()
         case 2: return false;
         default: cls(); std::cout<<"Invalid option Try again\n"; break;
         }
-    }
+   }
+    
+
+    cls();
 
 }
 
@@ -56,14 +60,18 @@ void Game::playerSelection()
     bool validated = false;
     Attribute model;
     player = new PlayableCharacter();
-
+    
 	std::cout<<"Welcome young warrior, remind me of your name again.\n";
 	while(!verifyStringInput(playerName))
 	{
 		std::cout<<"\tEnter name: ";
 		std::getline(std::cin, playerName);
-		if(!verifyStringInput(playerName))
-			std::cout<<"\tThat is an invalid name, try again.\n";
+		if(!verifyStringInput(playerName)){
+			std::cout<<"\tThat is an invalid name, try again.";
+			std::cout << "^[[2k";
+			std::cout << "\033[F";
+		}
+
 	}
 	cls();
 	player->setPlayerName(playerName);
