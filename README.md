@@ -57,7 +57,7 @@
  >   * Create smaller actionable development tasks as issues and assign them to team members. Place these in the `TODO` column.
  >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
- > ![UML Diagram](https://github.com/cs100/final-project-fabdu013-ncart018-vsand012-struo025-1/blob/master/Project%20UML.png)
+ > ![UML Diagram](ProjectUML.png)
  >The Character class will have two subclasses, InformationCharacter and AttackCharacter. The InformationCharacter will initiate an object of type Quests and there will be an aggregation link between both classes. The Quest class will read text from a file that will be used to narrate the storyline of our game. The AttackCharacter class will have an object of type Attribute and this will create an aggregation link between the AttackCharacter and Attribute class. This means that they can both exist independently of each other. The purpose of the attribute class is to keep track of the AttackCharacter’s hp, defense level, attack level, and stamina level. This is done in an effort to maintain modularity and keep the classes clean. AttackCharacter will also initiate an object of type Weapons. There will be an aggregation link between both classes. The Weapons class will make use of the strategy WeaponBehavior. WeaponsBehavior will declare an interface that all supported algorithms will use. These algorithms include LongSword, Staff, Daggers, Broom, and Basic. WeaponBehavior has an aggregation link with the Weapons class.
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
@@ -66,6 +66,11 @@
  >   * What design patterns did you use? For each design pattern you must explain in 4-5 sentences:
  >     * Why did you pick this pattern? And what feature did you implement with it?
  >     * How did the design pattern help you write better code?
+ >        * **Strategy Pattern**
+ >           * For our weapons class we decided to use the strategy pattern because we realized that the weapons the player characters will be using are all the same object with similar member variables, the only difference is how much damage each weapon deals. Instead of creating five different classes for each weapon, we could create one class that has five different ‘strategies’ that could be swapped out depending on which weapon the player character is using. These strategies refer to the weapon behavior so we have a long sword strategy, a staff strategy, a dagger strategy, etc. This helps with minimizing unnecessary and redundant code and allows us to add more weapon strategies if we need to without any problems.
+ >       * **Composite Pattern**
+ >           * For the character class in our program we will be utilizing the composite pattern because we noticed that the different characters in our game (NPCs and Playable characters) have similar characteristics. We will achieve this by creating a parent object named Character and two subclasses named AttackCharacter and InformationCharacter. In this specific scenario the two subclasses are the leafs and the Character class is the composite object. Although the two leafs inherit methods from the parent class they will also have their unique methods pertaining to only them, for example the AttackClass will have a method that calculates a character’s hp when battle and on the other hand the InformationCharacter will have a method that reads text from a file and helps in narrating the plot of the game to the user.
+ 
  >   * An updated class diagram that reflects the design patterns you used. You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description).
  >   * Make sure your README file (and Project board) are up-to-date reflecting the current status of your project. Previous versions of the README file should still be visible through your commit history.
 > 

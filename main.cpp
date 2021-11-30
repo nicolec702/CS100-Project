@@ -1,16 +1,23 @@
-#include "game.hpp"
+#if _WIN32
+#include "WinGame.hpp"
+#elif
+#include "UnixGame.hpp"
+#endif
 #include <iomanip>
+
+
+
 
 int main(int argc, char* argv[]){
        std::cout << std::fixed << std::showpoint << std::setprecision(2);
-       Game *newGame = new Game();
-       if(newGame->mainMenu())
+       newGame* GameClient = new newGame();
+       if (GameClient->mainMenu())
        {
-              newGame->playerSelection();
-              //newGame->tutorial();
-              //newGame->scene1();
-	      newGame->scene2();
+              GameClient->playerSelection();
+              GameClient->tutorial();
+              GameClient->scene1();
+              GameClient->scene2();
        }
-
-       delete newGame;
+       delete GameClient();
+       return 0;
 }

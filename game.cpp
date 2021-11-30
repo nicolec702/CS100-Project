@@ -701,5 +701,3 @@ void Game::scene2(){
    delete option2;
 
 }
-
-

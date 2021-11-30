@@ -1,5 +1,5 @@
-#ifndef __GAME_HPP__
-#define __GAME_HPP__
+#ifndef GAME_HPP
+#define GAME_HPP
 
 #ifdef __unix__
 # include <unistd.h>
@@ -12,13 +12,14 @@
 #define sleep(x) usleep(1000 *(x))
 #endif
 
-#include "WeaponsFiles/weapons.hpp"
+#include "helperFunction.cpp"
+#include "WeaponsFiles/weapons.cpp"
 #include "WeaponsFiles/weaponBehavior.hpp"
 #include "WeaponsFiles/longSword.hpp"
 #include "WeaponsFiles/dagger.hpp"
 #include "WeaponsFiles/staff.hpp"
 #include "WeaponsFiles/broom.hpp"
-#include "CharacterFiles/attribute.hpp"
+#include "CharacterFiles/attribute.cpp"
 #include "CharacterFiles/attributeBehavior.hpp"
 #include "CharacterFiles/wizard.hpp"
 #include "CharacterFiles/rogue.hpp"
@@ -29,25 +30,26 @@
 #include "CharacterFiles/playableCharacter.hpp"
 #include "CharacterFiles/npAttackCharacter.hpp"
 #include <fstream>
+#include <iostream>
 
-class Game{
-private:
-    PlayableCharacter *player;
-public:
-    Game(){}
-    ~Game(){ delete player; }
-    void playerSelection();
-    void BatlleScene(NPAttackCharacter* npc);
-    void tutorial();
-    void scene1();
-    void scene2();
-    bool mainMenu();
-    void menuArt();
-    //-----------
-    void displayArt(std::string fileName);
-    //----------
- 	
-    void cls(){ std::cout << "\033[2J\033[1;1H"; }
+class Game
+{
+    protected:
+        PlayableCharacter* player;
 
+    public:
+        Game(){}
+        ~Game(){ delete player; }
+        virtual void dialogueType(std::string x) = 0;
+        virtual void playerSelection() = 0;
+        virtual void cls() = 0;
+        void BatlleScene(NPAttackCharacter* npc);
+        void tutorial();
+        void scene1();
+        void scene2();
+        bool mainMenu();
+        void menuArt();
+        void displayArt(std::string filename);
 };
-#endif
+
+#endif //GAME_HPP

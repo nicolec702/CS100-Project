@@ -1,4 +1,7 @@
 #include "helperFunction.hpp"
+#include <limits.h>
+
+
 
 int verifyIntInput(std::string input) // returns -1 if inproper input
 {
@@ -38,9 +41,13 @@ void validateInput(std::string prompt, int& userInput, int expected) {
 	while (userInput != expected) {
         std::cout << "\033[F";
         std::cout << prompt << " ";
-        std::cin >> userInput;
+		std::cin >> userInput;
+		if (std::cin.fail() == true)
+		{
+			std::cin.clear();
+			std::cin.ignore(INT_MAX, '\n');
+		}
     }
-
     std::cout << std::endl;
     std::cin.get();
 }
@@ -50,9 +57,13 @@ void validateInput(std::string prompt, int& userInput, int expected1, int expect
     while (userInput != expected1 && userInput != expected2) {
         std::cout << "\033[F";
         std::cout << prompt << " ";
-        std::cin >> userInput;
+		std::cin >> userInput;
+		if (std::cin.fail() == true)
+		{
+			std::cin.clear();
+			std::cin.ignore(INT_MAX, '\n');
+		}
     }
-
     std::cout << std::endl;
     std::cin.get();
 }
