@@ -15,5 +15,12 @@
 #include "../CharacterFiles/character.hpp"
 #include "../CharacterFiles/playableCharacter.hpp"
 #include "../CharacterFiles/npAttackCharacter.hpp"
-
 #include "../gtest/gtest.h"
+
+TEST(HelperFunctions, verifyIntInputTRUE){
+    EXPECT_EQ(verifyIntInput("1"), 1);
+}
+
+TEST(HelperFunctions, verifyIntInputFALSE){
+    EXPECT_EQ(verifyIntInput("hello"), -1);
+}
