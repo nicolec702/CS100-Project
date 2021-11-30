@@ -6,7 +6,7 @@ bool Game::mainMenu()
     {
         std::string input;
         displayArt("menuArt.txt");
-        std::cout << "\n\\tt\t\t\t----------------------------" << std::endl;
+        std::cout << "\n\t\t\t\t\t----------------------------" << std::endl;
         std::cout << "\n\t\t\t\t\t      Main Menu   " << std::endl;
         std::cout << "\n\t\t\t\t\t----------------------------" << std::endl;
         std::cout << "\t\t\t\t\t  1. Start Game" << std::endl;
@@ -662,7 +662,7 @@ void Game::ArtBattleScene(NPAttackCharacter* npc)
                 if(defeated == true)
                     player->victory();
             }
-            else std::cout<<"\t\t\tInvalid choice. Try again \n";
+            else std::cout<<"\n\t\t\tInvalid choice. Try again";
         }
         else
         {
