@@ -44,13 +44,13 @@
 ## Final deliverable
 
 ## Screenshots
-> ![Pic1](pic1.png)
-> ![Pic2](pic2.png)
-> ![Pic5](pic5.png)
-> ![Pic6](pic6.png)
-> ![Pic7](pic7.png)
-> ![Pic8](pic8.png)
-> ![Pic9](pic9.png)
+> ![Pic1](Screenshots/pic1.png)
+> ![Pic2](Screenshots/pic2.png)
+> ![Pic5](Screenshots/pic5.png)
+> ![Pic6](Screenshots/pic6.png)
+> ![Pic7](Screenshots/pic7.png)
+> ![Pic8](Screenshots/pic8.png)
+> ![Pic9](Screenshots/pic9.png)
 
 
 ## Installation/Usage
