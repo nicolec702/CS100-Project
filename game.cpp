@@ -6,7 +6,7 @@ bool Game::mainMenu()
    while(1){    
     
         std::string input;
-        displayArt("menuArt.txt");
+        displayArt("ArtFiles/menuArt.txt");
         std::cout << "\n\t\t\t\t\t----------------------------" << std::endl;
         std::cout << "\n\t\t\t\t\t      Main Menu   " << std::endl;
         std::cout << "\n\t\t\t\t\t----------------------------" << std::endl;
@@ -36,7 +36,7 @@ void Game::BatlleScene(NPAttackCharacter* npc){
     while(defeated == false)
     {
         std::cout<<"\t\t\t"<<player->getPlayerName()<<"\t\t\t\t"<<npc->getPlayerName()<<std::endl;
-        displayArt("battleArt.txt");
+        displayArt("ArtFiles/battleArt.txt");
         std::cout<<"\t\t\tHP:   "<<player->getHp()<<"/"<<player->getFullHealth()<<
             "\t\tHP:     "<<npc->getHp()<<"/"<<npc->getFullHealth()<<std::endl;
         std::cout<<"\t\t\tMANA: "<<player->getMana()<<"\t\t\tMANA:    "<<npc->getMana()<<std::endl;
@@ -106,10 +106,12 @@ bool Game::ConditionalBattleScene(NPAttackCharacter* npc)
 }
 
 void Game::tutorial() {
+    std::cin.get();
+    cls();
     Character* narrator = new Character("Narrator");
     Character* mentor = new Character("Mentor");
     std::ifstream file;
-    file.open("tutorial.txt");
+    file.open("StoryFiles/tutorial.txt");
     if (file.fail()) {
         std::cout << "Tutorial file failed to open.\n";
         exit(1);
@@ -187,7 +189,7 @@ void Game::scene1() {
     Character* option2 = new Character("Option 2");
 
     std::ifstream file;
-    file.open("scene1.txt");
+    file.open("StoryFiles/scene1.txt");
 
     if (file.fail()) {
         std::cout << "Scene 1 file failed to open.\n";
@@ -233,7 +235,7 @@ void Game::scene1() {
             narrator->nextLine();
             narrator->nextLine();
         }
-	displayArt("littlegirl.txt");
+	displayArt("ArtFiles/littlegirl.txt");
         std::cout <<"\t\t" + girl->getName() + ": " << girl->nextLine();
         std::cin.get();
         break;
@@ -249,7 +251,7 @@ void Game::scene1() {
 
     switch (choice.at(1)) {
     case 1:
-	displayArt("littlegirl.txt");    
+	displayArt("ArtFiles/littlegirl.txt");    
         std::cout << "\t\t" + girl->getName() + ": " << girl->nextLine();
         std::cin.get();
         girl->nextLine();
@@ -257,7 +259,7 @@ void Game::scene1() {
 
     case 2:
         girl->nextLine();
-        displayArt("littlegirl.txt");
+        displayArt("ArtFiles/littlegirl.txt");
 	std::cout << "\t\t" + girl->getName() + ": " << girl->nextLine();
         std::cin.get();
         break;
@@ -351,7 +353,7 @@ void Game::scene1() {
             player->nextLine();
     }
 
-    displayArt("littleGirlDemon.txt");
+    displayArt("ArtFiles/littleGirlDemon.txt");
     for (int i = 0; i < 3; i++) {
         std::cout << narrator->nextLine();
         std::cin.get();
@@ -366,28 +368,28 @@ void Game::scene1() {
         std::cin.get();
     }
     
-    displayArt("mentor.txt");
+    displayArt("ArtFiles/mentor.txt");
     std::cout << "\n\t\t" + mentor->getName() + ": " << mentor->nextLine() << std::endl;
     std::cout << "\t\t\t" << mentor->nextLine() << std::endl; 
     std::cin.get();
     std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
     std::cin.get();
 
-    displayArt("mentor.txt");
+    displayArt("ArtFiles/mentor.txt");
     std::cout << "\t\t" + mentor->getName() + ": " << mentor->nextLine() << std::endl;
     std::cin.get();
     std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
     std::cout << "\t\t\t" << player->nextLine() << std::endl;
     std::cin.get();
 
-    displayArt("mentor.txt");
+    displayArt("ArtFiles/mentor.txt");
     std::cout << "\t\t" + mentor->getName() + ": " << mentor->nextLine() << std::endl;
     std::cout << "\t\t\t" << mentor->nextLine() << std::endl;
     std::cin.get();
     std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
     std::cin.get();
 
-    displayArt("mentor.txt");
+    displayArt("ArtFiles/mentor.txt");
     std::cout << "\t\t" + mentor->getName() + ": " << mentor->nextLine() << std::endl;
     std::cin.get();
 
@@ -418,7 +420,7 @@ void Game::scene2(){
     std::string choicePrompt = "\t\tWhat will you choose?: ";
 
     std::ifstream file;
-    file.open("scene2.txt");
+    file.open("StoryFiles/scene2.txt");
     if(file.fail())
        std::cout << "Scene 2 file failed to open";
 
@@ -461,7 +463,7 @@ void Game::scene2(){
 
    switch(choice.at(1)){
    case 1:
-	   file.open("farmerJob.txt");
+	   file.open("StoryFiles/farmerJob.txt");
 	   if(file.fail())
 		   std::cout << "Farmer Job file failed to open";
 
@@ -482,14 +484,14 @@ void Game::scene2(){
 	   	std::cin.get();
 	   }
 	
-	   displayArt("farmer.txt");
+	   displayArt("ArtFiles/farmer.txt");
 	   std::cout << "\n\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
 	   std::cin.get();
 
 	   std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
 	   std::cin.get();
 
-	   displayArt("farmer.txt");
+	   displayArt("ArtFiles/farmer.txt");
 	   std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
 	   std::cout << "\t\t\t"  << farmer ->nextLine() << std::endl;
   	   std::cin.get();
@@ -497,7 +499,7 @@ void Game::scene2(){
 	   std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
 	   std::cin.get();
 
-	   displayArt("farmer.txt");
+	   displayArt("ArtFiles/farmer.txt");
 	   std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
 	   std::cout << "\t\t\t" << farmer->nextLine() << std::endl;
 	   std::cin.get();
@@ -521,7 +523,7 @@ void Game::scene2(){
 	   std::cout << "\t\t" + player->getPlayerName() + ": " << player->nextLine() << std::endl;
 	   std::cin.get();
 
-	   displayArt("farmer.txt");
+	   displayArt("ArtFiles/farmer.txt");
 	   std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
 	   std::cin.get();
 
@@ -552,7 +554,7 @@ void Game::scene2(){
 		std::cin.get();
 		std::cout << narrator->nextLine() << std::endl;
 		std::cin.get();
-		displayArt("farmer.txt");
+		displayArt("ArtFiles/farmer.txt");
 		std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
 		std::cin.get();		
 		break;
@@ -562,7 +564,7 @@ void Game::scene2(){
 	   std::cin.get();
 	   std::cout << narrator->nextLine() << std::endl;
 	   std::cin.get();
-	   displayArt("farmer.txt");
+	   displayArt("ArtFiles/farmer.txt");
 	   std::cout << "\t\t" + farmer->getName() + ": " << farmer->nextLine() << std::endl;
 	   for(int i = 0; i < 3; i++)
 	   	std::cout << "\t\t\t" << farmer->nextLine() << std::endl;
@@ -574,7 +576,7 @@ void Game::scene2(){
 	   break;
 	
    case 2:
-	   file.open("bountyJob.txt");
+	   file.open("StoryFiles/bountyJob.txt");
 	   if(file.fail())
 		   std::cout << "Bounty Job File Failed to Open";
 
@@ -598,8 +600,8 @@ void Game::scene2(){
 	   std::cin.get();
 	   std::cout << narrator->nextLine() << std::endl;
 	   std::cin.get();
-
-	   std::cout << narrator->nextLine();
+	   displayArt("ArtFiles/largeDemon.txt");
+	   std::cout << narrator->nextLine() << std::endl;
 	   std::cout << narrator->nextLine() << std::endl;
 	   std::cin.get();
 
@@ -639,7 +641,7 @@ void Game::scene2(){
 
 void Game::scene3(){
 	std::ifstream file;
-	file.open("scene3.txt");
+	file.open("StoryFiles/scene3.txt");
 	if(file.fail())
 		std::cout << "Scene 3 file failed to open";
 
@@ -806,4 +808,9 @@ void Game::scene3(){
 	delete option1;
 	delete option2;
 	delete narrator;
+	delete DemonGuard1;
+	delete DemonGuard2;
+	delete Onslaught1; delete Onslaught2; delete Onslaught3;
+	delete Onslaught4; delete Onslaught5; delete Onslaught6;
+	delete FinalBoss;
 }

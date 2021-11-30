@@ -50,7 +50,7 @@ class Game
         void scene1();
         void scene2();
         void scene3();
-	    bool mainMenu();
+	bool mainMenu();
 };
 
 #endif //GAME_HPP

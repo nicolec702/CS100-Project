@@ -33,7 +33,7 @@ public:
     void victory(int enemyLvl)
     {
         exp += 5 * enemyLvl;
-        displayArt("victory.txt");
+        displayArt("ArtFiles/victory.txt");
         std::cout<<"\t\t"<<getPlayerName()<<" has gained " << 5 * enemyLvl <<" exp points!"<<std::endl;
         if(exp >= expNeeded)
         {
